@@ -1,0 +1,815 @@
+[
+  {
+    "name": "swiper",
+    "tags": ["Slider"]
+  },
+  {
+    "name": "@glidejs/glide",
+    "tags": ["Slider"]
+  },
+  {
+    "name": "ember",
+    "tags": ["UI Framework"]
+  },
+  {
+    "name": "alpinejs",
+    "tags": ["UI Framework"]
+  },
+  {
+    "name": "solid-js",
+    "tags": ["UI Framework"]
+  },
+  {
+    "name": "@stencil/core",
+    "tags": ["UI Framework"]
+  },
+  {
+    "name": "lit",
+    "tags": ["UI Framework"]
+  },
+  {
+    "name": "svelte",
+    "tags": ["UI Framework"]
+  },
+  {
+    "name": "preact",
+    "tags": ["UI Framework"]
+  },
+  {
+    "name": "@angular/core",
+    "tags": ["UI Framework"]
+  },
+  {
+    "name": "vue",
+    "tags": ["UI Framework", "Vue"]
+  },
+  {
+    "name": "vue-router",
+    "tags": ["Routing", "Vue"]
+  },
+  {
+    "name": "@headlessui/react",
+    "tags": ["UI Library", "React", "Vue"]
+  },
+  {
+    "name": "@headlessui/vue",
+    "tags": ["UI Library", "Vue"]
+  },
+  {
+    "name": "vuex",
+    "tags": ["State Management", "Vue"]
+  },
+  {
+    "name": "react-table",
+    "tags": ["Table", "React", "Vue"]
+  },
+  {
+    "name": "@vueuse/core",
+    "tags": ["Utils", "Vue"]
+  },
+  {
+    "name": "pinia",
+    "tags": ["State Management", "Vue"]
+  },
+  {
+    "name": "element-plus",
+    "tags": ["UI Library", "Vue"]
+  },
+  {
+    "name": "ant-design-vue",
+    "tags": ["UI Library", "Vue"]
+  },
+  {
+    "name": "vuetify",
+    "tags": ["UI Library", "Vue"]
+  },
+  {
+    "name": "vitest",
+    "tags": ["Testing", "Vite"]
+  },
+  {
+    "name": "vue-i18n",
+    "tags": ["i18n", "Vue"]
+  },
+  {
+    "name": "nuxt",
+    "tags": ["Full-Stack Framework", "Vue", "Static Site generator"]
+  },
+  {
+    "name": "vee-validate",
+    "tags": ["Form", "Vue"]
+  },
+  {
+    "name": "@graphql-tools/schema",
+    "tags": ["GraphQL"]
+  },
+  {
+    "name": "@graphql-codegen/cli",
+    "tags": ["GraphQL"]
+  },
+  {
+    "name": "graphql-request",
+    "tags": ["GraphQL"]
+  },
+  {
+    "name": "@tanstack/react-query",
+    "tags": ["Data Fetching", "React", "Vue", "Svelte"]
+  },
+  {
+    "name": "svelte",
+    "tags": ["UI Framework", "Svelte"]
+  },
+  {
+    "name": "@sveltejs/kit",
+    "tags": ["Full-Stack Framework", "Svelte"]
+  },
+  {
+    "name": "swr",
+    "tags": ["Data Fetching", "React"]
+  },
+  {
+    "name": "keyv",
+    "tags": ["Database"]
+  },
+  {
+    "name": "mongodb",
+    "tags": ["Database", "MongoDB"]
+  },
+  {
+    "name": "idb-keyval",
+    "tags": ["Database"]
+  },
+  {
+    "name": "unstorage",
+    "tags": ["Database"]
+  },
+  {
+    "name": "lowdb",
+    "tags": ["Database"]
+  },
+  {
+    "name": "better-sqlite3",
+    "tags": ["Database"]
+  },
+  {
+    "name": "quill",
+    "tags": ["Rich text editor"]
+  },
+  {
+    "name": "draft-js",
+    "tags": ["Rich text editor"]
+  },
+  {
+    "name": "slate",
+    "tags": ["Rich text editor"]
+  },
+  {
+    "name": "tinymce",
+    "tags": ["Rich text editor"]
+  },
+  {
+    "name": "prosemirror",
+    "tags": ["Rich text editor"]
+  },
+  {
+    "name": "marked",
+    "tags": ["Markdown"]
+  },
+  {
+    "name": "markdown-it",
+    "tags": ["Markdown"]
+  },
+  {
+    "name": "@mdx-js/mdx",
+    "tags": ["Markdown"]
+  },
+  {
+    "name": "remark",
+    "tags": ["Markdown"]
+  },
+  {
+    "name": "remarkable",
+    "tags": ["Markdown"]
+  },
+  {
+    "name": "react-native",
+    "tags": ["Mobile", "React Native", "React"]
+  },
+  {
+    "name": "expo",
+    "tags": ["Mobile", "React"]
+  },
+  {
+    "name": "@capacitor/core",
+    "tags": ["Mobile"]
+  },
+  {
+    "name": "@ionic/core",
+    "tags": ["Mobile", "React", "Vue"]
+  },
+  {
+    "name": "redis",
+    "tags": ["Redis", "Database"]
+  },
+  {
+    "name": "ioredis",
+    "tags": ["Redis", "Database"]
+  },
+  {
+    "name": "mysql",
+    "tags": ["MySQL"]
+  },
+  {
+    "name": "mongoose",
+    "tags": ["ORM", "MongoDB"]
+  },
+  {
+    "name": "sequelize",
+    "tags": ["ORM", "SQL"]
+  },
+  {
+    "name": "@prisma/client",
+    "tags": ["ORM", "SQL", "MongoDB"]
+  },
+  {
+    "name": "knex",
+    "tags": ["ORM", "SQL"]
+  },
+  {
+    "name": "typeorm",
+    "tags": ["ORM", "SQL"]
+  },
+  {
+    "name": "sqlite3",
+    "tags": ["SQLite"]
+  },
+  {
+    "name": "shaka-player",
+    "tags": ["Video"]
+  },
+  {
+    "name": "hls.js",
+    "tags": ["Video"]
+  },
+  {
+    "name": "video.js",
+    "tags": ["Video"]
+  },
+  {
+    "name": "react-player",
+    "tags": ["Video", "React"]
+  },
+  {
+    "name": "react",
+    "tags": ["UI Framework", "React"]
+  },
+  {
+    "name": "antd",
+    "tags": ["UI Library", "React"]
+  },
+  {
+    "name": "react-router",
+    "tags": ["Routing", "React"]
+  },
+  {
+    "name": "redux",
+    "tags": ["State Management", "React"]
+  },
+  {
+    "name": "next-auth",
+    "tags": ["Next.js", "Authentication"]
+  },
+  {
+    "name": "jsonwebtoken",
+    "tags": ["Authentication"]
+  },
+  {
+    "name": "next",
+    "tags": [
+      "Full-Stack Framework",
+      "React",
+      "Static Site generator",
+      "Next.js"
+    ]
+  },
+  {
+    "name": "@remix-run/server-runtime",
+    "tags": ["Full-Stack Framework", "React"]
+  },
+  {
+    "name": "react-hook-form",
+    "tags": ["Form", "React"]
+  },
+  {
+    "name": "react-draggable",
+    "tags": ["Drag and drop", "React"]
+  },
+  {
+    "name": "react-dnd",
+    "tags": ["Drag and drop", "React"]
+  },
+  {
+    "name": "react-beautiful-dnd",
+    "tags": ["Drag and drop", "React"]
+  },
+  {
+    "name": "sortablejs",
+    "tags": ["Drag and drop", "React", "Vue"]
+  },
+  {
+    "name": "@dnd-kit/core",
+    "tags": ["Drag and drop", "React"]
+  },
+  {
+    "name": "react-i18next",
+    "tags": ["i18n", "React"]
+  },
+  {
+    "name": "@testing-library/react",
+    "tags": ["Testing", "React"]
+  },
+  {
+    "name": "@svgr/core",
+    "tags": ["SVG", "React"]
+  },
+  {
+    "name": "react-window",
+    "tags": ["Virtual list", "React", "Scrolling"]
+  },
+  {
+    "name": "react-virtualized",
+    "tags": ["Virtual list", "React", "Scrolling"]
+  },
+  {
+    "name": "react-virtuoso",
+    "tags": ["Virtual list", "React", "Scrolling"]
+  },
+  {
+    "name": "react-virtual",
+    "tags": ["Virtual list", "React", "Scrolling"]
+  },
+  {
+    "name": "react-select",
+    "tags": ["Autocomplete", "React"]
+  },
+  {
+    "name": "@algolia/autocomplete-js",
+    "tags": ["Autocomplete"]
+  },
+  {
+    "name": "searchkit",
+    "tags": ["Autocomplete"]
+  },
+  {
+    "name": "react-use",
+    "tags": ["Hook", "React"]
+  },
+  {
+    "name": "usehooks-ts",
+    "tags": ["Hook", "React"]
+  },
+  {
+    "name": "ahooks",
+    "tags": ["Hook", "React"]
+  },
+  {
+    "name": "rooks",
+    "tags": ["Hook", "React"]
+  },
+  {
+    "name": "@radix-ui/primitive",
+    "tags": ["UI Library", "React"]
+  },
+  {
+    "name": "react-docgen",
+    "tags": ["Documentation", "React"]
+  },
+  {
+    "name": "framer-motion",
+    "tags": ["Animation", "React"]
+  },
+  {
+    "name": "react-spring",
+    "tags": ["Animation", "React"]
+  },
+  {
+    "name": "react-motion",
+    "tags": ["Animation", "React"]
+  },
+  {
+    "name": "react-native-reanimated",
+    "tags": ["Animation", "React Native"]
+  },
+  {
+    "name": "tsparticles",
+    "tags": ["Animation", "Vue", "React"]
+  },
+  {
+    "name": "gsap",
+    "tags": ["Animation"]
+  },
+  {
+    "name": "animate.css",
+    "tags": ["Animation"]
+  },
+  {
+    "name": "popmotion",
+    "tags": ["Animation"]
+  },
+  {
+    "name": "recharts",
+    "tags": ["Charting", "React", "D3"]
+  },
+  {
+    "name": "highcharts",
+    "tags": ["Charting", "SVG"]
+  },
+  {
+    "name": "apexcharts",
+    "tags": ["Charting", "SVG"]
+  },
+  {
+    "name": "echarts",
+    "tags": ["Charting", "SVG", "Canvas"]
+  },
+  {
+    "name": "d3",
+    "tags": ["Charting", "SVG", "Canvas"]
+  },
+  {
+    "name": "chart.js",
+    "tags": ["Charting", "Canvas"]
+  },
+  {
+    "name": "jest",
+    "tags": ["Testing"]
+  },
+  {
+    "name": "tailwindcss",
+    "tags": ["TailwindCSS", "CSS framework"]
+  },
+  {
+    "name": "bootstrap",
+    "tags": ["CSS framework"]
+  },
+  {
+    "name": "bulma",
+    "tags": ["CSS framework"]
+  },
+  {
+    "name": "electron",
+    "tags": ["Desktop"]
+  },
+  {
+    "name": "three",
+    "tags": ["3D", "WebGL", "WebGPU", "Three.js"]
+  },
+  {
+    "name": "@orillusion/core",
+    "tags": ["3D", "WebGL", "WebGPU"]
+  },
+  {
+    "name": "cesium",
+    "tags": ["3D", "WebGL", "Maps"]
+  },
+  {
+    "name": "mapbox-gl",
+    "tags": ["Maps"]
+  },
+  {
+    "name": "react-map-gl",
+    "tags": ["Maps", "React"]
+  },
+  {
+    "name": "@turf/turf",
+    "tags": ["Maps"]
+  },
+  {
+    "name": "maplibre-gl",
+    "tags": ["Maps"]
+  },
+  {
+    "name": "ol",
+    "tags": ["Maps"]
+  },
+  {
+    "name": "babylonjs",
+    "tags": ["3D", "Game engine", "WebGL"]
+  },
+  {
+    "name": "@react-three/fiber",
+    "tags": ["3D", "Renderer", "React", "Three.js"]
+  },
+  {
+    "name": "moment",
+    "tags": ["Date & time"]
+  },
+  {
+    "name": "date-fns",
+    "tags": ["Date & time"]
+  },
+  {
+    "name": "dayjs",
+    "tags": ["Date & time"]
+  },
+  {
+    "name": "typescript",
+    "tags": ["Compiler", "TypeScript"]
+  },
+  {
+    "name": "babel-core",
+    "tags": ["Compiler"]
+  },
+  {
+    "name": "sucrase",
+    "tags": ["Compiler"]
+  },
+  {
+    "name": "@swc/core",
+    "tags": ["Compiler"]
+  },
+  {
+    "name": "@trpc/server",
+    "tags": ["RPC"]
+  },
+  {
+    "name": "protobufjs",
+    "tags": ["RPC", "Protobuf"]
+  },
+  {
+    "name": "@grpc/grpc-js",
+    "tags": ["RPC", "Protobuf"]
+  },
+  {
+    "name": "@strapi/strapi",
+    "tags": ["CMS"]
+  },
+  {
+    "name": "normalize.css",
+    "tags": ["CSS"]
+  },
+  {
+    "name": "font-awesome",
+    "tags": ["Icons"]
+  },
+  {
+    "name": "react-icons",
+    "tags": ["Icons"]
+  },
+  {
+    "name": "lucide-react",
+    "tags": ["Icons"]
+  },
+  {
+    "name": "@radix-ui/react-icons",
+    "tags": ["Icons"]
+  },
+  {
+    "name": "@iconify/react",
+    "tags": ["Icons"]
+  },
+  {
+    "name": "ws",
+    "tags": ["WebSocket"]
+  },
+  {
+    "name": "socket.io",
+    "tags": ["Real-time", "WebSocket"]
+  },
+  {
+    "name": "axios",
+    "tags": ["HTTP client"]
+  },
+  {
+    "name": "ky",
+    "tags": ["HTTP client"]
+  },
+  {
+    "name": "@zodios/core",
+    "tags": ["HTTP client"]
+  },
+  {
+    "name": "lodash",
+    "tags": ["Utils"]
+  },
+  {
+    "name": "nanoid",
+    "tags": ["Utils"]
+  },
+  {
+    "name": "underscore",
+    "tags": ["Utils"]
+  },
+  {
+    "name": "ramda",
+    "tags": ["Utils"]
+  },
+  {
+    "name": "immer",
+    "tags": ["Utils", "React"]
+  },
+  {
+    "name": "lodash",
+    "tags": ["Utils"]
+  },
+  {
+    "name": "jquery",
+    "tags": ["Utils"]
+  },
+  {
+    "name": "gatsby",
+    "tags": ["Static Site generator", "React"]
+  },
+  {
+    "name": "astro",
+    "tags": ["Static Site generator", "Full-Stack Framework"]
+  },
+  {
+    "name": "vitepress",
+    "tags": ["Static Site generator", "Vue", "Vite"]
+  },
+  {
+    "name": "nextra",
+    "tags": ["Static Site generator", "Next.js"]
+  },
+  {
+    "name": "vuepress",
+    "tags": ["Static Site generator", "Vue"]
+  },
+  {
+    "name": "hexo",
+    "tags": ["Static Site generator"]
+  },
+  {
+    "name": "@11ty/eleventy",
+    "tags": ["Static Site generator"]
+  },
+  {
+    "name": "docusaurus",
+    "tags": ["Static Site generator", "React", "Documentation"]
+  },
+  {
+    "name": "@astrojs/starlight",
+    "tags": ["Static Site generator", "Documentation"]
+  },
+  {
+    "name": "styled-components",
+    "tags": ["CSS-in-JS"]
+  },
+  {
+    "name": "polished",
+    "tags": ["CSS-in-JS"]
+  },
+  {
+    "name": "styled-jsx",
+    "tags": ["CSS-in-JS"]
+  },
+  {
+    "name": "vite",
+    "tags": ["Bundler"]
+  },
+  {
+    "name": "webpack",
+    "tags": ["Bundler"]
+  },
+  {
+    "name": "esbuild",
+    "tags": ["Bundler"]
+  },
+  {
+    "name": "rollup",
+    "tags": ["Bundler"]
+  },
+  {
+    "name": "turbo",
+    "tags": ["Bundler"]
+  },
+  {
+    "name": "gulp",
+    "tags": ["Bundler"]
+  },
+  {
+    "name": "parcel",
+    "tags": ["Bundler"]
+  },
+  {
+    "name": "express",
+    "tags": ["Node.js Framework"]
+  },
+  {
+    "name": "@nestjs/core",
+    "tags": ["Node.js Framework"]
+  },
+  {
+    "name": "h3",
+    "tags": ["Node.js Framework"]
+  },
+  {
+    "name": "fastify",
+    "tags": ["Node.js Framework"]
+  },
+  {
+    "name": "koa",
+    "tags": ["Node.js Framework"]
+  },
+  {
+    "name": "body-parser",
+    "tags": ["Express", "Middleware"]
+  },
+  {
+    "name": "multer",
+    "tags": ["Express", "Middleware"]
+  },
+  {
+    "name": "helmet",
+    "tags": ["Express", "Middleware"]
+  },
+  {
+    "name": "express-rate-limit",
+    "tags": ["Express", "Middleware"]
+  },
+  {
+    "name": "apollo-server-express",
+    "tags": ["Express", "GraphQL"]
+  },
+  {
+    "name": "apollo-client",
+    "tags": ["GraphQL"]
+  },
+  {
+    "name": "rate-limiter-flexible",
+    "tags": ["Express", "Middleware"]
+  },
+  {
+    "name": "cors",
+    "tags": ["Express", "Middleware"]
+  },
+  {
+    "name": "tsoa",
+    "tags": ["Express"]
+  },
+  {
+    "name": "tsx",
+    "tags": ["runtime", "TypeScript"]
+  },
+  {
+    "name": "ts-node",
+    "tags": ["runtime", "TypeScript"]
+  },
+  {
+    "name": "sass",
+    "tags": ["CSS Preprocessor", "CSS"]
+  },
+  {
+    "name": "stylis",
+    "tags": ["CSS Preprocessor", "CSS"]
+  },
+  {
+    "name": "ajv",
+    "tags": ["JSON", "Validator"]
+  },
+  {
+    "name": "validator",
+    "tags": ["Validator"]
+  },
+  {
+    "name": "joi",
+    "tags": ["JSON", "Validator"]
+  },
+  {
+    "name": "zod",
+    "tags": ["TypeScript", "Validator"]
+  },
+  {
+    "name": "yup",
+    "tags": ["Validator"]
+  },
+  {
+    "name": "cypress",
+    "tags": ["Testing"]
+  },
+  {
+    "name": "zustand",
+    "tags": ["State Management", "React"]
+  },
+  {
+    "name": "storybook",
+    "tags": ["Testing", "React", "Vue"]
+  },
+  {
+    "name": "formik",
+    "tags": ["Form", "React"]
+  },
+  {
+    "name": "react-markdown",
+    "tags": ["Markdown", "React"]
+  },
+  {
+    "name": "playwright",
+    "tags": ["Testing"]
+  },
+  {
+    "name": "@mui/material",
+    "tags": ["UI Library", "React"]
+  }
+]
