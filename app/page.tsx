@@ -1,11 +1,13 @@
 import React from "react";
 
 
-import { TAGS } from "@/_libs/server";
+import {TAGS} from '@/_libs/server'
+// import {TAGS} from '@/_libs/func'
+
 
 export default async function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between px-24 py-6">
+    <main className="flex min-h-screen flex-col items-center justify-between ">
       <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-8 ">
         {TAGS.map((tag) => (
           <div className="  " key={tag.tag}>

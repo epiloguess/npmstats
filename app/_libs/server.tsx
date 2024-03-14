@@ -1,85 +1,15 @@
-import projects_data from "@/_data/projects_data.json";
-import cnpm_data from "@/_data/cnpm_data.json";
-import {
-  cnpm_url,
-  range,
-  getMonthList,
-  getMajorDatasets,
-  getMainDatasets,
-  getPackageDetail,
-  calculateYearsAgo,
-  delay,
-} from "@/_libs/func";
+import raw_data from "@/_data/raw_data.json";
+import { getPkgData, getDatasets, monthList } from "@/_libs/func";
 
-let count = 0;
-export async function getRemoteData(pkg: string) {
-  let res;
-  try {
-    res = await fetch(`${cnpm_url}/${range}/${pkg}`, { cache: "no-store" });
-  } catch (error) {
-    console.error("getRemoteData Error");
-  }
-  // The return value is *not* serialized
-  // You can return Date, Map, Set, etc.
-  if (!res.ok) {
-    // This will activate the closest `error.js` Error Boundary
-    throw new Error(` Failed to fetch  data`);
-  }
-
-  return res.json();
-}
-
-function getLocalData(pkg: string) {
-  let result = cnpm_data[pkg];
-
-  return result;
-}
-
-const monthList = getMonthList(range);
-
-export async function getPkgData(pkg_name) {
-  const [pkg_data] = projects_data.filter((e) => e.name == pkg_name);
-  // pkg_data.time.years = calculateYearsAgo(
-  //   pkg_data.time.created,
-  //   getMonthList(range)
-  // );
-
-  // let data;
-  // try {
-  //   data = await getRemoteData(pkg_name);
-  // } catch (err) {
-  //   console.error("api/package/[...slug],getData", pkg_name);
-  // }
-
-  // const major_chartdata = {
-  //   labels: monthList,
-  //   datasets: getMajorDatasets(monthList, data, pkg_name),
-  // };
-
-  // const main_chartdata = {
-  //   labels: monthList,
-  //   datasets: [getMainDatasets(monthList, data, pkg_name)],
-  // };
-
-  let data = getLocalData(pkg_name);
-
-  const major_chartdata = data.major_chartdata;
-
-  const main_chartdata = data.main_chartdata;
-  const obj = { pkg_data, major_chartdata, main_chartdata };
-  return obj;
-}
-
-import data from "@/_data/raw_data.json";
-
-export async function getTags() {
+async function getTags() {
+  const data = Object.entries(raw_data);
   // 生成按照tags分类的JSON
-  const categorizedData = data.reduce((acc, project) => {
-    project.tags.forEach((tag) => {
+  const categorizedData = data.reduce((acc, [pkg_name, tags]) => {
+    tags.forEach((tag) => {
       if (!acc[tag]) {
         acc[tag] = [];
       }
-      acc[tag].push(project.name);
+      acc[tag].push(pkg_name);
     });
     return acc;
   }, {});
@@ -92,35 +22,62 @@ export async function getTags() {
 }
 export const TAGS = await getTags();
 
-const LOCAL_URL = "http://localhost:3000";
-
 export async function getTag(tag_name) {
-  const decode_tag_name = decodeURIComponent(tag_name);
+  // const decode_tag_name = decodeURIComponent(tag_name);
 
-  const [tag_data] = TAGS.filter((tag) => {
-    return tag.tag === decode_tag_name;
-  });
-  // const pkg_list = tag_data.projects.slice(0, 5);
+  const tag_data = TAGS.find((tag) => tag.tag === tag_name);
   const pkg_list = tag_data.projects;
+
+  const count = function count(pkgData) {
+    const [pkg_name] = Object.keys(pkgData.main_chartdata);
+    const downloads = pkgData.main_chartdata[pkg_name].reduce((acc, cur) => {
+      return (acc += Object.values(cur)[0]);
+    }, 0);
+    return { pkg_name, downloads };
+  };
+  let rank;
+  try {
+    rank = await Promise.all(
+      pkg_list.map(async (pkg, index) => {
+        const pkg_data = await getPkgData(pkg);
+        const result = count(pkg_data);
+        return result;
+      })
+    );
+  } catch (err) {
+    console.error("api/tags/[slug],rank", err);
+  }
+
   let datasets;
   try {
     datasets = await Promise.all(
       pkg_list.map(async (pkg, index) => {
         const pkg_data = await getPkgData(pkg);
-        return pkg_data.main_chartdata.datasets[0];
+        return getDatasets(pkg_data.main_chartdata);
       })
     );
   } catch (err) {
-    console.error("api/tags/[slug],datasets", datasets);
+    console.error("api/tags/[slug],datasets", err);
   }
   const datasets_equal = datasets.flat();
-
-  const monthList = getMonthList(range);
+  datasets_equal.sort((a, b) => {
+    return (
+      b.data.reduce((acc, cur) => (acc += cur)) -
+      a.data.reduce((acc, cur) => (acc += cur))
+    );
+    // b.data.at(-1)-a.data.at(-1)
+  });
   const chartData = {
     labels: monthList,
     datasets: datasets_equal,
   };
 
   tag_data.chartData = chartData;
+  rank.sort((a, b) => {
+    return b.downloads - a.downloads;
+    // b.data.at(-1)-a.data.at(-1)
+  });
+  tag_data.rank = rank;
+
   return tag_data;
 }

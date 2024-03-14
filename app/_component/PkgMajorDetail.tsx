@@ -1,4 +1,4 @@
-"use client"
+'use client';
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -22,15 +22,15 @@ ChartJS.register(
 );
 
 import {
-  getMonthList,
   getChartOpt,
-  getMajorDatasets,range,getPackageDetail
+  monthList,getDatasets
 } from "../_libs/func";
 
+export default function App({ data }) {
 
-
-export default function App({pkg_name,data}) {
-
-
-  return <Line options={getChartOpt(`${pkg_name.toUpperCase()} Major Release`)} data={data} />;
+  const chartdata = {
+    labels: monthList,
+    datasets: getDatasets(data),
+  };
+  return <Line options={getChartOpt(`Major Release`)} data={chartdata} />;
 }

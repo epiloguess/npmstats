@@ -1,26 +1,13 @@
-import projects_data from "../../_data/projects_data.json";
-import { cnpm_url, range, delay } from "../../_libs/func";
+import { getPkgTag,PKG_META } from "../../_libs/func";
 import PkgMajorDetail from "@/_component/PkgMajorDetail";
 import MainVersionChart from "@/_component/MainVersionChart";
-
-import { getPkgData, getTags, getTag } from "@/_libs/server";
-async function getData(pkg: string) {
-  const res = await fetch(`${cnpm_url}/${range}/${pkg}`, { cache: "no-store" });
-  // The return value is *not* serialized
-  // You can return Date, Map, Set, etc.
-
-  if (!res.ok) {
-    // This will activate the closest `error.js` Error Boundary
-    throw new Error(` Failed to fetch  data`);
-  }
-
-  return res.json();
-}
-const LOCAL_URL = "http://localhost:3000";
+import projects_data from '@/_data/pkg_meta.json'
+import { getPkgData } from "@/_libs/func";
 
 export default async function Page({ params }: { params: { slug: string[] } }) {
   const undecodedString = params.slug.join("/");
   const pkg_name = decodeURIComponent(undecodedString);
+  let tags = getPkgTag(pkg_name)
   let pkg_data;
   try {
     pkg_data = await getPkgData(pkg_name);
@@ -29,25 +16,28 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
   }
   return (
     <div>
-      <a href={`https://www.npmjs.com/package/${pkg_name}`}>{pkg_name}</a>
-      <div>{pkg_data.pkg_data.description}</div>
-      <div>
-        {pkg_data.pkg_data.tags.map((tag) => (
-          <div key={tag}>
+      <div>NPM LINK: <a href={`https://www.npmjs.com/package/${pkg_name}`}>{pkg_name}</a></div>
+      <div>Description: {pkg_data.pkg_data.description}</div>
+      <div className="flex gap-2">
+<div>Tags :</div>
+      <div className="flex gap-2">
+        {tags.map((tag) => (
+          <div key={tag} className=" bg-slate-300 py-1 px-2">
             <p>
-              #1 in &nbsp;
+   
               <a href={`/tags/${tag}`}>{tag}</a>
             </p>
           </div>
         ))}
       </div>
-      <div className="w-[800px] h-[400px]">
+      </div>
+    
+      <div className="w-[800px] h-[600px]">
         <MainVersionChart data={pkg_data.main_chartdata}></MainVersionChart>
       </div>
 
-      <div className="w-[800px] h-[400px]">
+      <div className="w-[800px] h-[600px]">
         <PkgMajorDetail
-          pkg_name={pkg_name}
           data={pkg_data.major_chartdata}
         ></PkgMajorDetail>
       </div>
@@ -59,6 +49,5 @@ export async function generateStaticParams() {
     const project_name = project.name?.split("/");
     return { slug: project_name };
   });
-
-  return arr;
+  return arr
 }

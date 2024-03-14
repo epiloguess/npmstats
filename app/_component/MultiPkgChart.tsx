@@ -11,7 +11,6 @@ import {
 } from "chart.js";
 import { Line } from "react-chartjs-2";
 
-
 ChartJS.register(
   CategoryScale,
   LinearScale,
@@ -24,15 +23,8 @@ ChartJS.register(
 
 import {
   getChartOpt,
-  monthList,getDatasets
 } from "../_libs/func";
 
-export default function App({ data }) {
-
-
-  const chartdata = {
-    labels: monthList,
-    datasets: getDatasets(data),
-  };
-  return <Line options={getChartOpt("title")} data={chartdata} />;
+export default  function App({ data }) {
+  return <Line options={getChartOpt("title")} data={data} />;
 }
