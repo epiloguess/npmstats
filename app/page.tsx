@@ -1,7 +1,7 @@
 import React from "react";
 
 
-import {TAGS} from '@/_libs/server'
+import {TAGS} from '@/_libs/func'
 // import {TAGS} from '@/_libs/func'
 
 
