@@ -26,5 +26,8 @@ import {
 } from "../_libs/func";
 
 export default  function App({ data }) {
-  return <Line options={getChartOpt("title")} data={data} />;
+
+  
+  return (<Line options={getChartOpt("title")} data={data} />)
+
 }

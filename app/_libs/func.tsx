@@ -47,6 +47,8 @@ function getMonthList(dateRangeString: string) {
   return result;
 }
 
+
+const text = "Close the labels with larger proportions to zoom in on the densely populated area of the chart."
 export const monthList = getMonthList(range);
 
 export function getChartOpt(title) {
@@ -59,7 +61,7 @@ export function getChartOpt(title) {
       },
       title: {
         display: true,
-        text: `${title}`,
+        text: "关闭较大比重的标签以放大密集区域",
       },
       tooltip: {
         mode: "nearest",
@@ -80,7 +82,6 @@ export function getChartOpt(title) {
   return options;
 }
 
-
 export function getDatasets(data) {
   const pkg_name = Object.keys(data);
   const datasets = pkg_name.map((pkg_name) => {
@@ -89,7 +90,7 @@ export function getDatasets(data) {
     const totalDownloads = values.reduce((acc, current) => {
       return (acc += current);
     }, 0);
-    let Color = getRandomRGB()
+    let Color = getRandomRGB();
 
     if (totalDownloads > 1000) {
       const obj = {
@@ -99,15 +100,15 @@ export function getDatasets(data) {
         borderColor: Color,
         tension: 0.1,
         borderWidth: 4, // 设置线的宽度
-        pointRadius: 4, // 设置点的大小
         cubicInterpolationMode: "monotone", // 启用平滑曲线
         backgroundColor: Color,
-        pointHoverRadius: 4,
-        pointBorderWidth: 1,
+        // pointRadius: 4, // 设置点的大小
+        // pointHoverRadius: 4,
+        // pointBorderWidth: 1,
         pointBackgroundColor: "transparent",
         pointBorderColor: "transparent",
         pointHoverBackgroundColor: getRandomRGB(),
-        pointHoverBorderColor: "#ffffff",
+        // pointHoverBorderColor: "#ffffff",
       };
       return obj;
     }
@@ -120,6 +121,9 @@ export function getPkgTag(pkg_name) {
   return raw_data[pkg_name];
 }
 
+export function getPkgMeta(pkg_name:string){
+  return pkg_meta.find((e)=>(e.name == pkg_name))
+}
 export const PKG_META = pkg_meta;
 
 export async function getRemoteData(pkg: string) {
@@ -145,7 +149,7 @@ function getLocalData(pkg: string) {
   return result;
 }
 
-export async function getPkgData(pkg_name) {
+export function getPkgData(pkg_name) {
   const [pkg_data] = pkg_meta.filter((e) => e.name == pkg_name);
 
   let data = getLocalData(pkg_name);
@@ -157,10 +161,7 @@ export async function getPkgData(pkg_name) {
   return obj;
 }
 
-
-
-
- function getTags() {
+function getTags() {
   const data = Object.entries(raw_data);
   // 生成按照tags分类的JSON
   const categorizedData = data.reduce((acc, [pkg_name, tags]) => {
@@ -176,10 +177,39 @@ export async function getPkgData(pkg_name) {
   // 对categorizedData进行倒序排序并转换为数组
   const sortedCategorizedData = Object.entries(categorizedData)
     .sort((a, b) => b[1].length - a[1].length)
-    .map(([tag, projects]) => ({ tag, projects }));
+    .map(([tag, projects]) => {
+       projects = getTagRank(projects);
+      return { tag, projects };
+    });
   return sortedCategorizedData;
 }
-export const TAGS =  getTags();
+export const TAGS = getTags();
+
+function getTagRank(pkg_list) {
+  function count(pkgData) {
+    const [pkg_name] = Object.keys(pkgData.main_chartdata);
+    const downloads = pkgData.main_chartdata[pkg_name].reduce((acc, cur) => {
+      return (acc += Object.values(cur)[0]);
+    }, 0);
+    return { pkg_name, downloads };
+  }
+  let rank;
+  try {
+    rank = pkg_list.map( (pkg, index) => {
+      const pkg_data = getPkgData(pkg);
+      return count(pkg_data);
+    });
+  } catch (err) {
+    console.error("api/tags/[slug],rank", err);
+  }
+  rank.sort((a, b) => {
+    return b.downloads - a.downloads;
+    // b.data.at(-1)-a.data.at(-1)
+  });
+  const arr = rank.map((e) => e.pkg_name);
+
+  return arr;
+}
 
 export async function getTag(tag_name) {
   // const decode_tag_name = decodeURIComponent(tag_name);
@@ -187,34 +217,14 @@ export async function getTag(tag_name) {
   const tag_data = TAGS.find((tag) => tag.tag === tag_name);
   const pkg_list = tag_data.projects;
 
-  const count = function count(pkgData) {
-    const [pkg_name] = Object.keys(pkgData.main_chartdata);
-    const downloads = pkgData.main_chartdata[pkg_name].reduce((acc, cur) => {
-      return (acc += Object.values(cur)[0]);
-    }, 0);
-    return { pkg_name, downloads };
-  };
-  let rank;
-  try {
-    rank = await Promise.all(
-      pkg_list.map(async (pkg, index) => {
-        const pkg_data = await getPkgData(pkg);
-        const result = count(pkg_data);
-        return result;
-      })
-    );
-  } catch (err) {
-    console.error("api/tags/[slug],rank", err);
-  }
-
+  // const rank = getTagRank(pkg_list);
+  // tag_data.rank = rank;
   let datasets;
   try {
-    datasets = await Promise.all(
-      pkg_list.map(async (pkg, index) => {
-        const pkg_data = await getPkgData(pkg);
-        return getDatasets(pkg_data.main_chartdata);
-      })
-    );
+    datasets = pkg_list.map((pkg, index) => {
+      const pkg_data = getPkgData(pkg);
+      return getDatasets(pkg_data.main_chartdata);
+    });
   } catch (err) {
     console.error("api/tags/[slug],datasets", err);
   }
@@ -232,11 +242,6 @@ export async function getTag(tag_name) {
   };
 
   tag_data.chartData = chartData;
-  rank.sort((a, b) => {
-    return b.downloads - a.downloads;
-    // b.data.at(-1)-a.data.at(-1)
-  });
-  tag_data.rank = rank;
 
   return tag_data;
 }
