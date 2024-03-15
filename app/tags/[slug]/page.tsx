@@ -49,7 +49,9 @@ export default async function App({ params }) {
             ? "h-[500px]"
             : tag_data.projects.length < 20
             ? "h-[600px]"
-            : "h-[1200px]"
+            : tag_data.projects.length < 30
+            ? "h-[800px] md:h-[600px]"
+            : ` h-[1200px] md:h-[600px]`
         }
       >
         <MultiPkgChart data={tag_data.chartData}></MultiPkgChart>
