@@ -17,7 +17,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.className} max-w-screen-xl m-auto px-6 md:px-24  pb-10 `} >
+      <body className={`${inter.className} max-w-screen-lg m-auto px-6 md:px-24  pb-10 `} >
         <Nav/>
         {children}
         

@@ -2,7 +2,7 @@ export default function App() {
   return (
     <header className=" py-4 ">
       <h1 className="  py-2">
-        <a className=" font-bold  hover:underline text-orange-500 text-2xl" href="/">
+        <a className="  tracking-wider font-bold  hover:underline text-orange-500 text-2xl" href="/">
           NPM STATS
         </a>
       </h1>

@@ -65,8 +65,8 @@ export function getChartOpt(title) {
       },
       tooltip: {
         mode: "nearest",
-        intersect: false,
-        // displayColors: true,
+        intersect: false, // 如果为 true，则仅当鼠标位置与元素相交时才应用工具提示模式。如果为 false，则将始终应用该模式。
+        displayColors: true,
         multiKeyBackground: "transparent",
         // xPadding: 10,
         // yPadding: 10,
@@ -97,17 +97,18 @@ export function getDatasets(data) {
         label: pkg_name,
         data: values,
         fill: false,
+        borderWidth: 3, // 设置线的宽度
         borderColor: Color,
-        tension: 0.1,
-        borderWidth: 4, // 设置线的宽度
-        cubicInterpolationMode: "monotone", // 启用平滑曲线
         backgroundColor: Color,
+        cubicInterpolationMode: "monotone", // 启用平滑曲线
+        tension: 0.1, // 线的贝塞尔曲线张力。设置为 0 以绘制直线。如果使用单调三次插值，则忽略此选项。
+
         // pointRadius: 4, // 设置点的大小
         // pointHoverRadius: 4,
         // pointBorderWidth: 1,
         pointBackgroundColor: "transparent",
         pointBorderColor: "transparent",
-        pointHoverBackgroundColor: getRandomRGB(),
+        pointHoverBackgroundColor: getRandomRGB(), // 悬停时点背景颜色。
         // pointHoverBorderColor: "#ffffff",
       };
       return obj;
