@@ -1,6 +1,6 @@
 import MultiPkgChart from "../../_component/MultiPkgChart";
 import { getTag, TAGS, PKG_META, getPkgMeta, getPkgTag } from "@/_libs/func";
-export default async function App({ params }) {
+export default async function App({ params }: { params: { slug: string } }) {
   const tag_name = decodeURIComponent(decodeURIComponent(params.slug));
   let tag_data;
   try {
@@ -25,7 +25,7 @@ export default async function App({ params }) {
             ? "h-[600px]"
             : tag_data.projects.length < 30
             ? "h-[800px] md:h-[600px]"
-            : ` h-[1200px] md:h-[600px]`
+            : ` h-[1200px] md:h-[800px]`
         }
       >
         <MultiPkgChart data={tag_data.chartData}></MultiPkgChart>
@@ -33,7 +33,7 @@ export default async function App({ params }) {
       {tag_data.projects.map((project) => (
         <div
           key={project}
-          className=" border-b px-2 py-1 rounded flex flex-col gap-2"
+          className=" border-b px-2 py-1 rounded flex flex-col gap-2 "
         >
           <div className="md:flex justify-between gap-2 items-center">
             <div className="py-1">
@@ -58,7 +58,7 @@ export default async function App({ params }) {
             </div>
           </div>
 
-          <p>{getPkgMeta(project)?.description}</p>
+          <p className=" overflow-auto">{getPkgMeta(project)?.description}</p>
         </div>
       ))}
     </div>

@@ -5,8 +5,11 @@ import cnpm_data from "@/_data/cnpm_data.json";
 export const delay = (ms: string) =>
   new Promise((resolve) => setTimeout(resolve, ms));
 
-export const fetcher = (...args: string[]) =>
+// export const fetcher = (...args: string[]) =>
+//   fetch(...args).then((res) => res.json());
+  export const fetcher: (...args: [RequestInfo, RequestInit?]) => Promise<Response> = (...args) =>
   fetch(...args).then((res) => res.json());
+
 export const multiFetcher = function multiFetcher(...urls) {
   return Promise.all(urls[0].map((url) => fetcher(url)));
 };
@@ -51,7 +54,7 @@ function getMonthList(dateRangeString: string) {
 const text = "Close the labels with larger proportions to zoom in on the densely populated area of the chart."
 export const monthList = getMonthList(range);
 
-export function getChartOpt(title) {
+export function getChartOpt(title:string) {
   const options = {
     responsive: true,
     maintainAspectRatio: false,
@@ -81,6 +84,12 @@ export function getChartOpt(title) {
   };
   return options;
 }
+
+
+interface data {
+
+}
+
 
 export function getDatasets(data) {
   const pkg_name = Object.keys(data);
@@ -118,7 +127,7 @@ export function getDatasets(data) {
   return filter_datasets;
 }
 
-export function getPkgTag(pkg_name) {
+export function getPkgTag(pkg_name:string) {
   return raw_data[pkg_name];
 }
 
@@ -136,7 +145,8 @@ export async function getRemoteData(pkg: string) {
   }
   // The return value is *not* serialized
   // You can return Date, Map, Set, etc.
-  if (!res.ok) {
+  
+  if (res == undefined || !res.ok) {
     // This will activate the closest `error.js` Error Boundary
     throw new Error(` Failed to fetch  data`);
   }
@@ -150,7 +160,9 @@ function getLocalData(pkg: string) {
   return result;
 }
 
-export function getPkgData(pkg_name) {
+
+
+export function getPkgData(pkg_name:string) {
   const [pkg_data] = pkg_meta.filter((e) => e.name == pkg_name);
 
   let data = getLocalData(pkg_name);
@@ -184,9 +196,11 @@ function getTags() {
     });
   return sortedCategorizedData;
 }
+
+
 export const TAGS = getTags();
 
-function getTagRank(pkg_list) {
+function getTagRank(pkg_list:string[]) {
   function count(pkgData) {
     const [pkg_name] = Object.keys(pkgData.main_chartdata);
     const downloads = pkgData.main_chartdata[pkg_name].reduce((acc, cur) => {
@@ -212,7 +226,7 @@ function getTagRank(pkg_list) {
   return arr;
 }
 
-export async function getTag(tag_name) {
+export async function getTag(tag_name:string) {
   // const decode_tag_name = decodeURIComponent(tag_name);
 
   const tag_data = TAGS.find((tag) => tag.tag === tag_name);

@@ -12,7 +12,7 @@ export default async function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between ">
       {/* <NpmStatisticsSVG  ></NpmStatisticsSVG> */}
-      <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-8 ">
+      <div className="grid  md:grid-cols-2 lg:grid-cols-3 gap-4">
         {TAGS.map((tag) => (
           <div className="  " key={tag.tag}>
             <a href={`/tags/${tag.tag}`} className=" hover:underline font-bold">
