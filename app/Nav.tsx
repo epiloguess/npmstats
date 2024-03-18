@@ -7,7 +7,7 @@ export default function App() {
         </a>
       </h1>
       <p className="hidden md:block italic">
-        An unofficial, well-maintained list of npm package download
+        [Early Stage] An unofficial, well-maintained list of npm package download
         statistics, used for technical reference.
       </p>
     </header>
