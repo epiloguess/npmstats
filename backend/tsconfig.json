@@ -2,7 +2,7 @@
   "extends": "@sindresorhus/tsconfig",
   "compilerOptions": {
     "outDir": "./dist/" /* Specify an output folder for all emitted files. */,
-    "module": "node16",
+    "module": "NodeNext",
     "target": "es2020", // set to the *lowest* target you support
     "strict": true,
     "verbatimModuleSyntax": true,
