@@ -92,7 +92,7 @@
   "@algolia/autocomplete-js": ["Autocomplete"],
   "searchkit": ["Autocomplete"],
   "react-use": ["Hooks", "react"],
-  "react-redux": ["react"],
+  "react-redux": [],
   "usehooks-ts": ["Hooks", "react"],
   "ahooks": ["Hooks", "react"],
   "rooks": ["Hooks", "react"],
@@ -141,7 +141,7 @@
   "@grpc/grpc-js": ["RPC", "Protobuf"],
   "@strapi/strapi": ["CMS"],
   "sanity": ["CMS"],
-  "normalize.css": ["CSS"],
+  "normalize.css": ["css"],
   "font-awesome": ["Icons"],
   "react-icons": ["Icons"],
   "lucide-react": ["Icons"],
@@ -196,8 +196,8 @@
   "tsoa": ["express"],
   "tsx": ["runtime", "typescript"],
   "ts-node": ["runtime", "typescript"],
-  "sass": ["CSS Preprocessor", "CSS"],
-  "stylis": ["CSS Preprocessor", "CSS"],
+  "sass": ["CSS Preprocessor", "css"],
+  "stylis": ["CSS Preprocessor", "css"],
   "ajv": ["json", "Validator"],
   "validator": ["Validator"],
   "joi": ["json", "Validator"],
@@ -241,13 +241,7 @@
     "text"
   ],
   "tslib": [
-    "typescript",
-    "Microsoft",
-    "compiler",
-    "language",
-    
-    "tslib",
-    "runtime"
+
   ],
   "fs-extra": [
     "fs",
@@ -358,7 +352,7 @@
     "syntax",
     "eslint"
   ],
-  "prop-types": ["react"],
+  "prop-types": [],
   "@typescript-eslint/eslint-plugin": [
     "eslint",
     "eslintplugin",
@@ -405,15 +399,9 @@
   ],
 
   "classnames": [
-    "react",
-    "css",
-    "classes",
-    "classname",
-    "classnames",
-    "util",
-    "utility"
+
   ],
-  "eslint-plugin-react": ["eslint", "eslint-plugin", "eslintplugin", "react"],
+  "eslint-plugin-react": ["eslint"],
   "json-schema-traverse": ["JSON-Schema", "traverse", "iterate"],
   "path-to-regexp": ["express", "regexp", "route", "routing"],
   "diff": [
@@ -435,11 +423,8 @@
     "postcss-plugin"
   ],
   "@testing-library/jest-dom": ["testing", "dom", "jest", "jsdom"],
-  "eslint-plugin-react-hooks": [
-    "eslint",
-    "eslint-plugin",
-    "eslintplugin",
-    "react"
+  "eslint-plugin-react-hooks": ["eslint"
+
   ],
   "picomatch": ["glob", "match", "picomatch"],
   "y18n": ["i18n", "internationalization", "yargs"],
@@ -450,26 +435,7 @@
     "testing"
   ],
   "human-signals": [
-    "signal",
-    "signals",
-    "handlers",
-    "error-handling",
-    "interrupts",
-    "sigterm",
-    "sigint",
-    "irq",
-    "process",
-    "exit",
-    "exit-code",
-    "status",
-    "operating-system",
-    "es6",
-    
-    "typescript",
-    "linux",
-    "macos",
-    "windows",
-    "nodejs"
+
   ],
 
   "cross-fetch": [
@@ -530,12 +496,7 @@
   ],
 
   "react-router-dom": [
-    "react",
-    "router",
-    "route",
-    "routing",
-    "history",
-    "link"
+
   ],
   "graphql": ["graphql", "graphql-js"],
   "postcss": [
@@ -675,7 +636,7 @@
     "transitions"
   ],
   "css-loader": ["webpack", "css", "loader", "url", "import"],
-  "ts-jest": ["jest", "typescript", "sourcemap", "react", "testing"],
+  "ts-jest": ["jest", "typescript", "sourcemap",  "testing"],
 
   "undici": [
     "fetch",
@@ -968,8 +929,8 @@
     "string",
     "serialize"
   ],
-  "@svgr/webpack": ["svgr", "svg", "react", "webpack", "webpack-loader"],
-  "cssstyle": ["CSS", "CSSStyleDeclaration", "StyleSheet"],
+  "@svgr/webpack": [],
+  "cssstyle": ["css", "CSSStyleDeclaration", "StyleSheet"],
   "d3-scale": ["d3", "d3-module", "scale", "visualization"],
   "d3-shape": ["d3", "d3-module", "graphics", "visualization", "canvas", "svg"],
 
@@ -1015,7 +976,7 @@
   "busboy": ["uploads", "forms", "multipart", "form-data"],
   "@eslint-community/eslint-utils": ["eslint"],
 
-  "vue-template-compiler": ["vue", "compiler"],
+  "vue-template-compiler": [],
   "@mui/icons-material": [
     "react",
     "react-component",
@@ -1049,7 +1010,7 @@
   "@mdx-js/react": ["jsx", "markdown", "mdx", "react", "remark"],
 
   "http2-wrapper": ["http2", "https", "http", "request"],
-  "@vue/compiler-sfc": ["vue"],
+  "@vue/compiler-sfc": [],
   "webpack-dev-middleware": ["webpack", "middleware", "development"],
   "passport": ["express", "connect", "auth", "authn", "authentication"],
   "JSONStream": ["json", "stream", "streaming", "parser", "async", "parsing"],
@@ -1375,14 +1336,9 @@
     "performance",
     "remote-config"
   ],
-  "@vue/shared": ["vue"],
-  "eslint-plugin-vue": [
-    "eslint",
-    "eslint-plugin",
-    "eslint-config",
-    "vue",
-    "vuejs",
-    "rules"
+  "@vue/shared": [],
+  "eslint-plugin-vue": ["eslint"
+
   ],
   "@octokit/core": ["octokit", "github", "api", "sdk", "toolkit"],
   "remark-gfm": [
@@ -1462,7 +1418,7 @@
     "redirect"
   ],
 
-  "react-test-renderer": ["react", "react-native", "react-testing"],
+  "react-test-renderer": [],
   "canvas": [
     "canvas",
     "graphic",
@@ -1646,7 +1602,7 @@
     "spec-compatible",
     "form"
   ],
-  "@vue/compiler-dom": ["vue"],
+  "@vue/compiler-dom": [],
 
   "graphql-ws": [
     "protocol",
@@ -1820,14 +1776,9 @@
     "syntax",
     "tree"
   ],
-  "@vue/reactivity": ["vue"],
+  "@vue/reactivity": [],
   "rc-slider": [
-    "react",
-    "react-component",
-    "react-slider",
-    "slider",
-    "input",
-    "range"
+
   ],
   "@octokit/auth-token": ["github", "octokit", "authentication", "api"],
   "import-in-the-middle": ["import", "ritm", "iitm", "loader", "hook", "hooks"],
@@ -1856,7 +1807,7 @@
     "msal",
     "oauth"
   ],
-  "@vue/runtime-core": ["vue"],
+  "@vue/runtime-core": [],
   "prisma": [
     "CLI",
     "orm",
@@ -1950,7 +1901,7 @@
   ],
   "minimalistic-crypto-utils": ["minimalistic", "utils", "crypto"],
   "@emotion/css": ["styles", "emotion", "react", "css", "css-in-js"],
-  "@vue/server-renderer": ["vue"],
+  "@vue/server-renderer": [],
   "z-schema": ["json", "Schema", "Validator"],
   "mdast-util-gfm-table": [
     "unist",
@@ -2088,7 +2039,7 @@
     "spy",
     "testing"
   ],
-  "rc-table": ["react", "react-table", "table", "component", "ui"],
+  "rc-table": [],
   "jasmine-core": ["test", "testing", "jasmine", "tdd", "bdd"],
   "react-native-vector-icons": [
     "react-native",
@@ -2147,16 +2098,7 @@
     "bootstrap"
   ],
   "rc-drawer": [
-    "react",
-    "react-component",
-    "react-drawer",
-    "drawer",
-    "drawer-menu",
-    "rc-drawer-menu",
-    "react-drawer-menu",
-    "animation",
-    "drawer-motion",
-    "drawer-animation"
+
   ],
 
   "@stripe/react-stripe-js": ["react", "Stripe", "Elements"],
@@ -2734,7 +2676,7 @@
     "props"
   ],
   "country-flag-icons": ["country", "flag", "icons", "vector", "svg", "react"],
-  "rc-virtual-list": ["react", "react-component", "virtual-list"],
+  "rc-virtual-list": [],
   "@fastify/swagger": [
     "fastify",
     "swagger",

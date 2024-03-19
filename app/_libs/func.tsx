@@ -253,7 +253,7 @@ export async function getTag(tag_name:string) {
   });
   const chartData = {
     labels: monthList,
-    datasets: datasets_equal,
+    datasets: datasets_equal.slice(0,30)
   };
 
   tag_data.chartData = chartData;
