@@ -1,4 +1,4 @@
-import { getPkgTag, PKG_META } from "../../_libs/func";
+import { getPkgTag, PKG_META } from "@/_libs/func";
 import PkgMajorDetail from "@/_component/PkgMajorDetail";
 import MainVersionChart from "@/_component/MainVersionChart";
 import projects_data from "@/_data/pkg_meta.json";
@@ -54,28 +54,18 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
   }
   return (
     <div className="flex flex-col gap-2">
-      <div className="py-2">
-        <a
-          className=" text-orange-500 text-2xl font-bold "
-          href={`https://www.npmjs.com/package/${pkg_name}`}
-        >
-          {pkg_name}
-        </a>
-      </div>
+      <h3 className=" m-auto" >CNPM</h3>
 
-      <div className="flex gap-2">
-        {tags.map((tag) => (
-          <div
-            key={tag}
-            className=" bg-gray-300 hover:bg-gray-400  px-2 rounded"
-          >
-            <p>
-              <a href={`/tags/${tag}`}>{tag}</a>
-            </p>
-          </div>
-        ))}
+
+      <div className="flex gap-2"></div>
+
+      <div className="h-[300px]">
+        <MainVersionChart data={pkg_data.main_chartdata}></MainVersionChart>
       </div>
-      <div> {pkg_data.pkg_data.description}</div>
+        <div className=" h-[300px]  ">
+          <PkgMajorDetail data={pkg_data.major_chartdata}></PkgMajorDetail>
+        </div>
+
     </div>
   );
 }

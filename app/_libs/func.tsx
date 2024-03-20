@@ -28,6 +28,16 @@ export function getRandomRGB() {
   return `rgb(${x}, ${y}, ${z})`;
 }
 
+export function getRandomARGB() {
+  const getRandomNumber = () => Math.floor(Math.random() * 155) + 50; // 调整范围到 50 到 205 之间的随机整数
+
+  const x = getRandomNumber();
+  const y = getRandomNumber();
+  const z = getRandomNumber();
+
+  return `rgba(${x}, ${y}, ${z},0.66)`;
+}
+
 function getMonthList(dateRangeString: string) {
   const [startDateStr, endDateStr] = dateRangeString.split(":");
 
