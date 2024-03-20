@@ -79,10 +79,10 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
     </div>
   );
 }
-export async function generateStaticParams() {
-  const arr = projects_data.map((project) => {
-    const project_name = project.name?.split("/");
-    return { slug: project_name };
-  });
-  return arr;
-}
+// export async function generateStaticParams() {
+//   const arr = projects_data.map((project) => {
+//     const project_name = project.name?.split("/");
+//     return { slug: project_name };
+//   });
+//   return arr;
+// }

@@ -60,11 +60,28 @@ export default function App({ data }) {
       intersect: false,
     },
   };
+
+  let Color = getRandomRGB();
+
   const mydata = {
     datasets: [
       {
-        data:data.downloads,label:data.package,
-        borderColor: getRandomRGB(),
+        data: data.downloads,
+        label: data.package,
+        fill: false,
+        borderWidth: 3, // 设置线的宽度
+        borderColor: Color,
+        backgroundColor: Color,
+        cubicInterpolationMode: "monotone", // 启用平滑曲线
+        tension: 0.1, // 线的贝塞尔曲线张力。设置为 0 以绘制直线。如果使用单调三次插值，则忽略此选项。
+
+        // pointRadius: 4, // 设置点的大小
+        // pointHoverRadius: 4,
+        // pointBorderWidth: 1,
+        pointBackgroundColor: "transparent",
+        pointBorderColor: "transparent",
+        pointHoverBackgroundColor: getRandomRGB(), // 悬停时点背景颜色。
+        // pointHoverBorderColor: "#ffffff",
       },
     ],
   };
