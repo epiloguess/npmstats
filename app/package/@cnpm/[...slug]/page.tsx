@@ -100,9 +100,9 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
       <div className="h-[300px] m-auto">
         <PieChart data={cnpm_week_data}></PieChart>
       </div>
-      <div className=" h-[300px]  ">
+      {/* <div className=" h-[300px]  ">
         <PkgMajorDetail data={pkg_data.major_chartdata}></PkgMajorDetail>
-      </div>
+      </div> */}
     </div>
   );
 }
