@@ -18,7 +18,7 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
         </a>
       </div>
 
-      <div className="flex gap-2">
+      <div className="flex gap-2 flex-wrap">
         {tags &&
           tags.map((tag) => (
             <div

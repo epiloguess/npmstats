@@ -85,8 +85,20 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
       <div className="h-[300px]">
         <NpmLineChart data={cnpm_month_data}></NpmLineChart>
       </div>
-      <div className="h-[300px] m-auto">
-        <PieChart data={cnpm_week_data}></PieChart>
+
+      <div
+        className={
+          cnpm_week_data.length < 10
+            ? "h-[300px]"
+            : cnpm_week_data.length < 15
+            ? "h-[400px]"
+            : cnpm_week_data.length < 20
+            ? "h-[500px]"
+            : cnpm_week_data.length < 30
+            ? "h-[600px] md:h-[600px]"
+            : ` h-[600px] md:h-[600px]`
+        }
+      >        <PieChart data={cnpm_week_data}></PieChart>
       </div>
 
     </div>
