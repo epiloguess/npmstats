@@ -1,13 +1,6 @@
 import {
-  getPkgTag,
-  PKG_META,
   lastMonthRange,
-  lastWeekRange,
 } from "@/_libs/func";
-import PkgMajorDetail from "@/_component/PkgMajorDetail";
-import MainVersionChart from "@/_component/MainVersionChart";
-import projects_data from "@/_data/pkg_meta.json";
-import { getPkgData } from "@/_libs/func";
 
 import NpmLineChart from "@/_component/NpmLineChart";
 import PieChart from "@/_component/PieChart";
@@ -81,12 +74,7 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
   );
 
   const cnpm_week_data = getCnpmWeekData(cnpm_data.versions,pkg_name)
-  let pkg_data;
-  try {
-    pkg_data = await getPkgData(pkg_name);
-  } catch (err) {
-    return console.error("获取pkg_data失败", err);
-  }
+
   return (
     <div className="flex flex-col gap-2">
       <h3 className=" m-auto">CNPM</h3>
@@ -95,14 +83,11 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
 
       <div className="h-[300px]">
         <NpmLineChart data={cnpm_month_data}></NpmLineChart>
-        {/* <MainVersionChart data={pkg_data.main_chartdata}></MainVersionChart> */}
       </div>
       <div className="h-[300px] m-auto">
         <PieChart data={cnpm_week_data}></PieChart>
       </div>
-      {/* <div className=" h-[300px]  ">
-        <PkgMajorDetail data={pkg_data.major_chartdata}></PkgMajorDetail>
-      </div> */}
+
     </div>
   );
 }
