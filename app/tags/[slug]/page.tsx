@@ -45,7 +45,7 @@ export default async function App({ params }: { params: { slug: string } }) {
               </a>
             </div>
 
-            <div className="flex gap-2 flex-wrap">
+            <div className="flex md:flex-row-reverse gap-2 flex-wrap">
               {getPkgTag(project).map((e) => (
                 <a
                   className=" bg-gray-300 hover:bg-gray-400 rounded px-2 "
