@@ -70,7 +70,7 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
 
   return (
     <div className="flex flex-col gap-2 ">
-      <h3 className=" m-auto" >NPM</h3>
+      <h3 className=" m-auto bg-slate-100 border-2 px-2 rounded mt-4" >NPM</h3>
 
       <div className="flex gap-2"></div>
 

@@ -5,6 +5,7 @@ import {
 import NpmLineChart from "@/_component/NpmLineChart";
 import PieChart from "@/_component/PieChart";
 
+
 async function getCnpmData(range, pkg_name) {
   const res = await fetch(
     `https://registry.npmmirror.com/downloads/range/${range}/${pkg_name}`
@@ -77,7 +78,7 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
 
   return (
     <div className="flex flex-col gap-2">
-      <h3 className=" m-auto">CNPM</h3>
+      <h3 className=" m-auto bg-slate-100 border-2 px-2 rounded mt-4">CNPM</h3>
 
       <div className="flex gap-2"></div>
 
