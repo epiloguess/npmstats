@@ -1,12 +1,26 @@
-import { getPkgTag, getPkgMeta } from "../../_libs/func";
+import { Result } from "antd";
+import { getPkgTag } from "../../_libs/func";
+
+
+async function getNpmMeta(pkg_name:string) {
+
+  const res = await fetch(`https://registry.npmjs.org/-/v1/search?text=${pkg_name}`)
+  
+  if (!res.ok) {
+    // This will activate the closest `error.js` Error Boundary
+    throw new Error("Failed to fetch NpmMeta");
+  }
+  return res.json();
+}
+
 
 export default async function Page({ params }: { params: { slug: string[] } }) {
   const undecodedString = params.slug.join("/");
   const pkg_name = decodeURIComponent(undecodedString);
 
   let tags = getPkgTag(pkg_name);
-  let pkg_meta = getPkgMeta(pkg_name);
-  // let npm_meta =  await getNpmMeta(pkg_name)
+  let {objects:npm_meta} =  await getNpmMeta(pkg_name)
+  let {package:real_meta} = npm_meta.find((e)=>(e.package.name === pkg_name))
 
   return (
     <div className="flex flex-col gap-2">
@@ -25,7 +39,8 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
             </div>
           ))}
       </div>
-      <div> {pkg_meta && pkg_meta.description}</div>
+      <div>{real_meta.description}</div>
+
     </div>
   );
 }

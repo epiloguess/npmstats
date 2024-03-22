@@ -23,19 +23,17 @@ const myfetch = (value: string, callback: Function) => {
           if (d.total === 0) {
             callback([]);
           }
-          const result = d.objects.sort(
-            (a, b) => b.score.detail.popularity - a.score.detail.popularity
-          );
+          const result = d.objects.sort((a, b) => b.score.detail.popularity - a.score.detail.popularity);
           const data = result.map((item: any) => ({
-            value: item.package.name,
-            text: item.package.name,
+            name: item.package.name,
+            description: item.package.description,
           }));
           callback(data);
         }
       });
   };
   if (value) {
-    timeout = setTimeout(fake, 300);
+    timeout = setTimeout(fake, 500);
   } else {
     callback([]);
   }
@@ -60,7 +58,7 @@ const SearchInput: React.FC<{
 
   return (
     <Select
-      className="w-[300px] md:w-[400px]"
+      className="w-[300px] md:w-[400px] lg:w-[600px] my-2"
       showSearch
       value={value}
       placeholder={props.placeholder}
@@ -71,22 +69,28 @@ const SearchInput: React.FC<{
       onSearch={handleSearch}
       onChange={handleChange}
       notFoundContent={null}
-      options={(data || []).map((d) => ({
-        value: d.value,
-        label: d.text,
-      }))}
-    />
+      optionLabelProp='name'
+      listHeight={384}
+      virtual={false}
+      // options={(data || []).map((d) => ({
+      //   value: d.value,
+      //   label: d.text,
+      // }))}
+    >
+      {(data || []).map((e) => (
+        <Option key={e.name} >
+          <div>{e.name}</div>
+          <div>{e.description}</div>
+        </Option>
+      ))}
+    </Select>
   );
 };
 
 const App: React.FC = () => (
   <div className=" flex  justify-center">
-      <SearchInput
-    placeholder="Search From NPM"
-    style={{  }}
-  />
+    <SearchInput placeholder="Search From NPM" style={{}} />
   </div>
-
 );
 
 export default App;
