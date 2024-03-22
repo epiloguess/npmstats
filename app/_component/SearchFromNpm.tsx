@@ -78,6 +78,7 @@ const SearchInput: React.FC<{
       // }))}
     >
       {(data || []).map((e) => (
+        // eslint-disable-next-line react/jsx-no-undef
         <Option key={e.name} >
           <div>{e.name}</div>
           <div>{e.description}</div>
