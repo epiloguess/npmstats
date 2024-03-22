@@ -1,6 +1,4 @@
-import NextMdx from "@next/mdx";
 
-import remarkGfm from "remark-gfm"
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   typescript: {
@@ -22,16 +20,6 @@ const nextConfig = {
   // distDir: 'dist',
 };
 
-const withMDX = NextMdx({
-  extension: /\.mdx?$/,
-  options: {
-    remarkPlugins: [remarkGfm], // ✅
-    // remarkPlugins: [remarkPrism], // ESM ❌
-  },
-});
-const CustomNextConfig = withMDX({
-  pageExtensions: ["ts", "tsx", "js", "jsx", "md", "mdx"],
-  ...nextConfig,
-});
 
-export default CustomNextConfig;
+
+export default nextConfig;
