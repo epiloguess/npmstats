@@ -1,15 +1,10 @@
-import {
-  lastMonthRange,
-} from "@/_libs/func";
+import { lastMonthRange } from "@/_libs/func";
 
 import NpmLineChart from "@/_component/NpmLineChart";
 import PieChart from "@/_component/PieChart";
 
-
 async function getCnpmData(range, pkg_name) {
-  const res = await fetch(
-    `https://registry.npmmirror.com/downloads/range/${range}/${pkg_name}`
-  );
+  const res = await fetch(`https://registry.npmmirror.com/downloads/range/${range}/${pkg_name}`);
   // The return value is *not* serialized
   // You can return Date, Map, Set, etc.
 
@@ -50,17 +45,16 @@ function getCnpmWeekData(data, pkg_name) {
       const result = entried_data
         .filter(([version]) => version.startsWith(`${major}.`))
         .reduce((acc, [, downloads]) => {
-          const alldownloads = downloads.reduce((acc, {downloads}) => (acc += downloads), 0);
+          const alldownloads = downloads.reduce((acc, { downloads }) => (acc += downloads), 0);
           acc += alldownloads;
           return acc;
         }, 0);
       return { version: `${pkg_name} ${major}`, count: result };
     })
     .sort((a, b) => b.count - a.count);
-  
-    return pie_data
-}
 
+  return pie_data;
+}
 
 export default async function Page({ params }: { params: { slug: string[] } }) {
   const undecodedString = params.slug.join("/");
@@ -68,13 +62,9 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
   //
 
   const cnpm_data = await getCnpmData(lastMonthRange, pkg_name);
-  const cnpm_month_data = getCnpmMonthData(
-    lastMonthRange,
-    cnpm_data.downloads,
-    pkg_name
-  );
+  const cnpm_month_data = getCnpmMonthData(lastMonthRange, cnpm_data.downloads, pkg_name);
 
-  const cnpm_week_data = getCnpmWeekData(cnpm_data.versions,pkg_name)
+  const cnpm_week_data = getCnpmWeekData(cnpm_data.versions, pkg_name);
 
   return (
     <div className="flex flex-col gap-2">
@@ -98,9 +88,10 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
             ? "h-[600px] md:h-[600px]"
             : ` h-[600px] md:h-[600px]`
         }
-      >        <PieChart data={cnpm_week_data}></PieChart>
+      >
+        {" "}
+        <PieChart data={cnpm_week_data}></PieChart>
       </div>
-
     </div>
   );
 }

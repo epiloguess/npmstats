@@ -1,4 +1,5 @@
 import React from "react";
+import SearchFromNpm from '@/_component/SearchFromNpm'
 
 
 import {TAGS} from '@/_libs/func'
@@ -12,6 +13,7 @@ export default async function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between ">
       {/* <NpmStatisticsSVG  ></NpmStatisticsSVG> */}
+      {/* <SearchFromNpm></SearchFromNpm> */}
       <div className="grid  md:grid-cols-2 lg:grid-cols-3 gap-4">
         {TAGS.map((tag) => {
 
