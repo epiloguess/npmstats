@@ -1,4 +1,20 @@
 import { getPkgTag, getPkgMeta } from "../../_libs/func";
+import parse from 'html-react-parser'
+
+
+async function getNpmMeta(pkg_name) {
+  const res = await fetch(
+    "https://registry.npmjs.org/vue"
+  );
+  // The return value is *not* serialized
+  // You can return Date, Map, Set, etc.
+
+  if (!res.ok) {
+    // This will activate the closest `error.js` Error Boundary
+    throw new Error("Failed to fetch data");
+  }
+  return res.json();
+}
 
 export default async function Page({ params }: { params: { slug: string[] } }) {
   const undecodedString = params.slug.join("/");
@@ -6,6 +22,8 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
 
   let tags = getPkgTag(pkg_name);
   let pkg_meta = getPkgMeta(pkg_name);
+  // let npm_meta =  await getNpmMeta(pkg_name)
+
 
   return (
     <div className="flex flex-col gap-2">
@@ -17,7 +35,6 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
           {pkg_name}
         </a>
       </div>
-
       <div className="flex gap-2 flex-wrap">
         {tags &&
           tags.map((tag) => (

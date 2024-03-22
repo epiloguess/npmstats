@@ -311,15 +311,8 @@
   ],
   "type-fest": [
     "typescript",
-    "ts",
     "types",
-    "utility",
-    "util",
-    "utilities",
-    "omit",
-    "merge",
-    "json",
-    "generics"
+    "utility"
   ],
   "ansi-styles": [
     "ansi",
@@ -483,9 +476,7 @@
     "style",
     "typescript",
     "flow",
-    "typings",
-    "types",
-    "definitions"
+    "types"
   ],
   "fast-json-stable-stringify": [
     "json",
@@ -791,30 +782,12 @@
 
   "@angular/router": ["angular", "router"],
   "jest-cli": [
-    "ava",
-    "babel",
-    "coverage",
-    "easy",
-    "expect",
-    "facebook",
-    "immersive",
-    "instant",
-    "jasmine",
+    "cli",
+  
     "jest",
-    "jsdom",
-    "mocha",
-    "mocking",
-    "painless",
-    "qunit",
-    "runner",
-    "sandboxed",
-    "snapshot",
-    "tap",
-    "tape",
-    "test",
-    "testing",
-    "typescript",
-    "watch"
+
+    "testing"
+
   ],
   "socket.io-client": [
     "realtime",
@@ -1809,27 +1782,16 @@
   ],
   "@vue/runtime-core": [],
   "prisma": [
-    "CLI",
     "orm",
     "Prisma",
-    "Prisma CLI",
-    "prisma2",
     "database",
-    "db",
-    "JavaScript",
-    "JS",
     "typescript",
-    "TS",
     "SQL",
     "SQLite",
-    "pg",
-    "Postgres",
     "PostgreSQL",
     "CockroachDB",
     "MySQL",
     "MariaDB",
-    "MSSQL",
-    "SQL Server",
     "SQLServer",
     "mongodb"
   ],
