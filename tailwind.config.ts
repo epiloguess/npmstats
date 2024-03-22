@@ -1,6 +1,5 @@
 import type { Config } from "tailwindcss";
 
-const { blackA } = require('@radix-ui/colors');
 
 const config: Config = {
   content: [
@@ -16,7 +15,6 @@ const config: Config = {
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
       colors: {
-        ...blackA,
       },
     },
   },
