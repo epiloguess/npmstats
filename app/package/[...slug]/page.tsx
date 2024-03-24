@@ -35,18 +35,21 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
           </a>
         </h2>
       </div>
-      <div className='flex gap-2 flex-wrap'>
-        {tags &&
-          tags.map((tag) => (
-            <div
-              key={tag}
-              className=' bg-gray-300 hover:bg-gray-400  px-2 rounded'>
-              <p>
-                <a href={`/tags/${tag}`}>{tag}</a>
-              </p>
-            </div>
-          ))}
-      </div>
+      <Suspense fallback={<div className='text-center'>Loading ...</div>}>
+        <div className='flex gap-2 flex-wrap'>
+          {tags &&
+            tags.map((tag) => (
+              <div
+                key={tag}
+                className=' bg-gray-300 hover:bg-gray-400  px-2 rounded'>
+                <p>
+                  <a href={`/tags/${tag}`}>{tag}</a>
+                </p>
+              </div>
+            ))}
+        </div>
+      </Suspense>
+
       <Suspense fallback={<div className='text-center'>Loading ...</div>}>
         <div>{real_meta.description}</div>
       </Suspense>
