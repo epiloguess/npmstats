@@ -1,8 +1,4 @@
-import { getPkgTag, PKG_META } from "@/_libs/func";
-import PkgMajorDetail from "@/_component/PkgMajorDetail";
-import MainVersionChart from "@/_component/MainVersionChart";
-import projects_data from "@/_data/pkg_meta.json";
-import { getPkgData } from "@/_libs/func";
+import { lastMonthRange } from "@/_libs/func";
 
 import PieChart from '@/_component/PieChart';
 
@@ -31,8 +27,8 @@ async function getNpmData(pkg_name) {
   return res.json();
 }
 
-async function getNpmDownloads(pkg_name) {
-  const res = await fetch(`https://api.npmjs.org/downloads/range/last-month/${pkg_name}`);
+async function getNpmDownloads(pkg_name,lastMonthRange) {
+  const res = await fetch(`https://api.npmjs.org/downloads/range/${lastMonthRange}/${pkg_name}`);
   // The return value is *not* serialized
   // You can return Date, Map, Set, etc.
 
@@ -63,7 +59,7 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
   }).sort((a,b)=>(b.count - a.count));
 
   // NpmLineChart
-  const npm_downloads_data = await getNpmDownloads(pkg_name)
+  const npm_downloads_data = await getNpmDownloads(pkg_name,lastMonthRange)
 
 
 

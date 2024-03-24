@@ -1,7 +1,6 @@
 import { Result } from "antd";
 import { getPkgTag } from "../../_libs/func";
 
-
 async function getNpmMeta(pkg_name:string) {
 
   const res = await fetch(`https://registry.npmjs.org/-/v1/search?text=${pkg_name}`)

@@ -2,14 +2,11 @@ import raw_data from "@/_data/raw_data.json";
 import pkg_meta from "@/_data/pkg_meta.json";
 import cnpm_data from "@/_data/cnpm_data.json";
 
-export const delay = (ms: string) =>
-  new Promise((resolve) => setTimeout(resolve, ms));
+export const delay = (ms: string) => new Promise((resolve) => setTimeout(resolve, ms));
 
 // export const fetcher = (...args: string[]) =>
 //   fetch(...args).then((res) => res.json());
-export const fetcher: (
-  ...args: [RequestInfo, RequestInit?]
-) => Promise<Response> = (...args) => fetch(...args).then((res) => res.json());
+export const fetcher: (...args: [RequestInfo, RequestInit?]) => Promise<Response> = (...args) => fetch(...args).then((res) => res.json());
 
 export const multiFetcher = function multiFetcher(...urls) {
   return Promise.all(urls[0].map((url) => fetcher(url)));
@@ -34,9 +31,14 @@ const formatDate = (date) => {
 const get30DaysAgoDate = () => {
   const today = new Date();
   const oneDaysAgo = new Date(today);
-  const thirtyDaysAgo = new Date(today);
   oneDaysAgo.setDate(today.getDate() - 1);
-  thirtyDaysAgo.setDate(today.getDate() - 30);
+
+  const thirtyDaysAgo = new Date(today);
+  if (today.getDate() > 15) {
+    thirtyDaysAgo.setDate(1);
+  }else{
+    thirtyDaysAgo.setDate(today.getDate() - 30);
+  }
 
   return `${formatDate(thirtyDaysAgo)}:${formatDate(oneDaysAgo)}`;
 };
@@ -97,8 +99,7 @@ function getMonthList(dateRangeString: string) {
   return result;
 }
 
-const text =
-  "Close the labels with larger proportions to zoom in on the densely populated area of the chart.";
+const text = "Close the labels with larger proportions to zoom in on the densely populated area of the chart.";
 export const monthList = getMonthList(range);
 
 export function getChartOpt(title: string) {
@@ -173,8 +174,6 @@ export function getDatasets(data) {
 export function getPkgTag(pkg_name: string) {
   return raw_data[pkg_name];
 }
-
-
 
 export function getPkgMeta(pkg_name: string) {
   return pkg_meta.find((e) => e.name == pkg_name);
@@ -287,15 +286,12 @@ export async function getTag(tag_name: string) {
   }
   const datasets_equal = datasets.flat();
   datasets_equal.sort((a, b) => {
-    return (
-      b.data.reduce((acc, cur) => (acc += cur)) -
-      a.data.reduce((acc, cur) => (acc += cur))
-    );
+    return b.data.reduce((acc, cur) => (acc += cur)) - a.data.reduce((acc, cur) => (acc += cur));
     // b.data.at(-1)-a.data.at(-1)
   });
   const chartData = {
     labels: monthList,
-    datasets: datasets_equal.slice(0, 30),
+    datasets: datasets_equal.slice(0, 20),
   };
 
   tag_data.chartData = chartData;

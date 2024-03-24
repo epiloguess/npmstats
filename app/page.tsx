@@ -14,11 +14,11 @@ export default async function Home() {
     <main className="flex min-h-screen flex-col items-center justify-between ">
       {/* <NpmStatisticsSVG  ></NpmStatisticsSVG> */}
       {/* <SearchFromNpm></SearchFromNpm> */}
-      <div className="grid  md:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div className="md:grid mb-2   md:grid-cols-2 lg:grid-cols-3 gap-4">
         {TAGS.map((tag) => {
 
           if (tag.projects.length > 2 ){
-          return <div className="  " key={tag.tag}>
+          return <div className="   " key={tag.tag}>
             <a href={`/tags/${tag.tag}`} className=" hover:underline font-bold">
               {tag.tag}
             </a>
