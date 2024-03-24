@@ -11,47 +11,42 @@ const { Option } = Select;
 
 const fetcher = (url: string) => fetch(url).then((res) => res.json());
 
-const fetchRemote = (value: string, callback: Function) => {
+const debounceFetch = (value: string, callback: Function) => {
   if (timeout) {
     clearTimeout(timeout);
     timeout = null;
   }
-
-  const fake = () => {
-    callback(value);
-  };
   if (value) {
-    timeout = setTimeout(fake, 500);
+    timeout = setTimeout(callback(value), 500);
   } else {
     callback([]);
   }
 };
 
-const SearchInput: React.FC<{
-  placeholder: string;
-  style: React.CSSProperties;
-}> = (props) => {
+const SearchInput: React.FC<{}> = (props) => {
   const [value, setValue] = useState<string>("");
+  const [query, setQuery] = useState("");
   const router = useRouter(); // 获取路由对象
 
-  const { data, error } = useSWR(value ? `https://registry.npmjs.org/-/v1/search?text=${value}` : null, fetcher);
+  const { data, error } = useSWR(
+    query ? `https://registry.npmjs.org/-/v1/search?text=${query}` : null,
+    fetcher
+  );
 
   const handleChange = (newValue: string) => {
-    // setValue(newValue);
-
+    setValue(newValue);
     router.push(`/package/${newValue}`); // 根据您的路由配置，这里可能会有所不同
   };
 
   const handleSearch = (newValue: string) => {
-    fetchRemote(newValue, setValue); // 传递 setLoading
+    debounceFetch(newValue,setQuery); // 传递 setLoading
   };
   return (
     <Select
       className='w-[300px] md:w-[400px] lg:w-[600px] my-2'
       showSearch
       value={value}
-      placeholder={props.placeholder}
-      style={props.style}
+      placeholder={`Search From NPM`}
       suffixIcon={null}
       filterOption={false}
       onChange={handleChange}
@@ -75,7 +70,7 @@ const SearchInput: React.FC<{
 
 const App: React.FC = () => (
   <div className=' flex  justify-center'>
-    <SearchInput placeholder='Search From NPM' style={{}} />
+    <SearchInput />
   </div>
 );
 
