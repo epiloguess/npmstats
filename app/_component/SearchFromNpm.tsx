@@ -18,9 +18,8 @@ const debounceFetch = (
   }
   setFetching(true);
   if (value) {
-    timeout = setTimeout(() => setQuery(value), 1000); // 包装在函数中传递
+    timeout = setTimeout(() => setQuery(value), 300); // 包装在函数中传递
   } else {
-    setQuery("");
     setFetching(false);
   }
 };
