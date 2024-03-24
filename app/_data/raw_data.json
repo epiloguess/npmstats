@@ -382,7 +382,7 @@
     "ajax"
   ],
   "follow-redirects": ["http", "https", "url", "redirect", "client", "location", "utility"],
-  "chai": ["test", "assertion", "assert", "testing", "chai"],
+  "chai": [ "assertion", "assert", "testing", "chai"],
 
   "parse-json": ["parse", "json", "graceful", "error", "message", "humanize", "friendly", "helpful", "string"],
   "csstype": ["css", "style", "typescript", "flow", "types"],
@@ -602,7 +602,7 @@
 
   "formidable": ["multipart", "form", "data", "querystring", "www", "json", "ulpoad", "file"],
   "dompurify": ["dom", "xss", "html", "svg", "mathml", "security", "secure", "sanitizer", "sanitize", "filter", "purify"],
-  "mocha": ["mocha", "test", "bdd", "tdd", "tap", "testing", "chai", "assertion", "ava", "jest", "tape", "jasmine", "karma"],
+  "mocha": ["mocha",  "bdd", "tdd", "tap", "testing", "chai", "assertion", "ava", "jest", "tape", "jasmine", "karma"],
   "@typescript-eslint/type-utils": ["eslint", "typescript", "estree"],
   "busboy": ["uploads", "forms", "multipart", "form-data"],
   "@eslint-community/eslint-utils": ["eslint"],
@@ -876,7 +876,7 @@
   "d3-time-format": ["d3", "d3-module", "time", "format", "strftime", "strptime"],
   "node-sass": ["css", "libsass", "preprocessor", "sass", "scss", "style"],
   "table": ["ascii", "text", "table", "align", "ansi"],
-  "supertest": ["bdd", "http", "request", "superagent", "tdd", "test", "testing"],
+  "supertest": ["bdd", "http", "request", "superagent", "tdd",  "testing"],
   "express-validator": ["express", "validator", "validation", "validate", "sanitize", "sanitization", "xss"],
 
   "ts-morph": ["typescript", "ast", "static analysis", "code generation", "code refactor"],
@@ -1129,7 +1129,7 @@
 
   "@mswjs/interceptors": ["request", "intercept", "http", "https", "xmlhttprequest", "xhr", "fetch", "low-level", "mock", "spy", "testing"],
   "rc-table": [],
-  "jasmine-core": ["test", "testing", "jasmine", "tdd", "bdd"],
+  "jasmine-core": [ "testing", "jasmine", "tdd", "bdd"],
   "react-native-vector-icons": [
     "react-native",
     "react-component",
@@ -1258,7 +1258,7 @@
     "rule",
     "stylesheet"
   ],
-  "jest-canvas-mock": ["mock", "jest", "jest-mock", "echarts", "canvas", "test", "unit"],
+  "jest-canvas-mock": ["mock", "jest", "jest-mock", "echarts", "canvas",  "unit"],
   "react-quill": ["react", "react-component", "rich", "text", "rich-text", "textarea", "quill"],
   "react-smooth": ["react", "reactjs", "animation", "react-component"],
 
@@ -1628,7 +1628,7 @@
   ],
   "ava": [
     "🦄",
-    "test",
+    
     "runner",
     "testing",
     "ava",
@@ -1710,7 +1710,7 @@
   "babel-plugin-inline-react-svg": ["babel", "plugin", "react", "svg", "inline"],
   "react-avatar-editor": ["react-component", "reactjs", "react", "canvas", "avatar", "editor", "profile", "image"],
   "node-sql-parser": ["sql", "sql-parser", "parser", "node", "nodejs", "node-parser", "node-sql-parser", "ast", "sql-ast"],
-  "next-router-mock": ["react", "next", "next.js", "nextjs", "router", "mock", "test", "testing"],
+  "next-router-mock": ["react", "next", "next.js", "nextjs", "router", "mock",  "testing"],
   "react-places-autocomplete": [
     "React.js",
     "react",

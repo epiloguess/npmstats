@@ -1,15 +1,16 @@
 "use client";
+import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 import { Select, Spin } from "antd";
 import useSWR from "swr";
-import Link from "next/link";
+
 let timeout: ReturnType<typeof setTimeout> | null;
 
 const fetcher = (url: string) => fetch(url).then((res) => res.json());
 
 const debounceFetch = (
   value: string,
-  setQuery: Function,
+  callback: Function,
   setFetching: Function
 ) => {
   if (timeout) {
@@ -18,9 +19,9 @@ const debounceFetch = (
   }
   setFetching(true);
   if (value) {
-    timeout = setTimeout(() => setQuery(value), 1000); // 包装在函数中传递
+    timeout = setTimeout(callback(value), 500);
   } else {
-    setQuery("");
+    callback("");
     setFetching(false);
   }
 };
@@ -28,10 +29,16 @@ const debounceFetch = (
 const SearchInput: React.FC<{}> = (props) => {
   const [fetching, setFetching] = useState(false);
   const [query, setQuery] = useState("");
+  const router = useRouter(); // 获取路由对象
+
   const { data, error } = useSWR(
     query ? `https://registry.npmjs.org/-/v1/search?text=${query}` : null,
     fetcher
   );
+
+  const handleChange = (newValue: string) => {
+    router.push(`/package/${newValue}`); // 根据您的路由配置，这里可能会有所不同
+  };
 
   const handleSearch = (newValue: string) => {
     debounceFetch(newValue, setQuery, setFetching); // 传递 setLoading
@@ -42,6 +49,7 @@ const SearchInput: React.FC<{}> = (props) => {
       showSearch
       suffixIcon={null}
       filterOption={false}
+      onChange={handleChange}
       notFoundContent={fetching ? <Spin size='small' /> : null}
       optionLabelProp='name'
       listHeight={384}
@@ -52,12 +60,8 @@ const SearchInput: React.FC<{}> = (props) => {
         !error &&
         data.objects.map((item: any) => (
           <Select.Option key={item.package.name} value={item.package.name}>
-            <Link
-              className=' hover:text-black hover:no-underline'
-              href={`/package/${item.package.name}`}>
-              <div>{item.package.name}</div>
-              <div>{item.package.description}</div>
-            </Link>
+            <div>{item.package.name}</div>
+            <div>{item.package.description}</div>
           </Select.Option>
         ))}
     </Select>

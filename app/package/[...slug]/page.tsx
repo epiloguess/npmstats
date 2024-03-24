@@ -2,6 +2,7 @@ import { getPkgTag } from "../../_libs/func";
 import { Suspense } from "react";
 import Cnpm from "./Cnpm";
 import Npm from "./Npm";
+import NpmMeta from './NpmMeta'
 async function getNpmMeta(pkg_name: string) {
   const res = await fetch(
     `https://registry.npmjs.org/-/v1/search?text=${pkg_name}`
@@ -35,7 +36,6 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
           </a>
         </h2>
       </div>
-      <Suspense fallback={<div className='text-center'>Loading ...</div>}>
         <div className='flex gap-2 flex-wrap'>
           {tags &&
             tags.map((tag) => (
@@ -48,11 +48,8 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
               </div>
             ))}
         </div>
-      </Suspense>
 
-      <Suspense fallback={<div className='text-center'>Loading ...</div>}>
         <div>{real_meta.description}</div>
-      </Suspense>
       <div className='md:flex gap-2'>
         <div className='md:w-1/2'>
           <Suspense fallback={<div className='text-center'>Loading ...</div>}>
@@ -65,6 +62,7 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
           </Suspense>
         </div>
       </div>
+      {/* <NpmMeta></NpmMeta> */}
     </div>
   );
 }
