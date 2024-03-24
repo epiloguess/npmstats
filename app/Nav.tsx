@@ -1,11 +1,11 @@
-
+import Link from "next/link";
 export default function App() {
   return (
     <header className="pt-2 pb-4 ">
       <h1 className="  py-2">
-        <a className="  tracking-wider font-bold  hover:underline text-orange-500 text-2xl" href="/">
+        <Link className="  tracking-wider font-bold  hover:underline text-orange-500 text-2xl" href="/">
           NPM STATS
-        </a>
+        </Link>
       </h1>
 
       <p className=" md:block italic">

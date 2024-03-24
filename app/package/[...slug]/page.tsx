@@ -3,6 +3,7 @@ import { Suspense } from "react";
 import Cnpm from "./Cnpm";
 import Npm from "./Npm";
 import NpmMeta from './NpmMeta'
+import Link from "next/link";
 async function getNpmMeta(pkg_name: string) {
   const res = await fetch(
     `https://registry.npmjs.org/-/v1/search?text=${pkg_name}`
@@ -43,7 +44,7 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
                 key={tag}
                 className=' bg-gray-300 hover:bg-gray-400  px-2 rounded'>
                 <p>
-                  <a href={`/tags/${tag}`}>{tag}</a>
+                  <Link href={`/tags/${tag}`}>{tag}</Link>
                 </p>
               </div>
             ))}

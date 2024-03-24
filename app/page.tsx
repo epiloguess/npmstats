@@ -1,5 +1,6 @@
 import React from "react";
 import SearchFromNpm from '@/_component/SearchFromNpm'
+import Link from "next/link";
 
 
 import {TAGS} from '@/_libs/func'
@@ -19,29 +20,29 @@ export default async function Home() {
 
           if (tag.projects.length > 5 ){
           return <div className="   " key={tag.tag}>
-            <a href={`/tags/${tag.tag}`} className=" hover:underline font-bold">
+            <Link href={`/tags/${tag.tag}`} className=" hover:underline font-bold">
               {tag.tag}
-            </a>
+            </Link>
             <ul className=" flex flex-wrap gap-1 ">
               {tag.projects.slice(0, 5).map((pkg) => (
                 <li key={pkg}>
-                  <a
+                  <Link
                     className="text-[#0074d9] hover:underline"
                     href={`/package/${pkg}`}
                   >
                     {pkg},
-                  </a>
+                  </Link>
                 </li>
               ))}
               {tag.projects.length > 5 && (
                 <li>
                   and{" "}
-                  <a
+                  <Link
                     className="text-blue-500 hover:underline"
                     href={`/tags/${tag.tag}`}
                   >
                     {tag.projects.length - 5 } more
-                  </a>{" "}
+                  </Link>{" "}
                 </li>
               )}
             </ul>
