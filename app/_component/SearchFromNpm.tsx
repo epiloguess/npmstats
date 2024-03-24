@@ -1,30 +1,33 @@
 "use client";
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
-import { Select } from "antd";
-import type { SelectProps } from "antd";
+import { Select, Spin } from "antd";
 import useSWR from "swr";
 
 let timeout: ReturnType<typeof setTimeout> | null;
 
-const { Option } = Select;
-
 const fetcher = (url: string) => fetch(url).then((res) => res.json());
 
-const debounceFetch = (value: string, callback: Function) => {
+const debounceFetch = (
+  value: string,
+  callback: Function,
+  setFetching: Function
+) => {
   if (timeout) {
     clearTimeout(timeout);
     timeout = null;
   }
+  setFetching(true);
   if (value) {
     timeout = setTimeout(callback(value), 500);
   } else {
-    callback([]);
+    callback("");
+    setFetching(false);
   }
 };
 
 const SearchInput: React.FC<{}> = (props) => {
-  const [value, setValue] = useState<string>("");
+  const [fetching, setFetching] = useState(false);
   const [query, setQuery] = useState("");
   const router = useRouter(); // 获取路由对象
 
@@ -34,23 +37,20 @@ const SearchInput: React.FC<{}> = (props) => {
   );
 
   const handleChange = (newValue: string) => {
-    setValue(newValue);
     router.push(`/package/${newValue}`); // 根据您的路由配置，这里可能会有所不同
   };
 
   const handleSearch = (newValue: string) => {
-    debounceFetch(newValue,setQuery); // 传递 setLoading
+    debounceFetch(newValue, setQuery, setFetching); // 传递 setLoading
   };
   return (
     <Select
       className='w-[300px] md:w-[400px] lg:w-[600px] my-2'
       showSearch
-      value={value}
-      placeholder={`Search From NPM`}
       suffixIcon={null}
       filterOption={false}
       onChange={handleChange}
-      notFoundContent={null}
+      notFoundContent={fetching ? <Spin size='small' /> : null}
       optionLabelProp='name'
       listHeight={384}
       virtual={false}
@@ -69,7 +69,7 @@ const SearchInput: React.FC<{}> = (props) => {
 };
 
 const App: React.FC = () => (
-  <div className=' flex  justify-center'>
+  <div className='flex justify-center'>
     <SearchInput />
   </div>
 );
