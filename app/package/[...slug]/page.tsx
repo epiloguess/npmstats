@@ -1,5 +1,5 @@
 import { getPkgTag } from "../../_libs/func";
-
+import { Suspense } from "react";
 import Cnpm from "./Cnpm";
 import Npm from "./Npm";
 async function getNpmMeta(pkg_name: string) {
@@ -25,7 +25,7 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
   );
 
   return (
-    <div className='flex flex-col '>
+    <div className='flex flex-col gap-2'>
       <div className=''>
         <h2>
           <a
@@ -47,14 +47,19 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
             </div>
           ))}
       </div>
-      <div>{real_meta.description}</div>
-
+      <Suspense fallback={<div className='text-center'>Loading ...</div>}>
+        <div>{real_meta.description}</div>
+      </Suspense>
       <div className='md:flex gap-2'>
         <div className='md:w-1/2'>
-          <Cnpm params={params}></Cnpm>
+          <Suspense fallback={<div className='text-center'>Loading ...</div>}>
+            <Cnpm params={params}></Cnpm>
+          </Suspense>
         </div>
-        <div className='md:w-1/2'>
-          <Npm params={params}></Npm>
+        <div className='md:w-1/2 '>
+          <Suspense fallback={<div className=' text-center'>Loading ...</div>}>
+            <Npm params={params}></Npm>
+          </Suspense>
         </div>
       </div>
     </div>
