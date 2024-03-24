@@ -60,10 +60,12 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
 
   // NpmLineChart
   const npm_downloads_data = await getNpmDownloads(pkg_name,lastMonthRange)
-
-
-
-
+  const newdata = npm_downloads_data.downloads.map(({ downloads, day }) => ({
+    downloads:  parseInt(downloads / 63),
+    day,
+  }));
+  const data_euqal = {downloads:newdata,package:pkg_name}
+  console.log(data_euqal)
   return (
     <div className="flex flex-col gap-2 ">
       <h3 className=" m-auto bg-slate-100 border-2 px-2 rounded mt-4" >NPM</h3>
@@ -71,7 +73,7 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
       <div className="flex gap-2"></div>
 
       <div className="h-[300px]">
-        <NpmLineChart data={npm_downloads_data}></NpmLineChart>
+        <NpmLineChart data={data_euqal}></NpmLineChart>
       </div>
       <div
         className={

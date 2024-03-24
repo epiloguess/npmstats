@@ -31,13 +31,13 @@ const formatDate = (date) => {
 const get30DaysAgoDate = () => {
   const today = new Date();
   const oneDaysAgo = new Date(today);
-  oneDaysAgo.setDate(today.getDate() - 1);
+  oneDaysAgo.setDate(today.getDate() - 2);
 
   const thirtyDaysAgo = new Date(today);
   if (today.getDate() > 15) {
     thirtyDaysAgo.setDate(1);
   }else{
-    thirtyDaysAgo.setDate(today.getDate() - 30);
+    thirtyDaysAgo.setDate(today.getDate() - 31);
   }
 
   return `${formatDate(thirtyDaysAgo)}:${formatDate(oneDaysAgo)}`;
