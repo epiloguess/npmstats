@@ -9,7 +9,7 @@ export default function App() {
       </h1>
 
       <p className=" md:block italic">
-        [Early Stage] An unofficial, well-maintained list of npm package download
+        [Early Stage] An unofficial, well-maintained site of npm package download
         statistics, used for technical reference.<a className="text-[#0074d9]" href="https://wunhao.com/docs/todo/meet%20npmstats.md/">=&gt;More</a>
       </p>
     </header>

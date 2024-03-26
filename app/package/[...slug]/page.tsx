@@ -2,12 +2,10 @@ import { getPkgTag } from "../../_libs/func";
 import { Suspense } from "react";
 import Cnpm from "./Cnpm";
 import Npm from "./Npm";
-import NpmMeta from './NpmMeta'
+import NpmMeta from "./NpmMeta";
 import Link from "next/link";
 async function getNpmMeta(pkg_name: string) {
-  const res = await fetch(
-    `https://registry.npmjs.org/-/v1/search?text=${pkg_name}`
-  );
+  const res = await fetch(`https://registry.npmjs.org/-/v1/search?text=${pkg_name}`);
 
   if (!res.ok) {
     // This will activate the closest `error.js` Error Boundary
@@ -22,35 +20,29 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
 
   let tags = getPkgTag(pkg_name);
   let { objects: npm_meta } = await getNpmMeta(pkg_name);
-  let { package: real_meta } = npm_meta.find(
-    (e) => e.package.name === pkg_name
-  );
+  let { package: real_meta } = npm_meta.find((e) => e.package.name === pkg_name);
 
   return (
     <div className='flex flex-col gap-2'>
       <div className=''>
         <h2>
-          <a
-            className=' text-orange-500 text-2xl font-bold '
-            href={`https://www.npmjs.com/package/${pkg_name}`}>
+          <a className=' text-orange-500 text-2xl font-bold ' href={`https://www.npmjs.com/package/${pkg_name}`}>
             {pkg_name}
           </a>
         </h2>
       </div>
-        <div className='flex gap-2 flex-wrap'>
-          {tags &&
-            tags.map((tag) => (
-              <div
-                key={tag}
-                className=' bg-gray-300 hover:bg-gray-400  px-2 rounded'>
-                <p>
-                  <Link href={`/tags/${tag}`}>{tag}</Link>
-                </p>
-              </div>
-            ))}
-        </div>
+      <div className='flex gap-2 flex-wrap'>
+        {tags &&
+          tags.map((tag) => (
+            <div key={tag} className=' bg-gray-300 hover:bg-gray-400  px-2 rounded'>
+              <p>
+                <Link href={`/tags/${tag}`}>{tag}</Link>
+              </p>
+            </div>
+          ))}
+      </div>
 
-        <div>{real_meta.description}</div>
+      <div>{real_meta.description}</div>
       <div className='md:flex gap-2'>
         <div className='md:w-1/2'>
           <Suspense fallback={<div className='text-center'>Loading ...</div>}>
@@ -67,6 +59,23 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
     </div>
   );
 }
+
+import type { Metadata, ResolvingMetadata } from "next";
+
+type Props = {
+  params: { slug: string[] };
+  searchParams: { [key: string]: string | string[] | undefined };
+};
+
+export async function generateMetadata({ params, searchParams }: Props, parent: ResolvingMetadata): Promise<Metadata> {
+  const undecodedString = params.slug.join("/");
+  const pkg_name = decodeURIComponent(undecodedString);
+
+  return {
+    title: `${pkg_name} | npm stats`,
+  };
+}
+
 // export async function generateStaticParams() {
 //   const arr = projects_data.map((project) => {
 //     const project_name = project.name?.split("/");

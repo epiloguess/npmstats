@@ -7,7 +7,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "NPM STATS",
-  description: "An unofficial, well maintained list of npm package download statistics for comparison, used for technical reference.",
+  description: "An unofficial, well maintained site of npm package download statistics for comparison, used for technical reference.",
 };
 
 import Nav from "./Nav";
