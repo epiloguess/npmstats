@@ -20,29 +20,29 @@ export default async function Home() {
 
           if (tag.projects.length > 5 ){
           return <div className="   " key={tag.tag}>
-            <Link href={`/tags/${tag.tag}`} className=" hover:underline font-bold">
+            <a href={`/tags/${tag.tag}`} className=" hover:underline font-bold">
               {tag.tag}
-            </Link>
+            </a>
             <ul className=" flex flex-wrap gap-1 ">
               {tag.projects.slice(0, 5).map((pkg) => (
                 <li key={pkg}>
-                  <Link
+                  <a
                     className="text-[#0074d9] hover:underline"
                     href={`/package/${pkg}`}
                   >
                     {pkg},
-                  </Link>
+                  </a>
                 </li>
               ))}
               {tag.projects.length > 5 && (
                 <li>
                   and{" "}
-                  <Link
+                  <a
                     className="text-blue-500 hover:underline"
                     href={`/tags/${tag.tag}`}
                   >
                     {tag.projects.length - 5 } more
-                  </Link>{" "}
+                  </a>{" "}
                 </li>
               )}
             </ul>

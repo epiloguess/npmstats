@@ -38,23 +38,23 @@ export default async function App({ params }: { params: { slug: string } }) {
         >
           <div className="md:flex justify-between gap-2 items-center">
             <div className="py-1">
-              <Link
+              <a
                 href={`/package/${project}`}
                 className=" text-orange-400  font-bold"
               >
                 {project}
-              </Link>
+              </a>
             </div>
 
             <div className="flex md:flex-row-reverse gap-2 flex-wrap">
               {getPkgTag(project).map((e) => (
-                <Link
+                <a
                   className=" bg-gray-300 hover:bg-gray-400 rounded px-2 "
                   href={`/tags/${e}`}
                   key={e}
                 >
                   {e}
-                </Link>
+                </a>
               ))}
             </div>
           </div>

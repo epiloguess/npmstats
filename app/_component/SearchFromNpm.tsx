@@ -1,10 +1,9 @@
 "use client";
 import React, { useState } from "react";
 import { Select, Spin } from "antd";
-import useSWR from "swr";
 import Link from "next/link";
 let timeout: ReturnType<typeof setTimeout> | null;
-
+import useSWRImmutable from 'swr/immutable'
 const fetcher = (url: string) => fetch(url).then((res) => res.json());
 
 const debounceFetch = (
@@ -27,7 +26,7 @@ const debounceFetch = (
 const SearchInput: React.FC<{}> = (props) => {
   const [fetching, setFetching] = useState(false);
   const [query, setQuery] = useState("");
-  const { data, error } = useSWR(
+  const { data, error } = useSWRImmutable(
     query ? `https://registry.npmjs.org/-/v1/search?text=${query}` : null,
     fetcher
   );
@@ -49,7 +48,7 @@ const SearchInput: React.FC<{}> = (props) => {
       defaultActiveFirstOption={false}>
       {data &&
         !error &&
-        data.objects.map((item: any) => (
+        data.objects.slice(0,7).map((item: any) => (
           <Select.Option key={item.package.name} value={item.package.name}>
             <Link
               className=' hover:text-black hover:no-underline'
