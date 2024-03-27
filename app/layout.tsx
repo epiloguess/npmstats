@@ -6,7 +6,7 @@ import SearchFromNpm from "@/_component/SearchFromNpm";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "NPM STATS",
+  title: "Npm Stats",
   description: "An unofficial, well maintained site of npm package download statistics for comparison, used for technical reference.",
 };
 

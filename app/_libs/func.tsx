@@ -4,20 +4,18 @@ import cnpm_data from "@/_data/cnpm_data.json";
 
 export const delay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 
-// export const fetcher = (...args: string[]) =>
-//   fetch(...args).then((res) => res.json());
 export const fetcher: (...args: [RequestInfo, RequestInit?]) => Promise<Response> = (...args) => fetch(...args).then((res) => res.json());
 
-export const multiFetcher = function multiFetcher(...urls) {
-  return Promise.all(urls[0].map((url) => fetcher(url)));
-};
+// export const multiFetcher = function multiFetcher(...urls) {
+//   return Promise.all(urls[0].map((url) => fetcher(url)));
+// };
 
 export const range = "2023-02-01:2024-02-01";
 
 export const cnpm_url = "https://registry.npmmirror.com/downloads/range";
 
 // 定义函数，将日期格式化为指定格式
-const formatDate = (date) => {
+const formatDate = (date: Date) => {
   // 获取年份
   const year = date.getFullYear();
   // 获取月份，并补0
@@ -36,7 +34,7 @@ const get30DaysAgoDate = () => {
   const thirtyDaysAgo = new Date(today);
   if (today.getDate() > 15) {
     thirtyDaysAgo.setDate(1);
-  }else{
+  } else {
     thirtyDaysAgo.setDate(today.getDate() - 31);
   }
 
@@ -133,8 +131,6 @@ export function getChartOpt(title: string) {
   return options;
 }
 
-interface data {}
-
 export function getDatasets(data) {
   const pkg_name = Object.keys(data);
   const datasets = pkg_name.map((pkg_name) => {
@@ -171,8 +167,13 @@ export function getDatasets(data) {
   return filter_datasets;
 }
 
+interface RawData {
+  [key: string]: string[];
+}
+const typedRawData: RawData = raw_data;
+
 export function getPkgTag(pkg_name: string) {
-  return raw_data[pkg_name];
+  return typedRawData[pkg_name];
 }
 
 export function getPkgMeta(pkg_name: string) {
@@ -219,7 +220,7 @@ export function getPkgData(pkg_name: string) {
 function getTags() {
   const data = Object.entries(raw_data);
   // 生成按照tags分类的JSON
-  const categorizedData = data.reduce((acc, [pkg_name, tags]) => {
+  const categorizedData = data.reduce((acc: { [key: string]: string[] }, [pkg_name, tags]) => {
     tags.forEach((tag) => {
       if (!acc[tag]) {
         acc[tag] = [];
@@ -269,7 +270,7 @@ function getTagRank(pkg_list: string[]) {
 
 export async function getTag(tag_name: string) {
   // const decode_tag_name = decodeURIComponent(tag_name);
-
+  console.log(typeof TAGS);
   const tag_data = TAGS.find((tag) => tag.tag === tag_name);
   const pkg_list = tag_data.projects;
 

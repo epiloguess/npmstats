@@ -12,7 +12,6 @@ export default async function App({ params }: { params: { slug: string } }) {
   return (
     <div className=' flex  flex-col justify-center gap-2'>
       <div className=' text-orange-500 text-xl font-bold'># {tag_data?.tag}</div>
-
       <div
         className={
           tag_data?.projects.length < 10
@@ -23,10 +22,12 @@ export default async function App({ params }: { params: { slug: string } }) {
             ? "h-[600px]"
             : tag_data.projects.length < 30
             ? "h-[800px] md:h-[600px]"
-            : ` h-[1200px] md:h-[600px]`
+            : ` h-[1200px] md:h-[600px]` 
+              
         }>
-        <MultiPkgChart data={tag_data.chartData}></MultiPkgChart>
+        <MultiPkgChart  data={tag_data.chartData}></MultiPkgChart>
       </div>
+
       {tag_data.projects.map((project) => (
         <div key={project} className=' border-b px-2 py-1 rounded flex flex-col gap-2 '>
           <div className='md:flex justify-between gap-2 items-center'>
@@ -73,6 +74,6 @@ export async function generateMetadata({ params, searchParams }: Props, parent: 
 
 
   return {
-    title: tag_name,
+    title: `${tag_name} - Npm Stats`,
   };
 }

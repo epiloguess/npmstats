@@ -3,7 +3,7 @@ import { Suspense } from "react";
 import Cnpm from "./Cnpm";
 import Npm from "./Npm";
 import Link from "next/link";
-import Npm_logo from "./npm-logo-red.svg";
+import Npm_logo from "./n.svg";
 import Github_logo from "./github-mark.svg";
 
 interface NpmPackage {
@@ -51,15 +51,13 @@ async function getRealMeta(pkg_name: string) {
       <div className='flex items-center gap-2'>
         <h2 className=' text-orange-500 text-2xl font-bold '>{pkg_name}</h2>
         <a href={`https://www.npmjs.com/package/${pkg_name}`}>
-          <Npm_logo></Npm_logo>
+          <Npm_logo width="24" height="24" ></Npm_logo>
         </a>
         {repository && (
           <a href={repository}>
-            <Github_logo></Github_logo>
+            <Github_logo width="24" height="24" ></Github_logo>
           </a>
         )}
-
-
       </div>
 
       <div>{description}</div>
@@ -119,6 +117,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const pkg_name = decodeURIComponent(undecodedString);
 
   return {
-    title: `${pkg_name} | npm stats`,
+    title: `${pkg_name} - Npm Stats`,
   };
 }
