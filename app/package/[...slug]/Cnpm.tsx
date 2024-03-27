@@ -3,7 +3,20 @@ import { lastMonthRange } from "@/_libs/func";
 import NpmLineChart from "@/_component/NpmLineChart";
 import PieChart from "@/_component/PieChart";
 
-async function getCnpmData(range, pkg_name) {
+interface cnpm_data {
+  downloads: {
+    day: string;
+    downloads: number;
+  }[];
+  versions: {
+    [version: string]: {
+      day: string;
+      downloads: number;
+    }[];
+  };
+}
+
+async function getCnpmData(range: string, pkg_name: string): Promise<cnpm_data> {
   const res = await fetch(`https://registry.npmmirror.com/downloads/range/${range}/${pkg_name}`);
   // The return value is *not* serialized
   // You can return Date, Map, Set, etc.
@@ -15,7 +28,7 @@ async function getCnpmData(range, pkg_name) {
   return res.json();
 }
 
-function getCnpmMonthData(range, data, pkg_name) {
+function getCnpmMonthData(range: string, data: cnpm_data["downloads"], pkg_name: string) {
   const [range_start, range_end] = range.split(":");
   const range_start_index = data.findIndex((e) => e.day === range_start);
   const range_end_index = data.findIndex((e) => e.day === range_end);
@@ -28,7 +41,7 @@ function getCnpmMonthData(range, data, pkg_name) {
   };
 }
 
-function getMajorList(data) {
+function getMajorList(data: cnpm_data["versions"]) {
   const newSet = new Set();
   for (const key of Object.keys(data)) {
     newSet.add(parseInt(key.split(".")[0]));
@@ -36,7 +49,7 @@ function getMajorList(data) {
   return [...newSet];
 }
 
-function getCnpmWeekData(data, pkg_name) {
+function getCnpmWeekData(data: cnpm_data["versions"], pkg_name: string) {
   const major_list = getMajorList(data);
   const entried_data = Object.entries(data);
 
@@ -67,12 +80,12 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
   const cnpm_week_data = getCnpmWeekData(cnpm_data.versions, pkg_name);
 
   return (
-    <div className="flex flex-col gap-2">
-      <h3 className=" m-auto bg-slate-100 border-2 px-2 rounded mt-4">CNPM</h3>
+    <div className='flex flex-col gap-2'>
+      <h3 className=' m-auto bg-slate-100 border-2 px-2 rounded mt-4'>CNPM</h3>
 
-      <div className="flex gap-2"></div>
+      <div className='flex gap-2'></div>
 
-      <div className="h-[300px]">
+      <div className='h-[300px]'>
         <NpmLineChart data={cnpm_month_data}></NpmLineChart>
       </div>
 
@@ -87,18 +100,10 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
             : cnpm_week_data.length < 30
             ? "h-[600px] md:h-[600px]"
             : ` h-[600px] md:h-[600px]`
-        }
-      >
+        }>
         {" "}
         <PieChart data={cnpm_week_data}></PieChart>
       </div>
     </div>
   );
 }
-// export async function generateStaticParams() {
-//   const arr = projects_data.map((project) => {
-//     const project_name = project.name?.split("/");
-//     return { slug: project_name };
-//   });
-//   return arr;
-// }

@@ -1,6 +1,5 @@
 import MultiPkgChart from "../../_component/MultiPkgChart";
 import { getTag, TAGS, PKG_META, getPkgMeta, getPkgTag } from "@/_libs/func";
-import Link from "next/link";
 export default async function App({ params }: { params: { slug: string } }) {
   const tag_name = decodeURIComponent(decodeURIComponent(params.slug));
   let tag_data;

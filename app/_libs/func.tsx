@@ -2,7 +2,7 @@ import raw_data from "@/_data/raw_data.json";
 import pkg_meta from "@/_data/pkg_meta.json";
 import cnpm_data from "@/_data/cnpm_data.json";
 
-export const delay = (ms: string) => new Promise((resolve) => setTimeout(resolve, ms));
+export const delay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 
 // export const fetcher = (...args: string[]) =>
 //   fetch(...args).then((res) => res.json());

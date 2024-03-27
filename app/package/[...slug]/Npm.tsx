@@ -4,19 +4,23 @@ import PieChart from "@/_component/PieChart";
 
 import NpmLineChart from "@/_component/NpmLineChart";
 
-function getMajorList(remoteData) {
+function getMajorList(remoteData: NpmDownloadData) {
   const newSet = new Set();
   for (const key of Object.keys(remoteData.downloads)) {
     newSet.add(parseInt(key.split(".")[0]));
   }
   return [...newSet];
 }
+interface NpmDownloadData {
+  package: string;
+  downloads: {
+    [version: string]: number;
+  };
+}
 
-async function getNpmData(pkg_name) {
+async function getNpmData(pkg_name: string): Promise<NpmDownloadData> {
   const encode_name = pkg_name.replace(/\//g, "%2F");
-  const res = await fetch(
-    `https://api.npmjs.org/versions/${encode_name}/last-week`
-  );
+  const res = await fetch(`https://api.npmjs.org/versions/${encode_name}/last-week`);
   // The return value is *not* serialized
   // You can return Date, Map, Set, etc.
 
@@ -27,11 +31,18 @@ async function getNpmData(pkg_name) {
 
   return res.json();
 }
+interface DownloadData {
+  start: string;
+  end: string;
+  package: string;
+  downloads: {
+    downloads: number;
+    day: string;
+  }[];
+}
 
-async function getNpmDownloads(pkg_name, lastMonthRange) {
-  const res = await fetch(
-    `https://api.npmjs.org/downloads/range/${lastMonthRange}/${pkg_name}`
-  );
+async function getNpmDownloads(pkg_name: string, lastMonthRange: string): Promise<DownloadData> {
+  const res = await fetch(`https://api.npmjs.org/downloads/range/${lastMonthRange}/${pkg_name}`);
   // The return value is *not* serialized
   // You can return Date, Map, Set, etc.
 
@@ -55,9 +66,7 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
 
   const pie_data = major_list
     .map((major) => {
-      const result = entries_data
-        .filter(([key]) => key.startsWith(`${major}.`))
-        .reduce((acc, [, value]) => (acc += value), 0);
+      const result = entries_data.filter(([key]) => key.startsWith(`${major}.`)).reduce((acc, [, value]) => (acc += value), 0);
       return { version: `${pkg_name} ${major}`, count: result };
     })
     .sort((a, b) => b.count - a.count);
@@ -95,10 +104,3 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
     </div>
   );
 }
-// export async function generateStaticParams() {
-//   const arr = projects_data.map((project) => {
-//     const project_name = project.name?.split("/");
-//     return { slug: project_name };
-//   });
-//   return arr;
-// }
