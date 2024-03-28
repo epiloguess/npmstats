@@ -1,7 +1,9 @@
 import Link from "next/link";
-import {  TAGS, getPkgTag } from "@/_libs/func";
+import { TAGS, getPkgTag,getRealMeta } from "@/_libs/func";
 
-import MultiPkgChart from '@/_component/MultiPkgChart'
+import MultiPkgChart from "@/_component/MultiPkgChart";
+
+
 
 export default async function App({ params }: { params: { slug: string } }) {
   const tag_name = decodeURIComponent(decodeURIComponent(params.slug));
@@ -23,10 +25,10 @@ export default async function App({ params }: { params: { slug: string } }) {
             ? "h-[800px] md:h-[600px]"
             : ` h-[1200px] md:h-[600px]`
         }>
-        <MultiPkgChart pkg_list={tag_data.projects.slice(0,5)}></MultiPkgChart>
+        <MultiPkgChart pkg_list={tag_data.projects.slice(0, 5)}></MultiPkgChart>
       </div>
 
-      {tag_data.projects.map((project) => (
+      {tag_data.projects.map(async (project) => (
         <div key={project} className=' border-b px-2 py-1 rounded flex flex-col gap-2 '>
           <div className='md:flex justify-between gap-2 items-center'>
             <div className='py-1'>
@@ -44,16 +46,17 @@ export default async function App({ params }: { params: { slug: string } }) {
             </div>
           </div>
 
-          {/* <p className=' overflow-auto'>{getPkgMeta(project)?.description}</p> */}
+          <Suspense fallback={<div>Loading ...</div>}>
+            <p className=' overflow-auto'>{(await getRealMeta(project)).description}</p>
+          </Suspense>
         </div>
       ))}
     </div>
   );
 }
 
-
-
 import type { Metadata } from "next";
+import { Suspense } from "react";
 
 type Props = {
   params: { slug: string };

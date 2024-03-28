@@ -16,7 +16,7 @@ function HomePage() {
       {/* 搜索图标 */}
       {!isSearchVisible && (
         <div
-          className=' m-auto border rounded-lg   w-[300px] md:w-[400px] lg:w-[600px] py-1
+          className=' m-auto border rounded-lg my-2  w-[300px] md:w-[400px] lg:w-[600px] py-1
       '>
           <input className='w-full' onClick={toggleSearchVisibility}></input>
         </div>

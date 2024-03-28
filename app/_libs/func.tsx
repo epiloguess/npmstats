@@ -108,3 +108,48 @@ function getTags() {
 }
 
 export const TAGS = getTags();
+
+
+interface NpmPackage {
+  name: string;
+  description: string;
+  links: {
+    npm: string;
+    homepage: string;
+    repository?: string;
+    bugs: string;
+  };
+}
+
+interface NpmSearchResult {
+  objects: {
+    package: NpmPackage;
+
+    score: {
+      detail: {
+        popularity: number;
+      };
+    };
+  }[];
+  total: number;
+}
+
+async function getNpmMeta(pkg_name: string): Promise<NpmSearchResult> {
+  const res = await fetch(`https://registry.npmjs.org/-/v1/search?text=${pkg_name}`);
+
+  if (!res.ok) {
+    // This will activate the closest `error.js` Error Boundary
+    throw new Error("Failed to fetch getNpmMeta");
+  }
+  return res.json();
+}
+
+export async function getRealMeta(pkg_name: string) {
+  let { objects: npm_meta } = await getNpmMeta(pkg_name);
+  let package_meta = npm_meta.find((e) => e.package.name === pkg_name)!;
+  let {
+    description,
+    links: { repository },
+  } = package_meta.package;
+  return { package: pkg_name, description, repository };
+}
