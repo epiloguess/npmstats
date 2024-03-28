@@ -4,8 +4,7 @@ import { TAGS } from "@/_libs/func";
 export default async function Home() {
   return (
     <main className='flex min-h-screen flex-col items-center justify-between '>
-      {/* <NpmStatisticsSVG  ></NpmStatisticsSVG> */}
-      {/* <SearchFromNpm></SearchFromNpm> */}
+
       <div className='md:grid mb-2   md:grid-cols-2 lg:grid-cols-3 gap-4'>
         {TAGS.map((tag) => {
           if (tag.projects.length > 5) {
