@@ -4,7 +4,6 @@ export default function MdxLayout({ children }: { children: React.ReactNode }) {
     <div
       className="
   prose max-w-none
-  prose-headings:font-bold 
   prose-h3:text-2xl prose-h4:text-xl prose-h5:text-lg
   prose-h3:border-b prose-h3:border-gray-300 prose-h3:my-4 prose-h3:pb-0.5 
 
