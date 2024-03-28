@@ -10,7 +10,7 @@ export default function App() {
           </Link>
         </h1>
         <a href="https://github.com/epiloguess/npm-stats" target="_blank">
-          <GithubLogo width='24' height='24'></GithubLogo>
+          <GithubLogo width='32' height='32'></GithubLogo>
         </a>
       </div>
 
