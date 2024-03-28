@@ -5,7 +5,7 @@ import Npm from "./Npm";
 import Link from "next/link";
 import Npm_logo from "./n.svg";
 import Github_logo from "./github-mark.svg";
-
+import MultiPkgChart from "@/_component/MultiPkgChart";
 interface NpmPackage {
   name: string;
   description: string;
@@ -51,11 +51,11 @@ async function getRealMeta(pkg_name: string) {
       <div className='flex items-center gap-2'>
         <h2 className=' text-orange-500 text-2xl font-bold '>{pkg_name}</h2>
         <a href={`https://www.npmjs.com/package/${pkg_name}`}>
-          <Npm_logo width="24" height="24" ></Npm_logo>
+          <Npm_logo width='24' height='24'></Npm_logo>
         </a>
         {repository && (
           <a href={repository}>
-            <Github_logo width="24" height="24" ></Github_logo>
+            <Github_logo width='24' height='24'></Github_logo>
           </a>
         )}
       </div>
@@ -87,21 +87,25 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
             ))}
         </div>
       </section>
-
-      <section>
-        <div className='md:flex gap-2'>
-          <div className='md:w-1/2'>
-            <Suspense fallback={<div className='text-center'>Loading ...</div>}>
-              <Cnpm params={params}></Cnpm>
-            </Suspense>
-          </div>
-          <div className='md:w-1/2 '>
-            <Suspense fallback={<div className=' text-center'>Loading ...</div>}>
-              <Npm params={params}></Npm>
-            </Suspense>
-          </div>
+      <Suspense fallback={<div className='text-center'>Loading ...</div>}>
+        <div className=' h-[300px]'>
+          <MultiPkgChart pkg_list={[pkg_name]}></MultiPkgChart>
         </div>
-      </section>
+        <section>
+          <div className='md:flex gap-2'>
+            <div className='md:w-1/2'>
+              <Suspense fallback={<div className='text-center'>Loading ...</div>}>
+                <Cnpm params={params}></Cnpm>
+              </Suspense>
+            </div>
+            <div className='md:w-1/2 '>
+              <Suspense fallback={<div className=' text-center'>Loading ...</div>}>
+                <Npm params={params}></Npm>
+              </Suspense>
+            </div>
+          </div>
+        </section>
+      </Suspense>
     </div>
   );
 }

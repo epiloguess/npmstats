@@ -41,7 +41,7 @@ const SearchInput: React.FC<{}> = (props) => {
       defaultActiveFirstOption={false}>
       {data &&
         !error &&
-        data.objects.slice(0, 7).map((item: any) => (
+        data.objects.map((item: any) => (
           <Select.Option key={item.package.name} value={item.package.name}>
             <Link className=' hover:text-black hover:no-underline' href={`/package/${item.package.name}`}>
               <div>{item.package.name}</div>

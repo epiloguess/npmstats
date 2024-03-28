@@ -1,13 +1,11 @@
-import MultiPkgChart from "../../_component/MultiPkgChart";
-import { getTag, TAGS, PKG_META, getPkgMeta, getPkgTag } from "@/_libs/func";
+import {  TAGS, getPkgTag } from "@/_libs/func";
+
+import MultiPkgChart from '@/_component/MultiPkgChart'
+
 export default async function App({ params }: { params: { slug: string } }) {
   const tag_name = decodeURIComponent(decodeURIComponent(params.slug));
-  let tag_data;
-  try {
-    tag_data = await getTag(tag_name);
-  } catch (err) {
-    console.error("/tags/[slug],tag_data", err);
-  }
+
+  const tag_data = TAGS.find((tag) => tag.tag === tag_name)!;
 
   return (
     <div className=' flex  flex-col justify-center gap-2'>
@@ -22,10 +20,9 @@ export default async function App({ params }: { params: { slug: string } }) {
             ? "h-[600px]"
             : tag_data.projects.length < 30
             ? "h-[800px] md:h-[600px]"
-            : ` h-[1200px] md:h-[600px]` 
-              
+            : ` h-[1200px] md:h-[600px]`
         }>
-        <MultiPkgChart  data={tag_data.chartData}></MultiPkgChart>
+        <MultiPkgChart pkg_list={tag_data.projects.slice(0,5)}></MultiPkgChart>
       </div>
 
       {tag_data.projects.map((project) => (
@@ -46,32 +43,23 @@ export default async function App({ params }: { params: { slug: string } }) {
             </div>
           </div>
 
-          <p className=' overflow-auto'>{getPkgMeta(project)?.description}</p>
+          {/* <p className=' overflow-auto'>{getPkgMeta(project)?.description}</p> */}
         </div>
       ))}
     </div>
   );
 }
 
-export async function generateStaticParams() {
-  const arr = TAGS.map((tag) => {
-    const encode_url = encodeURIComponent(tag.tag);
-    return { slug: encode_url };
-  });
 
-  return arr;
-}
 
-import type { Metadata, ResolvingMetadata } from "next";
+import type { Metadata } from "next";
 
 type Props = {
   params: { slug: string };
-  searchParams: { [key: string]: string | string[] | undefined };
 };
 
-export async function generateMetadata({ params, searchParams }: Props, parent: ResolvingMetadata): Promise<Metadata> {
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const tag_name = decodeURIComponent(decodeURIComponent(params.slug));
-
 
   return {
     title: `${tag_name} - Npm Stats`,

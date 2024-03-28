@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import SearchFromNpm from "@/_component/SearchFromNpm";
-
+import SearBox from "@/_component/SearchBox";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -12,22 +11,18 @@ export const metadata: Metadata = {
 
 import Nav from "./Nav";
 
-
-
-
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang='en'>
       <body className={`${inter.className} max-w-screen-xl m-auto px-6 md:px-24  pb-10 `}>
         <Nav />
-        <SearchFromNpm></SearchFromNpm>
+        <SearBox></SearBox>
 
         {children}
-
       </body>
     </html>
   );

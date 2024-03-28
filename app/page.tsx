@@ -1,4 +1,3 @@
-import React from "react";
 
 import { TAGS } from "@/_libs/func";
 

@@ -1,6 +1,5 @@
 import { lastMonthRange } from "@/_libs/func";
 
-import NpmLineChart from "@/_component/NpmLineChart";
 import PieChart from "@/_component/PieChart";
 
 interface cnpm_data {
@@ -26,19 +25,6 @@ async function getCnpmData(range: string, pkg_name: string): Promise<cnpm_data> 
     throw new Error("Failed to fetch data");
   }
   return res.json();
-}
-
-function getCnpmMonthData(range: string, data: cnpm_data["downloads"], pkg_name: string) {
-  const [range_start, range_end] = range.split(":");
-  const range_start_index = data.findIndex((e) => e.day === range_start);
-  const range_end_index = data.findIndex((e) => e.day === range_end);
-  const ranged_downloads = data.slice(range_start_index, range_end_index + 1);
-  return {
-    start: range_start,
-    end: range_end,
-    package: pkg_name,
-    downloads: ranged_downloads,
-  };
 }
 
 function getMajorList(data: cnpm_data["versions"]) {
@@ -72,22 +58,14 @@ function getCnpmWeekData(data: cnpm_data["versions"], pkg_name: string) {
 export default async function Page({ params }: { params: { slug: string[] } }) {
   const undecodedString = params.slug.join("/");
   const pkg_name = decodeURIComponent(undecodedString);
-  //
 
   const cnpm_data = await getCnpmData(lastMonthRange, pkg_name);
-  const cnpm_month_data = getCnpmMonthData(lastMonthRange, cnpm_data.downloads, pkg_name);
 
   const cnpm_week_data = getCnpmWeekData(cnpm_data.versions, pkg_name);
 
   return (
     <div className='flex flex-col gap-2'>
-      <h3 className=' m-auto bg-slate-100 border-2 px-2 rounded mt-4'>CNPM</h3>
-
-      <div className='flex gap-2'></div>
-
-      <div className='h-[300px]'>
-        <NpmLineChart data={cnpm_month_data}></NpmLineChart>
-      </div>
+      <h3 className=' m-auto bg-gray-50 border-2 px-2 rounded mt-4'>CNPM</h3>
 
       <div
         className={
@@ -101,7 +79,6 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
             ? "h-[600px] md:h-[600px]"
             : ` h-[600px] md:h-[600px]`
         }>
-        {" "}
         <PieChart data={cnpm_week_data}></PieChart>
       </div>
     </div>

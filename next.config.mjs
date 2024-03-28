@@ -35,7 +35,7 @@ const nextConfig = {
     // Dangerously allow production builds to successfully complete even if
     // your project has type errors.
     // !! WARN !!
-    ignoreBuildErrors: true,
+    // ignoreBuildErrors: true,
   },
   // output: 'export',
 
@@ -59,4 +59,12 @@ const withMDX = createMDX({
 
 const mdxConfig = withMDX(nextConfig)
 
-export default mdxConfig;
+import withBundleAnalyzer from '@next/bundle-analyzer';
+
+const withBundleAnalyzerConfig = withBundleAnalyzer({
+  enabled: process.env.ANALYZE === 'true',
+});
+
+const bunderConfig = withBundleAnalyzerConfig(mdxConfig)
+
+export default bunderConfig;
