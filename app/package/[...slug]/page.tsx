@@ -37,7 +37,7 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
   return (
     <div className='flex flex-col gap-2'>
       <section className='flex flex-col gap-2'>
-        <Suspense fallback={<div className='text-center'>Loading ...</div>}>
+        <Suspense fallback={<div className=''>Loading ...</div>}>
           <RealPkgMeta pkg_name={pkg_name}></RealPkgMeta>
         </Suspense>
 

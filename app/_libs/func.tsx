@@ -28,7 +28,6 @@ const get30DaysAgoDate = () => {
 };
 export const lastMonthRange = get30DaysAgoDate();
 
-
 export function getRandomRGB() {
   const getRandomNumber = () => Math.floor(Math.random() * 155) + 50; // 调整范围到 50 到 205 之间的随机整数
 
@@ -62,14 +61,14 @@ export function getChartOpt() {
         text: "关闭较大比重的标签以放大密集区域",
       },
       tooltip: {
-        mode: "nearest"  as const,
+        mode: "nearest" as const,
         intersect: false, // 如果为 true，则仅当鼠标位置与元素相交时才应用工具提示模式。如果为 false，则将始终应用该模式。
         displayColors: true,
         multiKeyBackground: "transparent",
       },
     },
     hover: {
-      mode: "index"  as const,
+      mode: "index" as const,
       intersect: false,
     },
   };
@@ -101,15 +100,43 @@ function getTags() {
   // 对categorizedData进行倒序排序并转换为数组
   const sortedCategorizedData = Object.entries(categorizedData)
     .sort((a, b) => b[1].length - a[1].length)
-    .map(([tag, projects]) => {
-      return { tag, projects };
+    .map(([tag, packages]) => {
+      return { tag, packages };
     });
   return sortedCategorizedData;
 }
 
+//  export async function getTags() {
+//   const data = Object.entries(raw_data);
+//   // 生成按照 tags 分类的 JSON
+//   const categorizedData = data.reduce((acc:{ [key: string]: string[] }, [pkg_name, tags]) => {
+//     tags.forEach((tag) => {
+//       if (!acc[tag]) {
+//         acc[tag] = [];
+//       }
+//       acc[tag].push(pkg_name);
+//     });
+//     return acc;
+//   }, {});
+
+//   // 对 categorizedData 进行倒序排序
+//   const sortedCategorizedData = Object.entries(categorizedData).sort((a, b) => b[1].length - a[1].length);
+
+//   // 获取每个项目的下载量并按照下载量排序
+//   const newData = [];
+//   for (const [tag, projects] of sortedCategorizedData) {
+//     const projectsWithDownloads = [];
+//     for (const pkg_name of projects) {
+//       const { downloads } = await getNpmDownloadsPoint(pkg_name);
+//       projectsWithDownloads.push({ pkg_name, downloads });
+//     }
+//     const sortedProjects = projectsWithDownloads.sort((a, b) => parseInt(b.downloads) - parseInt(a.downloads));
+//     newData.push({ tag, projects: sortedProjects.map((project) => project.pkg_name) });
+//   }
+//   return newData;
+// }
+
 export const TAGS = getTags();
-
-
 interface NpmPackage {
   name: string;
   description: string;
@@ -119,6 +146,7 @@ interface NpmPackage {
     repository?: string;
     bugs: string;
   };
+
 }
 
 interface NpmSearchResult {
@@ -151,5 +179,9 @@ export async function getRealMeta(pkg_name: string) {
     description,
     links: { repository },
   } = package_meta.package;
-  return { package: pkg_name, description, repository };
+  let {
+    detail: { popularity },
+  } = package_meta.score;
+  return { pkg: pkg_name, description, repository, popularity };
 }
+

@@ -1,44 +1,51 @@
 import Link from "next/link";
-import { TAGS, getPkgTag,getRealMeta } from "@/_libs/func";
+import { getPkgTag, getRealMeta, TAGS } from "@/_libs/func";
+import { Suspense } from "react";
 
 import MultiPkgChart from "@/_component/MultiPkgChart";
 
-
-
+async function RealMeta({ description }: { description: string }) {
+  return <p className=' overflow-auto'>{description}</p>;
+}
 export default async function App({ params }: { params: { slug: string } }) {
   const tag_name = decodeURIComponent(decodeURIComponent(params.slug));
 
-  const tag_data = TAGS.find((tag) => tag.tag === tag_name)!;
+  const { tag, packages } = TAGS.find(({ tag }) => tag === tag_name)!;
+  const packages_meta = await Promise.all(packages.map(async (pkg_name) => await getRealMeta(pkg_name)));
+  let sorted_packages_meta = packages_meta.toSorted((a, b) => b.popularity - a.popularity);
+  const pkg_list = sorted_packages_meta.map((pkg) => pkg.pkg);
 
   return (
     <div className=' flex  flex-col justify-center gap-2'>
-      <div className=' text-orange-500 text-xl font-bold'># {tag_data?.tag}</div>
+      <div className=' text-orange-500 text-xl font-bold'># {tag}</div>
       <div
         className={
-          tag_data?.projects.length < 10
+          packages.length < 10
             ? "h-[400px]"
-            : tag_data.projects.length < 15
+            : packages.length < 15
             ? "h-[500px]"
-            : tag_data.projects.length < 20
+            : packages.length < 20
             ? "h-[600px]"
-            : tag_data.projects.length < 30
+            : packages.length < 30
             ? "h-[800px] md:h-[600px]"
             : ` h-[1200px] md:h-[600px]`
         }>
-        <MultiPkgChart pkg_list={tag_data.projects.slice(0, 5)}></MultiPkgChart>
+        <Suspense fallback={<div className='text-center'>Loading ...</div>}>
+          <MultiPkgChart pkg_list={pkg_list.slice(0, 5)}></MultiPkgChart>
+        </Suspense>
       </div>
 
-      {tag_data.projects.map(async (project) => (
-        <div key={project} className=' border-b px-2 py-1 rounded flex flex-col gap-2 '>
+      {sorted_packages_meta.map(({ pkg, description }) => (
+        <div key={pkg} className=' border-b px-2 py-1 rounded flex flex-col gap-2 '>
           <div className='md:flex justify-between gap-2 items-center'>
             <div className='py-1'>
-              <Link prefetch={false} href={`/package/${project}`} className=' text-orange-400  font-bold'>
-                {project}
+              <Link prefetch={false} href={`/package/${pkg}`} className=' text-orange-400  font-bold'>
+                {pkg}
               </Link>
             </div>
 
             <div className='flex md:flex-row-reverse gap-2 flex-wrap'>
-              {getPkgTag(project).map((e) => (
+              {getPkgTag(pkg).map((e) => (
                 <Link prefetch={false} className=' bg-gray-300 hover:bg-gray-400 rounded px-2 ' href={`/tags/${e}`} key={e}>
                   {e}
                 </Link>
@@ -46,9 +53,7 @@ export default async function App({ params }: { params: { slug: string } }) {
             </div>
           </div>
 
-          <Suspense fallback={<div>Loading ...</div>}>
-            <p className=' overflow-auto'>{(await getRealMeta(project)).description}</p>
-          </Suspense>
+          <RealMeta description={description}></RealMeta>
         </div>
       ))}
     </div>
@@ -56,7 +61,6 @@ export default async function App({ params }: { params: { slug: string } }) {
 }
 
 import type { Metadata } from "next";
-import { Suspense } from "react";
 
 type Props = {
   params: { slug: string };
