@@ -81,7 +81,7 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
             tags.map((tag: string) => (
               <div key={tag} className=' bg-gray-300 hover:bg-gray-400  px-2 rounded'>
                 <p>
-                  <Link href={`/tags/${tag}`}>{tag}</Link>
+                  <Link prefetch={false} href={`/tags/${tag}`}>{tag}</Link>
                 </p>
               </div>
             ))}
