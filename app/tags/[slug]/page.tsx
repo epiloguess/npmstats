@@ -10,7 +10,7 @@ function RealMeta({ description }: { description: string }) {
 export default async function App({ params }: { params: { slug: string } }) {
   const tag_name = decodeURIComponent(decodeURIComponent(params.slug));
 
-  const { tag, packages } = TAGS.find(({ tag }) => tag === tag_name)!;
+  const { packages } = TAGS.find(({ tag }) => tag === tag_name)!;
   const packages_meta = await Promise.all(
     packages.map(async (pkg_name) => await getRealMeta(pkg_name))
   );
@@ -21,7 +21,7 @@ export default async function App({ params }: { params: { slug: string } }) {
 
   return (
     <div className=' flex  flex-col justify-center gap-2'>
-      <div className=' text-orange-500 text-xl font-bold'># {tag}</div>
+      <div className=' text-orange-500 text-xl font-bold'># {tag_name}</div>
       <div
         className={
           packages.length < 10
@@ -34,7 +34,7 @@ export default async function App({ params }: { params: { slug: string } }) {
             ? "h-[800px] md:h-[600px]"
             : ` h-[1200px] md:h-[600px]`
         }>
-        <Suspense fallback={<div className='text-center'>Loading ...</div>}>
+        <Suspense fallback={<div className=' m-auto w-fit'>Loading ...</div>}>
           <MultiPkgChart pkg_list={pkg_list.slice(0, 5)}></MultiPkgChart>
         </Suspense>
       </div>

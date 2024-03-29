@@ -56,7 +56,7 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
             ))}
         </div>
       </section>
-      <Suspense fallback={<div className='text-center'>Loading ...</div>}>
+      <Suspense fallback={<div className=' m-auto w-fit h-[300px]'>Loading ...</div>}>
         <div className=' h-[300px]'>
           <MultiPkgChart pkg_list={[pkg_name]}></MultiPkgChart>
         </div>
