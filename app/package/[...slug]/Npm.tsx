@@ -1,6 +1,4 @@
-
 import PieChart from "@/_component/PieChart";
-
 
 function getMajorList(remoteData: NpmDownloadData) {
   const newSet = new Set();
@@ -18,7 +16,9 @@ interface NpmDownloadData {
 
 async function getNpmData(pkg_name: string): Promise<NpmDownloadData> {
   const encode_name = pkg_name.replace(/\//g, "%2F");
-  const res = await fetch(`https://api.npmjs.org/versions/${encode_name}/last-week`);
+  const res = await fetch(
+    `https://api.npmjs.org/versions/${encode_name}/last-week`
+  );
   // The return value is *not* serialized
   // You can return Date, Map, Set, etc.
 
@@ -29,8 +29,6 @@ async function getNpmData(pkg_name: string): Promise<NpmDownloadData> {
 
   return res.json();
 }
-
-
 
 export default async function Page({ params }: { params: { slug: string[] } }) {
   const undecodedString = params.slug.join("/");
@@ -44,11 +42,12 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
 
   const pie_data = major_list
     .map((major) => {
-      const result = entries_data.filter(([key]) => key.startsWith(`${major}.`)).reduce((acc, [, value]) => (acc += value), 0);
+      const result = entries_data
+        .filter(([key]) => key.startsWith(`${major}.`))
+        .reduce((acc, [, value]) => (acc += value), 0);
       return { version: `${pkg_name} ${major}`, count: result };
     })
     .sort((a, b) => b.count - a.count);
-
 
   return (
     <div className='flex flex-col gap-2 '>

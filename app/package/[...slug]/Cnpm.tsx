@@ -15,8 +15,13 @@ interface cnpm_data {
   };
 }
 
-async function getCnpmData(range: string, pkg_name: string): Promise<cnpm_data> {
-  const res = await fetch(`https://registry.npmmirror.com/downloads/range/${range}/${pkg_name}`);
+async function getCnpmData(
+  range: string,
+  pkg_name: string
+): Promise<cnpm_data> {
+  const res = await fetch(
+    `https://registry.npmmirror.com/downloads/range/${range}/${pkg_name}`
+  );
   // The return value is *not* serialized
   // You can return Date, Map, Set, etc.
 
@@ -44,7 +49,10 @@ function getCnpmWeekData(data: cnpm_data["versions"], pkg_name: string) {
       const result = entried_data
         .filter(([version]) => version.startsWith(`${major}.`))
         .reduce((acc, [, downloads]) => {
-          const alldownloads = downloads.reduce((acc, { downloads }) => (acc += downloads), 0);
+          const alldownloads = downloads.reduce(
+            (acc, { downloads }) => (acc += downloads),
+            0
+          );
           acc += alldownloads;
           return acc;
         }, 0);

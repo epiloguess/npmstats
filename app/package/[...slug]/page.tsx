@@ -44,7 +44,9 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
         <div className='flex gap-2 flex-wrap'>
           {tags &&
             tags.map((tag: string) => (
-              <div key={tag} className=' bg-gray-300 hover:bg-gray-400  px-2 rounded'>
+              <div
+                key={tag}
+                className=' bg-gray-300 hover:bg-gray-400  px-2 rounded'>
                 <p>
                   <Link prefetch={false} href={`/tags/${tag}`}>
                     {tag}
@@ -68,7 +70,8 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
             </Suspense>
           </div>
           <div className='md:w-1/2 '>
-            <Suspense fallback={<div className=' text-center'>Loading ...</div>}>
+            <Suspense
+              fallback={<div className=' text-center'>Loading ...</div>}>
               <Npm params={params}></Npm>
             </Suspense>
           </div>

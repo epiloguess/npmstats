@@ -24,7 +24,8 @@ function HomePage() {
 
       {/* 当搜索框可见时，加载搜索框组件 */}
       {isSearchVisible && (
-        <Suspense fallback={<div className=' m-auto max-w-fit'>Loading...</div>}>
+        <Suspense
+          fallback={<div className=' m-auto max-w-fit'>Loading...</div>}>
           <SearchFromNpm />
         </Suspense>
       )}

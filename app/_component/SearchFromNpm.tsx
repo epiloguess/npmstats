@@ -6,7 +6,11 @@ let timeout: ReturnType<typeof setTimeout> | null;
 import useSWRImmutable from "swr/immutable";
 const fetcher = (url: string) => fetch(url).then((res) => res.json());
 
-const debounceFetch = (value: string, setQuery: Function, setFetching: Function) => {
+const debounceFetch = (
+  value: string,
+  setQuery: Function,
+  setFetching: Function
+) => {
   if (timeout) {
     clearTimeout(timeout);
     timeout = null;
@@ -22,7 +26,10 @@ const debounceFetch = (value: string, setQuery: Function, setFetching: Function)
 const SearchInput: React.FC<{}> = (props) => {
   const [fetching, setFetching] = useState(false);
   const [query, setQuery] = useState("");
-  const { data, error } = useSWRImmutable(query ? `https://registry.npmjs.org/-/v1/search?text=${query}` : null, fetcher);
+  const { data, error } = useSWRImmutable(
+    query ? `https://registry.npmjs.org/-/v1/search?text=${query}` : null,
+    fetcher
+  );
 
   const handleSearch = (newValue: string) => {
     debounceFetch(newValue, setQuery, setFetching); // 传递 setLoading
@@ -43,7 +50,9 @@ const SearchInput: React.FC<{}> = (props) => {
         !error &&
         data.objects.map((item: any) => (
           <Select.Option key={item.package.name} value={item.package.name}>
-            <Link className=' hover:text-black hover:no-underline' href={`/package/${item.package.name}`}>
+            <Link
+              className=' hover:text-black hover:no-underline'
+              href={`/package/${item.package.name}`}>
               <div>{item.package.name}</div>
               <div>{item.package.description}</div>
             </Link>

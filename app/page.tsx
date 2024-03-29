@@ -9,13 +9,19 @@ export default async function Home() {
           if (packages.length > 5) {
             return (
               <div className='   ' key={tag}>
-                <Link prefetch={false} href={`/tags/${tag}`} className=' hover:underline font-bold'>
+                <Link
+                  prefetch={false}
+                  href={`/tags/${tag}`}
+                  className=' hover:underline font-bold'>
                   {tag}
                 </Link>
                 <ul className=' flex flex-wrap gap-1 '>
                   {packages.slice(0, 5).map((pkg) => (
                     <li key={pkg}>
-                      <Link prefetch={false} className='text-[#0074d9] hover:underline' href={`/package/${pkg}`}>
+                      <Link
+                        prefetch={false}
+                        className='text-[#0074d9] hover:underline'
+                        href={`/package/${pkg}`}>
                         {pkg},
                       </Link>
                     </li>
@@ -23,7 +29,10 @@ export default async function Home() {
                   {packages.length > 5 && (
                     <li>
                       and{" "}
-                      <Link prefetch={false} className='text-blue-500 hover:underline' href={`/tags/${tag}`}>
+                      <Link
+                        prefetch={false}
+                        className='text-blue-500 hover:underline'
+                        href={`/tags/${tag}`}>
                         {packages.length - 5} more
                       </Link>{" "}
                     </li>

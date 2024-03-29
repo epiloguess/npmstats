@@ -87,15 +87,18 @@ export function getPkgTag(pkg_name: string) {
 function getTags() {
   const data = Object.entries(raw_data);
   // 生成按照tags分类的JSON
-  const categorizedData = data.reduce((acc: { [key: string]: string[] }, [pkg_name, tags]) => {
-    tags.forEach((tag) => {
-      if (!acc[tag]) {
-        acc[tag] = [];
-      }
-      acc[tag].push(pkg_name);
-    });
-    return acc;
-  }, {});
+  const categorizedData = data.reduce(
+    (acc: { [key: string]: string[] }, [pkg_name, tags]) => {
+      tags.forEach((tag) => {
+        if (!acc[tag]) {
+          acc[tag] = [];
+        }
+        acc[tag].push(pkg_name);
+      });
+      return acc;
+    },
+    {}
+  );
 
   // 对categorizedData进行倒序排序并转换为数组
   const sortedCategorizedData = Object.entries(categorizedData)
@@ -105,36 +108,6 @@ function getTags() {
     });
   return sortedCategorizedData;
 }
-
-//  export async function getTags() {
-//   const data = Object.entries(raw_data);
-//   // 生成按照 tags 分类的 JSON
-//   const categorizedData = data.reduce((acc:{ [key: string]: string[] }, [pkg_name, tags]) => {
-//     tags.forEach((tag) => {
-//       if (!acc[tag]) {
-//         acc[tag] = [];
-//       }
-//       acc[tag].push(pkg_name);
-//     });
-//     return acc;
-//   }, {});
-
-//   // 对 categorizedData 进行倒序排序
-//   const sortedCategorizedData = Object.entries(categorizedData).sort((a, b) => b[1].length - a[1].length);
-
-//   // 获取每个项目的下载量并按照下载量排序
-//   const newData = [];
-//   for (const [tag, projects] of sortedCategorizedData) {
-//     const projectsWithDownloads = [];
-//     for (const pkg_name of projects) {
-//       const { downloads } = await getNpmDownloadsPoint(pkg_name);
-//       projectsWithDownloads.push({ pkg_name, downloads });
-//     }
-//     const sortedProjects = projectsWithDownloads.sort((a, b) => parseInt(b.downloads) - parseInt(a.downloads));
-//     newData.push({ tag, projects: sortedProjects.map((project) => project.pkg_name) });
-//   }
-//   return newData;
-// }
 
 export const TAGS = getTags();
 interface NpmPackage {
@@ -146,7 +119,6 @@ interface NpmPackage {
     repository?: string;
     bugs: string;
   };
-
 }
 
 interface NpmSearchResult {
@@ -163,7 +135,9 @@ interface NpmSearchResult {
 }
 
 async function getNpmMeta(pkg_name: string): Promise<NpmSearchResult> {
-  const res = await fetch(`https://registry.npmjs.org/-/v1/search?text=${pkg_name}`);
+  const res = await fetch(
+    `https://registry.npmjs.org/-/v1/search?text=${pkg_name}`
+  );
 
   if (!res.ok) {
     // This will activate the closest `error.js` Error Boundary
@@ -184,4 +158,3 @@ export async function getRealMeta(pkg_name: string) {
   } = package_meta.score;
   return { pkg: pkg_name, description, repository, popularity };
 }
-

@@ -12,8 +12,13 @@ interface DownloadData {
   }[];
 }
 
-async function getNpmDownloads(pkg_name: string, lastMonthRange: string): Promise<DownloadData> {
-  const res = await fetch(`https://api.npmjs.org/downloads/range/${lastMonthRange}/${pkg_name}`);
+async function getNpmDownloads(
+  pkg_name: string,
+  lastMonthRange: string
+): Promise<DownloadData> {
+  const res = await fetch(
+    `https://api.npmjs.org/downloads/range/${lastMonthRange}/${pkg_name}`
+  );
   // The return value is *not* serialized
   // You can return Date, Map, Set, etc.
 
@@ -38,8 +43,13 @@ interface cnpm_data {
   };
 }
 
-async function getCnpmDownloads(range: string, pkg_name: string): Promise<cnpm_data> {
-  const res = await fetch(`https://registry.npmmirror.com/downloads/range/${range}/${pkg_name}`);
+async function getCnpmDownloads(
+  range: string,
+  pkg_name: string
+): Promise<cnpm_data> {
+  const res = await fetch(
+    `https://registry.npmmirror.com/downloads/range/${range}/${pkg_name}`
+  );
   // The return value is *not* serialized
   // You can return Date, Map, Set, etc.
 
@@ -50,7 +60,11 @@ async function getCnpmDownloads(range: string, pkg_name: string): Promise<cnpm_d
   return res.json();
 }
 
-function getCnpmMonthData(range: string, data: cnpm_data["downloads"], pkg_name: string) {
+function getCnpmMonthData(
+  range: string,
+  data: cnpm_data["downloads"],
+  pkg_name: string
+) {
   const [range_start, range_end] = range.split(":");
   const range_start_index = data.findIndex((e) => e.day === range_start);
   const range_end_index = data.findIndex((e) => e.day === range_end);
@@ -79,12 +93,15 @@ async function getNpmData(pkg_name: string) {
   return data_euqal;
 }
 export default async function App({ pkg_list }: { pkg_list: string[] }) {
-  const promises = pkg_list.flatMap((pkg_name) => [getCnpmData(pkg_name), getNpmData(pkg_name)]);
+  const promises = pkg_list.flatMap((pkg_name) => [
+    getCnpmData(pkg_name),
+    getNpmData(pkg_name),
+  ]);
 
   const data = await Promise.all(promises);
-  const data_sorted = data.sort((a,b)=>(b.downloads.at(-1)?.downloads! - a.downloads.at(-1)?.downloads!))
-
-  return (
-      <NpmLineChart data={data_sorted}></NpmLineChart>
+  const data_sorted = data.sort(
+    (a, b) => b.downloads.at(-1)?.downloads! - a.downloads.at(-1)?.downloads!
   );
+
+  return <NpmLineChart data={data_sorted}></NpmLineChart>;
 }

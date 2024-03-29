@@ -290,7 +290,21 @@
     "command-line",
     "text"
   ],
-  "@babel/core": ["6to5", "babel", "classes", "const", "es6", "harmony", "let", "modules", "transpile", "transpiler", "var", "babel-core", "compiler"],
+  "@babel/core": [
+    "6to5",
+    "babel",
+    "classes",
+    "const",
+    "es6",
+    "harmony",
+    "let",
+    "modules",
+    "transpile",
+    "transpiler",
+    "var",
+    "babel-core",
+    "compiler"
+  ],
   "type-fest": ["typescript", "types", "utility"],
   "ansi-styles": [
     "ansi",
@@ -314,9 +328,21 @@
     "command-line",
     "text"
   ],
-  "@typescript-eslint/parser": ["ast", "ecmascript", "typescript", "parser", "syntax", "eslint"],
+  "@typescript-eslint/parser": [
+    "ast",
+    "ecmascript",
+    "typescript",
+    "parser",
+    "syntax",
+    "eslint"
+  ],
   "prop-types": [],
-  "@typescript-eslint/eslint-plugin": ["eslint", "eslintplugin", "eslint-plugin", "typescript"],
+  "@typescript-eslint/eslint-plugin": [
+    "eslint",
+    "eslintplugin",
+    "eslint-plugin",
+    "typescript"
+  ],
   "regenerator-runtime": ["regenerator", "runtime", "generator", "async"],
   "wrap-ansi": [
     "wrap",
@@ -345,18 +371,47 @@
     "command-line",
     "text"
   ],
-  "emoji-regex": ["unicode", "regex", "regexp", "regular expressions", "code points", "symbols", "characters", "emoji"],
+  "emoji-regex": [
+    "unicode",
+    "regex",
+    "regexp",
+    "regular expressions",
+    "code points",
+    "symbols",
+    "characters",
+    "emoji"
+  ],
   "classnames": [],
   "eslint-plugin-react": ["eslint"],
   "json-schema-traverse": ["JSON-Schema", "traverse", "iterate"],
   "path-to-regexp": ["express", "regexp", "route", "routing"],
-  "diff": ["diff", "jsdiff", "compare", "patch", "text", "json", "css", "javascript"],
-  "autoprefixer": ["autoprefixer", "css", "prefix", "postcss", "postcss-plugin"],
+  "diff": [
+    "diff",
+    "jsdiff",
+    "compare",
+    "patch",
+    "text",
+    "json",
+    "css",
+    "javascript"
+  ],
+  "autoprefixer": [
+    "autoprefixer",
+    "css",
+    "prefix",
+    "postcss",
+    "postcss-plugin"
+  ],
   "@testing-library/jest-dom": ["testing", "dom", "jest", "jsdom"],
   "eslint-plugin-react-hooks": ["eslint"],
   "picomatch": ["glob", "match", "picomatch"],
   "y18n": ["i18n", "internationalization", "yargs"],
-  "@testing-library/user-event": ["react-testing-library", "dom-testing-library", "react", "testing"],
+  "@testing-library/user-event": [
+    "react-testing-library",
+    "dom-testing-library",
+    "react",
+    "testing"
+  ],
   "human-signals": [],
   "cross-fetch": [
     "fetch",
@@ -376,14 +431,48 @@
     "xhr",
     "ajax"
   ],
-  "follow-redirects": ["http", "https", "url", "redirect", "client", "location", "utility"],
+  "follow-redirects": [
+    "http",
+    "https",
+    "url",
+    "redirect",
+    "client",
+    "location",
+    "utility"
+  ],
   "chai": ["assertion", "assert", "testing", "chai"],
-  "parse-json": ["parse", "json", "graceful", "error", "message", "humanize", "friendly", "helpful", "string"],
+  "parse-json": [
+    "parse",
+    "json",
+    "graceful",
+    "error",
+    "message",
+    "humanize",
+    "friendly",
+    "helpful",
+    "string"
+  ],
   "csstype": ["css", "style", "typescript", "flow", "types"],
-  "fast-json-stable-stringify": ["json", "stringify", "deterministic", "hash", "stable"],
+  "fast-json-stable-stringify": [
+    "json",
+    "stringify",
+    "deterministic",
+    "hash",
+    "stable"
+  ],
   "react-router-dom": [],
   "graphql": ["graphql", "graphql-js"],
-  "postcss": ["css", "postcss", "rework", "preprocessor", "parser", "source map", "transform", "manipulation", "transpiler"],
+  "postcss": [
+    "css",
+    "postcss",
+    "rework",
+    "preprocessor",
+    "parser",
+    "source map",
+    "transform",
+    "manipulation",
+    "transpiler"
+  ],
   "fast-xml-parser": [
     "fast",
     "xml",
@@ -491,16 +580,61 @@
     "visit",
     "walk"
   ],
-  "json-stable-stringify-without-jsonify": ["json", "stringify", "deterministic", "hash", "sort", "stable"],
-  "react-transition-group": ["react", "transition", "addons", "transition-group", "animation", "css", "transitions"],
+  "json-stable-stringify-without-jsonify": [
+    "json",
+    "stringify",
+    "deterministic",
+    "hash",
+    "sort",
+    "stable"
+  ],
+  "react-transition-group": [
+    "react",
+    "transition",
+    "addons",
+    "transition-group",
+    "animation",
+    "css",
+    "transitions"
+  ],
   "css-loader": ["webpack", "css", "loader", "url", "import"],
   "ts-jest": ["jest", "typescript", "sourcemap", "testing"],
-  "undici": ["fetch", "http", "https", "promise", "request", "curl", "wget", "xhr", "whatwg"],
+  "undici": [
+    "fetch",
+    "http",
+    "https",
+    "promise",
+    "request",
+    "curl",
+    "wget",
+    "xhr",
+    "whatwg"
+  ],
   "luxon": ["date", "immutable"],
   "husky": ["git", "hooks", "pre-commit"],
-  "css-tree": ["css", "ast", "tokenizer", "parser", "walker", "lexer", "generator", "utils", "syntax", "validation"],
+  "css-tree": [
+    "css",
+    "ast",
+    "tokenizer",
+    "parser",
+    "walker",
+    "lexer",
+    "generator",
+    "utils",
+    "syntax",
+    "validation"
+  ],
   "log-update": ["log", "cli", "terminal", "progress bars"],
-  "spdx-expression-parse": ["SPDX", "law", "legal", "license", "metadata", "package", "package.json", "standards"],
+  "spdx-expression-parse": [
+    "SPDX",
+    "law",
+    "legal",
+    "license",
+    "metadata",
+    "package",
+    "package.json",
+    "standards"
+  ],
   "less": [
     "compile less",
     "css nesting",
@@ -526,31 +660,125 @@
     "variables in css",
     "css less"
   ],
-  "moment-timezone": ["moment", "date", "time", "timezone", "olson", "iana", "zone", "tz"],
+  "moment-timezone": [
+    "moment",
+    "date",
+    "time",
+    "timezone",
+    "olson",
+    "iana",
+    "zone",
+    "tz"
+  ],
   "svgo": ["svgo", "svg", "optimize", "minify"],
-  "is-regex": ["regex", "regexp", "is", "regular expression", "regular", "expression"],
+  "is-regex": [
+    "regex",
+    "regexp",
+    "is",
+    "regular expression",
+    "regular",
+    "expression"
+  ],
   "jsbn": ["biginteger", "bignumber", "big", "integer"],
   "wordwrap": ["word", "wrap", "rule", "format", "column"],
   "pino": ["fast", "logger", "stream", "json"],
   "babel-plugin-polyfill-regenerator": ["babel-plugin"],
   "@typescript-eslint/types": ["eslint", "typescript", "estree"],
   "webpack-cli": ["webpack", "cli", "scaffolding", "module", "bundler", "web"],
-  "pg": ["database", "libpq", "pg", "postgre", "postgres", "postgresql", "rdbms"],
-  "google-auth-library": ["google", "api", "google apis", "client", "client library"],
-  "eslint-import-resolver-typescript": ["typescript", "eslint", "import", "resolver", "plugin"],
-  "sharp": ["jpeg", "png", "webp", "avif", "tiff", "gif", "svg", "jp2", "dzi", "image", "resize", "thumbnail", "crop", "embed", "libvips", "vips"],
+  "pg": [
+    "database",
+    "libpq",
+    "pg",
+    "postgre",
+    "postgres",
+    "postgresql",
+    "rdbms"
+  ],
+  "google-auth-library": [
+    "google",
+    "api",
+    "google apis",
+    "client",
+    "client library"
+  ],
+  "eslint-import-resolver-typescript": [
+    "typescript",
+    "eslint",
+    "import",
+    "resolver",
+    "plugin"
+  ],
+  "sharp": [
+    "jpeg",
+    "png",
+    "webp",
+    "avif",
+    "tiff",
+    "gif",
+    "svg",
+    "jp2",
+    "dzi",
+    "image",
+    "resize",
+    "thumbnail",
+    "crop",
+    "embed",
+    "libvips",
+    "vips"
+  ],
   "redux-thunk": ["redux", "thunk", "middleware", "redux-middleware", "flux"],
   "xml-name-validator": ["xml", "name", "qname"],
   "css-select": ["css", "selector", "sizzle"],
   "@angular/router": ["angular", "router"],
   "jest-cli": ["cli", "jest", "testing"],
-  "socket.io-client": ["realtime", "framework", "websocket", "tcp", "events", "client"],
-  "i18next": ["i18next", "internationalization", "i18n", "translation", "localization", "l10n", "globalization", "gettext"],
-  "less-loader": ["webpack", "loader", "less", "lesscss", "less.js", "css", "preprocessor"],
+  "socket.io-client": [
+    "realtime",
+    "framework",
+    "websocket",
+    "tcp",
+    "events",
+    "client"
+  ],
+  "i18next": [
+    "i18next",
+    "internationalization",
+    "i18n",
+    "translation",
+    "localization",
+    "l10n",
+    "globalization",
+    "gettext"
+  ],
+  "less-loader": [
+    "webpack",
+    "loader",
+    "less",
+    "lesscss",
+    "less.js",
+    "css",
+    "preprocessor"
+  ],
   "@smithy/util-middleware": ["aws", "middleware"],
-  "istanbul-lib-source-maps": ["istanbul", "sourcemaps", "sourcemap", "source", "maps"],
+  "istanbul-lib-source-maps": [
+    "istanbul",
+    "sourcemaps",
+    "sourcemap",
+    "source",
+    "maps"
+  ],
   "jsx-ast-utils": ["jsx", "ast", "lint", "eslint"],
-  "string.prototype.matchall": ["ES2020", "ES", "String.prototype.matchAll", "matchAll", "match", "regex", "regexp", "regular", "expression", "matches"],
+  "string.prototype.matchall": [
+    "ES2020",
+    "ES",
+    "String.prototype.matchAll",
+    "matchAll",
+    "match",
+    "regex",
+    "regexp",
+    "regular",
+    "expression",
+    "matches"
+  ],
   "schema-utils": ["webpack"],
   "@smithy/util-retry": ["aws", "retry"],
   "ua-parser-js": [
@@ -572,24 +800,99 @@
     "browser-detection",
     "architecture-detection"
   ],
-  "is-date-object": ["Date", "ES6", "toStringTag", "@@toStringTag", "Date object"],
-  "d3-array": ["d3", "d3-module", "histogram", "bisect", "shuffle", "statistics", "search", "sort", "array"],
+  "is-date-object": [
+    "Date",
+    "ES6",
+    "toStringTag",
+    "@@toStringTag",
+    "Date object"
+  ],
+  "d3-array": [
+    "d3",
+    "d3-module",
+    "histogram",
+    "bisect",
+    "shuffle",
+    "statistics",
+    "search",
+    "sort",
+    "array"
+  ],
   "axe-core": ["Accessibility", "a11y", "testing", "unit", "tdd", "bdd", "axe"],
-  "make-fetch-happen": ["http", "request", "fetch", "mean girls", "caching", "cache", "subresource integrity"],
+  "make-fetch-happen": [
+    "http",
+    "request",
+    "fetch",
+    "mean girls",
+    "caching",
+    "cache",
+    "subresource integrity"
+  ],
   "mini-css-extract-plugin": ["webpack", "css", "extract", "hmr"],
-  "mdast-util-to-string": ["unist", "mdast", "mdast-util", "util", "utility", "markdown", "node", "string", "serialize"],
+  "mdast-util-to-string": [
+    "unist",
+    "mdast",
+    "mdast-util",
+    "util",
+    "utility",
+    "markdown",
+    "node",
+    "string",
+    "serialize"
+  ],
   "@svgr/webpack": [],
   "cssstyle": ["css", "CSSStyleDeclaration", "StyleSheet"],
   "d3-scale": ["d3", "d3-module", "scale", "visualization"],
   "d3-shape": ["d3", "d3-module", "graphics", "visualization", "canvas", "svg"],
-  "formidable": ["multipart", "form", "data", "querystring", "www", "json", "ulpoad", "file"],
-  "dompurify": ["dom", "xss", "html", "svg", "mathml", "security", "secure", "sanitizer", "sanitize", "filter", "purify"],
-  "mocha": ["mocha", "bdd", "tdd", "tap", "testing", "chai", "assertion", "ava", "jest", "tape", "jasmine", "karma"],
+  "formidable": [
+    "multipart",
+    "form",
+    "data",
+    "querystring",
+    "www",
+    "json",
+    "ulpoad",
+    "file"
+  ],
+  "dompurify": [
+    "dom",
+    "xss",
+    "html",
+    "svg",
+    "mathml",
+    "security",
+    "secure",
+    "sanitizer",
+    "sanitize",
+    "filter",
+    "purify"
+  ],
+  "mocha": [
+    "mocha",
+    "bdd",
+    "tdd",
+    "tap",
+    "testing",
+    "chai",
+    "assertion",
+    "ava",
+    "jest",
+    "tape",
+    "jasmine",
+    "karma"
+  ],
   "@typescript-eslint/type-utils": ["eslint", "typescript", "estree"],
   "busboy": ["uploads", "forms", "multipart", "form-data"],
   "@eslint-community/eslint-utils": ["eslint"],
   "vue-template-compiler": [],
-  "@mui/icons-material": ["react", "react-component", "mui", "material-ui", "material design", "icons"],
+  "@mui/icons-material": [
+    "react",
+    "react-component",
+    "mui",
+    "material-ui",
+    "material design",
+    "icons"
+  ],
   "@eslint-community/regexpp": [
     "regexp",
     "regular",
@@ -635,11 +938,31 @@
   ],
   "mysql2": ["mysql", "client", "server"],
   "deep-eql": ["chai util", "deep equal", "object equal", "testing"],
-  "json-stable-stringify": ["json", "stringify", "deterministic", "hash", "sort", "stable"],
+  "json-stable-stringify": [
+    "json",
+    "stringify",
+    "deterministic",
+    "hash",
+    "sort",
+    "stable"
+  ],
   "gaxios": ["google"],
-  "d3-interpolate": ["d3", "d3-module", "interpolate", "interpolation", "color"],
+  "d3-interpolate": [
+    "d3",
+    "d3-module",
+    "interpolate",
+    "interpolation",
+    "color"
+  ],
   "@humanwhocodes/object-schema": ["object", "validation", "schema", "merge"],
-  "@fortawesome/fontawesome-svg-core": ["font", "awesome", "fontawesome", "icon", "svg", "bootstrap"],
+  "@fortawesome/fontawesome-svg-core": [
+    "font",
+    "awesome",
+    "fontawesome",
+    "icon",
+    "svg",
+    "bootstrap"
+  ],
   "file-type": [
     "mime",
     "file",
@@ -814,22 +1137,108 @@
     "icc",
     "fbx"
   ],
-  "libphonenumber-js": ["telephone", "phone", "number", "input", "mobile", "libphonenumber"],
-  "d3-color": ["d3", "d3-module", "color", "rgb", "hsl", "lab", "hcl", "lch", "cubehelix"],
-  "@fortawesome/free-solid-svg-icons": ["font", "awesome", "fontawesome", "icon", "svg", "bootstrap"],
+  "libphonenumber-js": [
+    "telephone",
+    "phone",
+    "number",
+    "input",
+    "mobile",
+    "libphonenumber"
+  ],
+  "d3-color": [
+    "d3",
+    "d3-module",
+    "color",
+    "rgb",
+    "hsl",
+    "lab",
+    "hcl",
+    "lch",
+    "cubehelix"
+  ],
+  "@fortawesome/free-solid-svg-icons": [
+    "font",
+    "awesome",
+    "fontawesome",
+    "icon",
+    "svg",
+    "bootstrap"
+  ],
   "d3-selection": ["d3", "d3-module", "dom", "selection", "data-join"],
-  "eslint-plugin-testing-library": ["eslint", "eslintplugin", "eslint-plugin", "lint", "testing-library", "testing"],
+  "eslint-plugin-testing-library": [
+    "eslint",
+    "eslintplugin",
+    "eslint-plugin",
+    "lint",
+    "testing-library",
+    "testing"
+  ],
   "react-dropzone": ["react-component", "react", "drag", "drop", "upload"],
-  "tailwind-merge": ["tailwindcss", "tailwind", "css", "classes", "className", "classList", "merge", "conflict", "override"],
+  "tailwind-merge": [
+    "tailwindcss",
+    "tailwind",
+    "css",
+    "classes",
+    "className",
+    "classList",
+    "merge",
+    "conflict",
+    "override"
+  ],
   "d3-format": ["d3", "d3-module", "format", "localization"],
-  "@floating-ui/core": ["tooltip", "popover", "dropdown", "menu", "popup", "positioning"],
+  "@floating-ui/core": [
+    "tooltip",
+    "popover",
+    "dropdown",
+    "menu",
+    "popup",
+    "positioning"
+  ],
   "clean-css": ["css", "minifier"],
-  "mdast-util-from-markdown": ["unist", "mdast", "mdast-util", "util", "utility", "markdown", "markup", "parse", "syntax", "tree", "ast"],
+  "mdast-util-from-markdown": [
+    "unist",
+    "mdast",
+    "mdast-util",
+    "util",
+    "utility",
+    "markdown",
+    "markup",
+    "parse",
+    "syntax",
+    "tree",
+    "ast"
+  ],
   "bson": ["mongodb", "bson", "parser"],
-  "bcrypt": ["bcrypt", "password", "auth", "authentication", "encryption", "crypt", "crypto"],
+  "bcrypt": [
+    "bcrypt",
+    "password",
+    "auth",
+    "authentication",
+    "encryption",
+    "crypt",
+    "crypto"
+  ],
   "@apollo/client": ["apollo", "graphql", "react", "hooks", "client", "cache"],
-  "github-slugger": ["anchor", "github", "hash", "heading", "markdown", "slug", "slugger", "url"],
-  "firebase": ["authentication", "database", "Firebase", "firebase", "realtime", "storage", "performance", "remote-config"],
+  "github-slugger": [
+    "anchor",
+    "github",
+    "hash",
+    "heading",
+    "markdown",
+    "slug",
+    "slugger",
+    "url"
+  ],
+  "firebase": [
+    "authentication",
+    "database",
+    "Firebase",
+    "firebase",
+    "realtime",
+    "storage",
+    "performance",
+    "remote-config"
+  ],
   "@vue/shared": [],
   "eslint-plugin-vue": ["eslint"],
   "@octokit/core": ["octokit", "github", "api", "sdk", "toolkit"],
@@ -848,26 +1257,133 @@
     "tasklist",
     "unified"
   ],
-  "bcryptjs": ["bcrypt", "password", "auth", "authentication", "encryption", "crypt", "crypto"],
-  "d3-time-format": ["d3", "d3-module", "time", "format", "strftime", "strptime"],
+  "bcryptjs": [
+    "bcrypt",
+    "password",
+    "auth",
+    "authentication",
+    "encryption",
+    "crypt",
+    "crypto"
+  ],
+  "d3-time-format": [
+    "d3",
+    "d3-module",
+    "time",
+    "format",
+    "strftime",
+    "strptime"
+  ],
   "node-sass": ["css", "libsass", "preprocessor", "sass", "scss", "style"],
   "table": ["ascii", "text", "table", "align", "ansi"],
   "supertest": ["bdd", "http", "request", "superagent", "tdd", "testing"],
-  "express-validator": ["express", "validator", "validation", "validate", "sanitize", "sanitization", "xss"],
-  "ts-morph": ["typescript", "ast", "static analysis", "code generation", "code refactor"],
-  "needle": ["http", "https", "simple", "request", "client", "multipart", "upload", "proxy", "deflate", "timeout", "charset", "iconv", "cookie", "redirect"],
+  "express-validator": [
+    "express",
+    "validator",
+    "validation",
+    "validate",
+    "sanitize",
+    "sanitization",
+    "xss"
+  ],
+  "ts-morph": [
+    "typescript",
+    "ast",
+    "static analysis",
+    "code generation",
+    "code refactor"
+  ],
+  "needle": [
+    "http",
+    "https",
+    "simple",
+    "request",
+    "client",
+    "multipart",
+    "upload",
+    "proxy",
+    "deflate",
+    "timeout",
+    "charset",
+    "iconv",
+    "cookie",
+    "redirect"
+  ],
   "react-test-renderer": [],
-  "canvas": ["canvas", "graphic", "graphics", "pixman", "cairo", "image", "images", "pdf"],
+  "canvas": [
+    "canvas",
+    "graphic",
+    "graphics",
+    "pixman",
+    "cairo",
+    "image",
+    "images",
+    "pdf"
+  ],
   "rc-util": [],
   "raf": ["requestAnimationFrame", "polyfill"],
-  "denque": ["data-structure", "data-structures", "queue", "double", "end", "ended", "deque", "denque", "double-ended-queue"],
-  "react-datepicker": ["react", "datepicker", "calendar", "date", "react-component"],
-  "stylelint": ["css-in-js", "css", "less", "lint", "linter", "markdown", "sass", "scss", "stylelint", "sugarss"],
+  "denque": [
+    "data-structure",
+    "data-structures",
+    "queue",
+    "double",
+    "end",
+    "ended",
+    "deque",
+    "denque",
+    "double-ended-queue"
+  ],
+  "react-datepicker": [
+    "react",
+    "datepicker",
+    "calendar",
+    "date",
+    "react-component"
+  ],
+  "stylelint": [
+    "css-in-js",
+    "css",
+    "less",
+    "lint",
+    "linter",
+    "markdown",
+    "sass",
+    "scss",
+    "stylelint",
+    "sugarss"
+  ],
   "d3-ease": ["d3", "d3-module", "ease", "easing", "animation", "transition"],
-  "remark-rehype": ["hast", "html", "markdown", "mdast", "plugin", "rehype", "rehype-plugin", "remark", "remark-plugin", "unified"],
+  "remark-rehype": [
+    "hast",
+    "html",
+    "markdown",
+    "mdast",
+    "plugin",
+    "rehype",
+    "rehype-plugin",
+    "remark",
+    "remark-plugin",
+    "unified"
+  ],
   "gtoken": ["google", "service", "account", "api", "token", "api", "auth"],
-  "@storybook/addon-docs": ["addon", "notes", "documentation", "storybook", "essentials", "organize"],
-  "synckit": ["deasync", "make-synchronous", "sync", "sync-exec", "sync-rpc", "sync-threads", "synchronize", "synckit"],
+  "@storybook/addon-docs": [
+    "addon",
+    "notes",
+    "documentation",
+    "storybook",
+    "essentials",
+    "organize"
+  ],
+  "synckit": [
+    "deasync",
+    "make-synchronous",
+    "sync",
+    "sync-exec",
+    "sync-rpc",
+    "sync-threads",
+    "synchronize",
+    "synckit"
+  ],
   "@hookform/resolvers": [
     "scheme",
     "validation",
@@ -890,17 +1406,46 @@
     "arktype"
   ],
   "npm-registry-fetch": ["npm", "registry", "fetch"],
-  "markdown-to-jsx": ["markdown", "markdown converter", "react", "preact", "jsx", "html"],
+  "markdown-to-jsx": [
+    "markdown",
+    "markdown converter",
+    "react",
+    "preact",
+    "jsx",
+    "html"
+  ],
   "jsdoc": ["documentation", "javascript"],
-  "d3-path": ["d3", "d3-module", "canvas", "path", "svg", "graphics", "CanvasRenderingContext2D", "CanvasPathMethods", "Path2D"],
+  "d3-path": [
+    "d3",
+    "d3-module",
+    "canvas",
+    "path",
+    "svg",
+    "graphics",
+    "CanvasRenderingContext2D",
+    "CanvasPathMethods",
+    "Path2D"
+  ],
   "@octokit/graphql": ["octokit", "github", "api", "graphql"],
   "@fastify/busboy": ["uploads", "forms", "multipart", "form-data"],
   "@azure/core-auth": ["azure", "authentication", "cloud"],
   "rx": ["LINQ", "FRP", "Reactive", "Events", "Rx", "RxJS"],
-  "markdown-it-anchor": ["markdown", "markdown-it", "markdown-it-plugin", "header", "anchor"],
+  "markdown-it-anchor": [
+    "markdown",
+    "markdown-it",
+    "markdown-it-plugin",
+    "header",
+    "anchor"
+  ],
   "jsonpath-plus": ["json", "jsonpath"],
   "d3-time": ["d3", "d3-module", "time", "interval", "calendar"],
-  "firebase-admin": ["admin", "database", "Firebase", "realtime", "authentication"],
+  "firebase-admin": [
+    "admin",
+    "database",
+    "Firebase",
+    "realtime",
+    "authentication"
+  ],
   "micromark": [
     "commonmark",
     "compiler",
@@ -936,7 +1481,15 @@
     "tree",
     "ast"
   ],
-  "form-data-encoder": ["form-data", "encoder", "multipart", "files-upload", "async-iterator", "spec-compatible", "form"],
+  "form-data-encoder": [
+    "form-data",
+    "encoder",
+    "multipart",
+    "files-upload",
+    "async-iterator",
+    "spec-compatible",
+    "form"
+  ],
   "@vue/compiler-dom": [],
   "graphql-ws": [
     "protocol",
@@ -955,7 +1508,15 @@
   ],
   "@mui/base": ["react", "react-component", "mui", "unstyled", "a11y"],
   "node-abi": ["node", "electron", "node_module_version", "abi", "v8"],
-  "css-declaration-sorter": ["postcss", "postcss-plugin", "css", "declaration", "sorter", "property", "order"],
+  "css-declaration-sorter": [
+    "postcss",
+    "postcss-plugin",
+    "css",
+    "declaration",
+    "sorter",
+    "property",
+    "order"
+  ],
   "@next/env": ["react", "next", "next.js", "dotenv"],
   "sqlstring": ["sqlstring", "sql", "escape", "sql escape"],
   "gray-matter": [
@@ -989,7 +1550,16 @@
     "yaml",
     "yfm"
   ],
-  "webpack-hot-middleware": ["webpack", "hmr", "hot", "module", "reloading", "hot-reloading", "middleware", "express"],
+  "webpack-hot-middleware": [
+    "webpack",
+    "hmr",
+    "hot",
+    "module",
+    "reloading",
+    "hot-reloading",
+    "middleware",
+    "express"
+  ],
   "bufferutil": ["bufferutil"],
   "node-machine-id": [
     "unique id",
@@ -1007,7 +1577,15 @@
   ],
   "ts-toolbelt": ["safe", "tools", "types", "typesafe", "typescript"],
   "@remix-run/router": ["remix", "router", "location"],
-  "react-easy-router": ["react", "routing", "router", "react-router", "react-router-dom", "simple-routing", "next"],
+  "react-easy-router": [
+    "react",
+    "routing",
+    "router",
+    "react-router",
+    "react-router-dom",
+    "simple-routing",
+    "next"
+  ],
   "remark-stringify": [
     "abstract",
     "ast",
@@ -1024,38 +1602,199 @@
     "tree",
     "unified"
   ],
-  "@mui/x-date-pickers": ["react", "react-component", "mui", "material-ui", "material design", "datepicker", "timepicker", "datetimepicker"],
+  "@mui/x-date-pickers": [
+    "react",
+    "react-component",
+    "mui",
+    "material-ui",
+    "material design",
+    "datepicker",
+    "timepicker",
+    "datetimepicker"
+  ],
   "css": ["css", "parser", "stringifier", "stylesheet"],
-  "ionicons": ["icon pack", "ionic", "icon", "svg", "mobile", "web component", "component", "custom element", "material design", "ios"],
-  "mobx-react": ["mobx", "mobservable", "react-component", "react", "reactjs", "reactive"],
+  "ionicons": [
+    "icon pack",
+    "ionic",
+    "icon",
+    "svg",
+    "mobile",
+    "web component",
+    "component",
+    "custom element",
+    "material design",
+    "ios"
+  ],
+  "mobx-react": [
+    "mobx",
+    "mobservable",
+    "react-component",
+    "react",
+    "reactjs",
+    "reactive"
+  ],
   "leaflet": ["gis", "map"],
-  "bfj": ["json", "streamify", "stringify", "walk", "parse", "parser", "serialise", "serialize", "read", "write", "async", "asynchronous"],
-  "static-eval": ["abstract", "analysis", "ast", "esprima", "eval", "expression", "static", "syntax", "tree"],
+  "bfj": [
+    "json",
+    "streamify",
+    "stringify",
+    "walk",
+    "parse",
+    "parser",
+    "serialise",
+    "serialize",
+    "read",
+    "write",
+    "async",
+    "asynchronous"
+  ],
+  "static-eval": [
+    "abstract",
+    "analysis",
+    "ast",
+    "esprima",
+    "eval",
+    "expression",
+    "static",
+    "syntax",
+    "tree"
+  ],
   "@vue/reactivity": [],
   "rc-slider": [],
   "@octokit/auth-token": ["github", "octokit", "authentication", "api"],
   "import-in-the-middle": ["import", "ritm", "iitm", "loader", "hook", "hooks"],
-  "@fortawesome/fontawesome-free": ["font", "awesome", "fontawesome", "icon", "svg", "bootstrap"],
-  "lottie-web": ["animation", "canvas", "svg", "after effects", "plugin", "export"],
-  "@azure/msal-browser": ["implicit", "authorization code", "PKCE", "js", "AAD", "msal", "oauth"],
+  "@fortawesome/fontawesome-free": [
+    "font",
+    "awesome",
+    "fontawesome",
+    "icon",
+    "svg",
+    "bootstrap"
+  ],
+  "lottie-web": [
+    "animation",
+    "canvas",
+    "svg",
+    "after effects",
+    "plugin",
+    "export"
+  ],
+  "@azure/msal-browser": [
+    "implicit",
+    "authorization code",
+    "PKCE",
+    "js",
+    "AAD",
+    "msal",
+    "oauth"
+  ],
   "@vue/runtime-core": [],
-  "prisma": ["orm", "Prisma", "database", "typescript", "SQL", "SQLite", "PostgreSQL", "MySQL", "MariaDB", "SQLServer", "mongodb"],
+  "prisma": [
+    "orm",
+    "Prisma",
+    "database",
+    "typescript",
+    "SQL",
+    "SQLite",
+    "PostgreSQL",
+    "MySQL",
+    "MariaDB",
+    "SQLServer",
+    "mongodb"
+  ],
   "passport-jwt": ["Passport", "Strategy", "json", "Web", "Token", "JWT"],
   "pg-pool": ["pg", "postgres", "pool", "database"],
-  "msw": ["api", "mock", "mocking", "worker", "prototype", "server", "service", "handler", "testing", "front-end", "back-end"],
-  "react-native-safe-area-context": ["react-native", "react native", "react-native-web", "expo-web", "safe area", "view"],
-  "match-sorter": ["autocomplete", "filter list", "sort", "advanced sort", "user intuitive sort"],
-  "react-slick": ["slick", "carousel", "Image slider", "orbit", "slider", "react-component"],
+  "msw": [
+    "api",
+    "mock",
+    "mocking",
+    "worker",
+    "prototype",
+    "server",
+    "service",
+    "handler",
+    "testing",
+    "front-end",
+    "back-end"
+  ],
+  "react-native-safe-area-context": [
+    "react-native",
+    "react native",
+    "react-native-web",
+    "expo-web",
+    "safe area",
+    "view"
+  ],
+  "match-sorter": [
+    "autocomplete",
+    "filter list",
+    "sort",
+    "advanced sort",
+    "user intuitive sort"
+  ],
+  "react-slick": [
+    "slick",
+    "carousel",
+    "Image slider",
+    "orbit",
+    "slider",
+    "react-component"
+  ],
   "vite-tsconfig-paths": ["vite", "resolver", "tsconfig", "paths"],
-  "@tootallnate/quickjs-emscripten": ["eval", "quickjs", "vm", "interpreter", "runtime", "safe", "emscripten", "wasm"],
-  "babel-plugin-styled-components": ["styled-components", "css-in-js", "babel-plugin", "server-side rendering", "ssr", "displayName"],
-  "@fortawesome/free-regular-svg-icons": ["font", "awesome", "fontawesome", "icon", "svg", "bootstrap"],
+  "@tootallnate/quickjs-emscripten": [
+    "eval",
+    "quickjs",
+    "vm",
+    "interpreter",
+    "runtime",
+    "safe",
+    "emscripten",
+    "wasm"
+  ],
+  "babel-plugin-styled-components": [
+    "styled-components",
+    "css-in-js",
+    "babel-plugin",
+    "server-side rendering",
+    "ssr",
+    "displayName"
+  ],
+  "@fortawesome/free-regular-svg-icons": [
+    "font",
+    "awesome",
+    "fontawesome",
+    "icon",
+    "svg",
+    "bootstrap"
+  ],
   "minimalistic-crypto-utils": ["minimalistic", "utils", "crypto"],
   "@emotion/css": ["styles", "emotion", "react", "css", "css-in-js"],
   "@vue/server-renderer": [],
   "z-schema": ["json", "Schema", "Validator"],
-  "mdast-util-gfm-table": ["unist", "mdast", "mdast-util", "util", "utility", "markdown", "markup", "table", "row", "column", "cell", "tabular", "gfm"],
-  "proto3-json-serializer": ["protobufjs", "protobuf.js", "protobuf", "proto3", "json", "serialization", "deserialization"],
+  "mdast-util-gfm-table": [
+    "unist",
+    "mdast",
+    "mdast-util",
+    "util",
+    "utility",
+    "markdown",
+    "markup",
+    "table",
+    "row",
+    "column",
+    "cell",
+    "tabular",
+    "gfm"
+  ],
+  "proto3-json-serializer": [
+    "protobufjs",
+    "protobuf.js",
+    "protobuf",
+    "proto3",
+    "json",
+    "serialization",
+    "deserialization"
+  ],
   "tailwindcss-animate": [
     "tailwind",
     "tailwindcss",
@@ -1078,18 +1817,93 @@
     "scale"
   ],
   "mongodb-connection-string-url": ["password", "prompt", "tty"],
-  "@react-native-async-storage/async-storage": ["react-native", "react native", "async storage", "asyncstorage", "storage"],
-  "micromark-extension-gfm-table": ["micromark", "micromark-extension", "table", "row", "column", "cell", "tabular", "gfm", "markdown", "unified"],
-  "mobx-react-lite": ["mobx", "mobservable", "react-component", "react", "reactjs", "reactive", "hooks", "observer", "useLocalObservable"],
+  "@react-native-async-storage/async-storage": [
+    "react-native",
+    "react native",
+    "async storage",
+    "asyncstorage",
+    "storage"
+  ],
+  "micromark-extension-gfm-table": [
+    "micromark",
+    "micromark-extension",
+    "table",
+    "row",
+    "column",
+    "cell",
+    "tabular",
+    "gfm",
+    "markdown",
+    "unified"
+  ],
+  "mobx-react-lite": [
+    "mobx",
+    "mobservable",
+    "react-component",
+    "react",
+    "reactjs",
+    "reactive",
+    "hooks",
+    "observer",
+    "useLocalObservable"
+  ],
   "fast-json-stringify": ["json", "stringify", "schema", "fast"],
   "jotai": ["react", "state", "manager", "management", "recoil", "store"],
-  "@fortawesome/free-brands-svg-icons": ["font", "awesome", "fontawesome", "icon", "svg", "bootstrap"],
-  "vite-plugin-dts": ["vite", "vite-plugin", "ts", "dts", "typescript", "vue", "tsc", "vue-tsc", "volar"],
-  "@chakra-ui/react": ["react", "ui", "design-system", "react-components", "uikit", "accessible", "components", "emotion", "library", "design-system"],
-  "@microsoft/tsdoc": ["typescript", "documentation", "doc", "comments", "JSDoc", "parser", "standard"],
+  "@fortawesome/free-brands-svg-icons": [
+    "font",
+    "awesome",
+    "fontawesome",
+    "icon",
+    "svg",
+    "bootstrap"
+  ],
+  "vite-plugin-dts": [
+    "vite",
+    "vite-plugin",
+    "ts",
+    "dts",
+    "typescript",
+    "vue",
+    "tsc",
+    "vue-tsc",
+    "volar"
+  ],
+  "@chakra-ui/react": [
+    "react",
+    "ui",
+    "design-system",
+    "react-components",
+    "uikit",
+    "accessible",
+    "components",
+    "emotion",
+    "library",
+    "design-system"
+  ],
+  "@microsoft/tsdoc": [
+    "typescript",
+    "documentation",
+    "doc",
+    "comments",
+    "JSDoc",
+    "parser",
+    "standard"
+  ],
   "openapi3-ts": ["openapi3", "ts", "typescript"],
   "d3-delaunay": ["voronoi", "delaunay", "geometry"],
-  "@mswjs/interceptors": ["request", "intercept", "http", "https", "xmlhttprequest", "xhr", "fetch", "low-level", "mock", "spy", "testing"],
+  "@mswjs/interceptors": [
+    "request",
+    "intercept",
+    "http",
+    "https",
+    "xmlhttprequest",
+    "xhr",
+    "fetch",
+    "low-level",
+    "mock",
+    "spy",
+    "testing"
+  ],
   "rc-table": [],
   "jasmine-core": ["testing", "jasmine", "tdd", "bdd"],
   "react-native-vector-icons": [
@@ -1128,18 +1942,71 @@
     "dereference"
   ],
   "@googlemaps/js-api-loader": ["google", "maps"],
-  "optimism": ["caching", "cache", "invalidation", "reactive", "reactivity", "dependency", "tracking", "tracker", "memoization"],
-  "@fortawesome/fontawesome-common-types": ["font", "awesome", "fontawesome", "icon", "svg", "bootstrap"],
+  "optimism": [
+    "caching",
+    "cache",
+    "invalidation",
+    "reactive",
+    "reactivity",
+    "dependency",
+    "tracking",
+    "tracker",
+    "memoization"
+  ],
+  "@fortawesome/fontawesome-common-types": [
+    "font",
+    "awesome",
+    "fontawesome",
+    "icon",
+    "svg",
+    "bootstrap"
+  ],
   "rc-drawer": [],
   "@stripe/react-stripe-js": ["react", "Stripe", "Elements"],
-  "@tiptap/core": ["tiptap", "headless", "wysiwyg", "text editor", "prosemirror"],
+  "@tiptap/core": [
+    "tiptap",
+    "headless",
+    "wysiwyg",
+    "text editor",
+    "prosemirror"
+  ],
   "stylelint-order": ["stylelint-plugin", "stylelint", "css", "lint", "order"],
-  "uncontrollable": ["uncontrolled-component", "react-component", "input", "controlled", "uncontrolled", "form"],
+  "uncontrollable": [
+    "uncontrolled-component",
+    "react-component",
+    "input",
+    "controlled",
+    "uncontrolled",
+    "form"
+  ],
   "@sentry/webpack-plugin": ["Sentry", "Webpack", "bundler", "plugin"],
-  "@urql/core": ["graphql", "graphql client", "state management", "cache", "exchanges"],
+  "@urql/core": [
+    "graphql",
+    "graphql client",
+    "state management",
+    "cache",
+    "exchanges"
+  ],
   "@codemirror/autocomplete": ["editor", "code"],
-  "websocket": ["websocket", "websockets", "socket", "networking", "comet", "push", "RFC-6455", "realtime", "server", "client"],
-  "selenium-webdriver": ["automation", "selenium", "testing", "webdriver", "webdriverjs"],
+  "websocket": [
+    "websocket",
+    "websockets",
+    "socket",
+    "networking",
+    "comet",
+    "push",
+    "RFC-6455",
+    "realtime",
+    "server",
+    "client"
+  ],
+  "selenium-webdriver": [
+    "automation",
+    "selenium",
+    "testing",
+    "webdriver",
+    "webdriverjs"
+  ],
   "react-virtualized-auto-sizer": [
     "react",
     "reactjs",
@@ -1154,11 +2021,27 @@
     "grid",
     "spreadsheet"
   ],
-  "goober": ["css-in-js", "goober", "styled", "emotion", "styled-components", "react", "preact"],
+  "goober": [
+    "css-in-js",
+    "goober",
+    "styled",
+    "emotion",
+    "styled-components",
+    "react",
+    "preact"
+  ],
   "react-pdf": ["pdf", "pdf-viewer", "react"],
   "@redis/client": ["redis"],
   "@mongodb-js/saslprep": ["sasl", "saslprep", "stringprep", "rfc4013", "4013"],
-  "digest-fetch": ["digest", "auth", "fetch", "node-fetch", "http", "basic", "authentication"],
+  "digest-fetch": [
+    "digest",
+    "auth",
+    "fetch",
+    "node-fetch",
+    "http",
+    "basic",
+    "authentication"
+  ],
   "vite-plugin-svgr": ["vite", "vite-plugin"],
   "downshift": [
     "enhanced input",
@@ -1176,7 +2059,16 @@
     "multiple selection"
   ],
   "@apollo/utils.keyvaluecache": ["apollo", "graphql", "typescript", "node"],
-  "wonka": ["wonka", "typescript", "events", "callbag", "callback", "observable", "iterable", "stream"],
+  "wonka": [
+    "wonka",
+    "typescript",
+    "events",
+    "callbag",
+    "callback",
+    "observable",
+    "iterable",
+    "stream"
+  ],
   "stackblur-canvas": ["stackblur", "blur", "canvas", "gaussian"],
   "@ckeditor/ckeditor5-core": [
     "wysiwyg",
@@ -1216,13 +2108,49 @@
     "rule",
     "stylesheet"
   ],
-  "jest-canvas-mock": ["mock", "jest", "jest-mock", "echarts", "canvas", "unit"],
-  "react-quill": ["react", "react-component", "rich", "text", "rich-text", "textarea", "quill"],
+  "jest-canvas-mock": [
+    "mock",
+    "jest",
+    "jest-mock",
+    "echarts",
+    "canvas",
+    "unit"
+  ],
+  "react-quill": [
+    "react",
+    "react-component",
+    "rich",
+    "text",
+    "rich-text",
+    "textarea",
+    "quill"
+  ],
   "react-smooth": ["react", "reactjs", "animation", "react-component"],
-  "@react-native-community/netinfo": ["react-native", "react native", "netinfo", "networking", "network info"],
+  "@react-native-community/netinfo": [
+    "react-native",
+    "react native",
+    "netinfo",
+    "networking",
+    "network info"
+  ],
   "expo-file-system": ["react-native", "expo", "file-system", "file"],
-  "pusher-js": ["pusher", "client", "websocket", "http", "fallback", "isomorphic", "events", "pubsub"],
-  "eslint-plugin-tailwindcss": ["eslint", "eslintplugin", "eslint-plugin", "tailwind", "tailwindcss"],
+  "pusher-js": [
+    "pusher",
+    "client",
+    "websocket",
+    "http",
+    "fallback",
+    "isomorphic",
+    "events",
+    "pubsub"
+  ],
+  "eslint-plugin-tailwindcss": [
+    "eslint",
+    "eslintplugin",
+    "eslint-plugin",
+    "tailwind",
+    "tailwindcss"
+  ],
   "jsrsasign": [
     "crypto",
     "cryptography",
@@ -1265,20 +2193,97 @@
     "JOSE",
     "JWA"
   ],
-  "@fullcalendar/interaction": ["calendar", "event", "full-sized", "fullcalendar", "drag-n-drop", "resizing", "selecting"],
+  "@fullcalendar/interaction": [
+    "calendar",
+    "event",
+    "full-sized",
+    "fullcalendar",
+    "drag-n-drop",
+    "resizing",
+    "selecting"
+  ],
   "framesync": ["animation", "raf"],
   "@apollo/utils.logger": ["apollo", "graphql", "typescript", "node"],
-  "bootstrap-icons": ["bootstrap", "icons", "svg", "font", "sprite", "woff", "woff2"],
-  "express-fileupload": ["express", "file-upload", "upload", "forms", "multipart", "files", "busboy", "middleware"],
-  "css-has-pseudo": ["contains", "css", "descendant", "has", "js", "polyfill", "postcss", "postcss-plugin", "pseudo", "selector"],
-  "console-table-printer": ["console-table", "console-log", "print-table", "node-table-printing"],
+  "bootstrap-icons": [
+    "bootstrap",
+    "icons",
+    "svg",
+    "font",
+    "sprite",
+    "woff",
+    "woff2"
+  ],
+  "express-fileupload": [
+    "express",
+    "file-upload",
+    "upload",
+    "forms",
+    "multipart",
+    "files",
+    "busboy",
+    "middleware"
+  ],
+  "css-has-pseudo": [
+    "contains",
+    "css",
+    "descendant",
+    "has",
+    "js",
+    "polyfill",
+    "postcss",
+    "postcss-plugin",
+    "pseudo",
+    "selector"
+  ],
+  "console-table-printer": [
+    "console-table",
+    "console-log",
+    "print-table",
+    "node-table-printing"
+  ],
   "@react-google-maps/api": ["react", "Google", "Google Maps", "maps", "API"],
-  "react-calendar": ["calendar", "date", "date-picker", "month-picker", "react"],
+  "react-calendar": [
+    "calendar",
+    "date",
+    "date-picker",
+    "month-picker",
+    "react"
+  ],
   "@oclif/plugin-autocomplete": ["oclif-plugin"],
-  "eslint-plugin-tsdoc": ["typescript", "documentation", "doc", "comments", "JSDoc", "TSDoc", "ESLint", "plugin"],
-  "@fastify/ajv-compiler": ["ajv", "validator", "schema", "compiler", "fastify"],
-  "jss-plugin-camel-case": ["cssinjs", "css-in-js", "css in js", "jss", "plugin", "camel case"],
-  "jss-plugin-global": ["cssinjs", "css-in-js", "css in js", "jss", "plugin", "global", "unscoped"],
+  "eslint-plugin-tsdoc": [
+    "typescript",
+    "documentation",
+    "doc",
+    "comments",
+    "JSDoc",
+    "TSDoc",
+    "ESLint",
+    "plugin"
+  ],
+  "@fastify/ajv-compiler": [
+    "ajv",
+    "validator",
+    "schema",
+    "compiler",
+    "fastify"
+  ],
+  "jss-plugin-camel-case": [
+    "cssinjs",
+    "css-in-js",
+    "css in js",
+    "jss",
+    "plugin",
+    "camel case"
+  ],
+  "jss-plugin-global": [
+    "cssinjs",
+    "css-in-js",
+    "css in js",
+    "jss",
+    "plugin",
+    "global",
+    "unscoped"
+  ],
   "i18n": ["template", "i18n", "l10n"],
   "@ckeditor/ckeditor5-engine": [
     "wysiwyg",
@@ -1326,7 +2331,13 @@
     "text",
     "layout"
   ],
-  "@testing-library/react-hooks": ["testing", "react", "hooks", "unit", "integration"],
+  "@testing-library/react-hooks": [
+    "testing",
+    "react",
+    "hooks",
+    "unit",
+    "integration"
+  ],
   "victory-vendor": ["data visualization", "react", "d3", "charting"],
   "connect-redis": ["connect", "redis", "session", "express"],
   "is-mobile": ["mobile", "desktop", "check", "browser"],
@@ -1354,10 +2365,44 @@
     "snowflake"
   ],
   "liquidjs": ["liquid", "template engine", "express", "jinja", "shopify"],
-  "express-handlebars": ["express", "express3", "handlebars", "view", "layout", "partials", "templates"],
-  "@ng-select/ng-select": ["angular", "select", "ui-select", "dropdown", "multiselect", "autocomplete", "angular2"],
-  "react-native-device-info": ["react-component", "react-native", "ios", "android", "windows", "device", "events", "cocoapod"],
-  "jss-plugin-default-unit": ["cssinjs", "css-in-js", "css in js", "jss", "plugin", "px", "unit", "default-unit"],
+  "express-handlebars": [
+    "express",
+    "express3",
+    "handlebars",
+    "view",
+    "layout",
+    "partials",
+    "templates"
+  ],
+  "@ng-select/ng-select": [
+    "angular",
+    "select",
+    "ui-select",
+    "dropdown",
+    "multiselect",
+    "autocomplete",
+    "angular2"
+  ],
+  "react-native-device-info": [
+    "react-component",
+    "react-native",
+    "ios",
+    "android",
+    "windows",
+    "device",
+    "events",
+    "cocoapod"
+  ],
+  "jss-plugin-default-unit": [
+    "cssinjs",
+    "css-in-js",
+    "css in js",
+    "jss",
+    "plugin",
+    "px",
+    "unit",
+    "default-unit"
+  ],
   "ckeditor5": [
     "ckeditor",
     "ckeditor5",
@@ -1375,7 +2420,16 @@
     "real-time",
     "framework"
   ],
-  "@react-native-community/datetimepicker": ["react-native-component", "react-native", "ios", "android", "windows", "datepicker", "timepicker", "datetime"],
+  "@react-native-community/datetimepicker": [
+    "react-native-component",
+    "react-native",
+    "ios",
+    "android",
+    "windows",
+    "datepicker",
+    "timepicker",
+    "datetime"
+  ],
   "sqlite": [
     "sqlite",
     "db",
@@ -1413,23 +2467,85 @@
     "animation"
   ],
   "@cucumber/tag-expressions": ["cucumber"],
-  "jss-plugin-nested": ["cssinjs", "css-in-js", "css in js", "jss", "plugin", "nested", "nesting"],
-  "npm-adaptiveme-nibble": ["adaptive", "hybrid", "html5", "mobile", "desktop", "framework"],
+  "jss-plugin-nested": [
+    "cssinjs",
+    "css-in-js",
+    "css in js",
+    "jss",
+    "plugin",
+    "nested",
+    "nesting"
+  ],
+  "npm-adaptiveme-nibble": [
+    "adaptive",
+    "hybrid",
+    "html5",
+    "mobile",
+    "desktop",
+    "framework"
+  ],
   "ag-grid-react": ["react-component", "grid", "data", "table", "react"],
-  "jss-plugin-props-sort": ["cssinjs", "css-in-js", "css in js", "jss", "plugin", "sort", "props"],
+  "jss-plugin-props-sort": [
+    "cssinjs",
+    "css-in-js",
+    "css in js",
+    "jss",
+    "plugin",
+    "sort",
+    "props"
+  ],
   "country-flag-icons": ["country", "flag", "icons", "vector", "svg", "react"],
   "rc-virtual-list": [],
-  "@fastify/swagger": ["fastify", "swagger", "openapi", "serve", "generate", "static"],
+  "@fastify/swagger": [
+    "fastify",
+    "swagger",
+    "openapi",
+    "serve",
+    "generate",
+    "static"
+  ],
   "@googlemaps/markerclusterer": ["cluster", "google", "maps", "marker"],
-  "rtlcss": ["rtl", "css", "ltr", "rtlcss", "framework", "style", "mirror", "flip", "convert", "transform"],
-  "airbnb-prop-types": ["react", "propTypes", "airbnb", "prop", "types", "validator", "validation"],
+  "rtlcss": [
+    "rtl",
+    "css",
+    "ltr",
+    "rtlcss",
+    "framework",
+    "style",
+    "mirror",
+    "flip",
+    "convert",
+    "transform"
+  ],
+  "airbnb-prop-types": [
+    "react",
+    "propTypes",
+    "airbnb",
+    "prop",
+    "types",
+    "validator",
+    "validation"
+  ],
   "vue-docgen-api": ["vue", "documentation-generation", "jsdoc", "parse"],
-  "http2-client": ["http2", "http2 client", "request", "compatible", "client", "compatibility"],
+  "http2-client": [
+    "http2",
+    "http2 client",
+    "request",
+    "compatible",
+    "client",
+    "compatibility"
+  ],
   "@react-native-community/slider": ["react-native", "react native", "slider"],
   "antlr4": ["lexer", "parser", "antlr", "antlr4", "grammar"],
   "express-http-proxy": ["express-http-proxy"],
   "@apollo/utils.fetcher": ["apollo", "graphql", "typescript", "node"],
-  "lottie-react-native": ["lottie", "animation", "react", "react-native", "keyframe"],
+  "lottie-react-native": [
+    "lottie",
+    "animation",
+    "react",
+    "react-native",
+    "keyframe"
+  ],
   "react-date-range": ["react", "date", "range", "datepicker", "rangepicker"],
   "@fastify/websocket": ["fastify", "websocket"],
   "@ag-grid-community/core": [
@@ -1451,11 +2567,36 @@
     "vue",
     "vuejs"
   ],
-  "electron-log": ["electron", "atom", "log", "logger", "logging", "windows", "mac", "osx", "linux", "desktop"],
-  "mongodb-memory-server": ["mongodb", "mongoose", "mock", "stub", "mockgoose", "mongodb-prebuilt", "mongomem"],
+  "electron-log": [
+    "electron",
+    "atom",
+    "log",
+    "logger",
+    "logging",
+    "windows",
+    "mac",
+    "osx",
+    "linux",
+    "desktop"
+  ],
+  "mongodb-memory-server": [
+    "mongodb",
+    "mongoose",
+    "mock",
+    "stub",
+    "mockgoose",
+    "mongodb-prebuilt",
+    "mongomem"
+  ],
   "next-seo": ["next.js", "seo", "react", "node", "ssr"],
   "@wojtekmaj/date-utils": ["date", "utils"],
-  "universal-github-app-jwt": ["github", "authentication", "app", "jwt", "webcrypto"],
+  "universal-github-app-jwt": [
+    "github",
+    "authentication",
+    "app",
+    "jwt",
+    "webcrypto"
+  ],
   "intl-tel-input": [
     "international",
     "i18n",
@@ -1474,7 +2615,15 @@
     "validation",
     "formatting"
   ],
-  "react-native-maps": ["react", "react-native", "react-component", "map", "mapview", "google-maps", "mapkit"],
+  "react-native-maps": [
+    "react",
+    "react-native",
+    "react-component",
+    "map",
+    "mapview",
+    "google-maps",
+    "mapkit"
+  ],
   "react-bootstrap-typeahead": [
     "auto complete",
     "auto suggest",
@@ -1503,11 +2652,28 @@
     "typeahead"
   ],
   "@fastify/formbody": ["fastify", "x-www-form-urlencoded"],
-  "metalsmith": ["static", "jamstack", "file", "site", "website", "blog", "generator", "markdown", "jekyll", "metalsmith", "yaml"],
+  "metalsmith": [
+    "static",
+    "jamstack",
+    "file",
+    "site",
+    "website",
+    "blog",
+    "generator",
+    "markdown",
+    "jekyll",
+    "metalsmith",
+    "yaml"
+  ],
   "vue-resource": ["vue", "xhr", "http", "ajax"],
   "@opentelemetry/redis-common": ["opentelemetry", "redis-common"],
   "connect-mongo": ["connect", "mongo", "mongodb", "session", "express"],
-  "@callstack/react-theme-provider": ["react", "react-native", "theme", "provider"],
+  "@callstack/react-theme-provider": [
+    "react",
+    "react-native",
+    "theme",
+    "provider"
+  ],
   "@swimlane/ngx-charts": [
     "angular",
     "angularjs",
@@ -1525,7 +2691,16 @@
     "viz",
     "graph"
   ],
-  "prop-types-exact": ["react", "propTypes", "airbnb", "prop", "types", "validator", "validation", "exact"],
+  "prop-types-exact": [
+    "react",
+    "propTypes",
+    "airbnb",
+    "prop",
+    "types",
+    "validator",
+    "validation",
+    "exact"
+  ],
   "victory": ["data visualization", "react", "d3", "charting"],
   "interactjs": [
     "interact.js",
@@ -1594,8 +2769,29 @@
   ],
   "@sanity/icons": ["sanity", "ui", "icons"],
   "@sentry/vite-plugin": ["Sentry", "Vite", "bundler", "plugin"],
-  "quasar": ["vuejs", "vue", "quasar", "js", "phone", "tablet", "desktop", "spa", "pwa", "website", "electron"],
-  "express-openapi-validator": ["openapi", "openapi 3", "expressjs", "express", "request validation", "response validation", "middleware", "nodejs"],
+  "quasar": [
+    "vuejs",
+    "vue",
+    "quasar",
+    "js",
+    "phone",
+    "tablet",
+    "desktop",
+    "spa",
+    "pwa",
+    "website",
+    "electron"
+  ],
+  "express-openapi-validator": [
+    "openapi",
+    "openapi 3",
+    "expressjs",
+    "express",
+    "request validation",
+    "response validation",
+    "middleware",
+    "nodejs"
+  ],
   "@ag-grid-community/client-side-row-model": [
     "web-components",
     "grid",
@@ -1609,26 +2805,125 @@
     "vue",
     "vuejs"
   ],
-  "react-date-picker": ["calendar", "date", "date-picker", "month-picker", "react"],
-  "detect-gpu": ["gpu", "detect", "webgl", "webgl2", "three.js", "babylonjs", "three", "babylon", "3d", "typescript", "javascript"],
+  "react-date-picker": [
+    "calendar",
+    "date",
+    "date-picker",
+    "month-picker",
+    "react"
+  ],
+  "detect-gpu": [
+    "gpu",
+    "detect",
+    "webgl",
+    "webgl2",
+    "three.js",
+    "babylonjs",
+    "three",
+    "babylon",
+    "3d",
+    "typescript",
+    "javascript"
+  ],
   "@mapbox/mapbox-gl-draw": ["webgl", "mapbox", "draw", "drawing"],
   "@uppy/core": ["file uploader", "uppy", "uppy-plugin"],
   "@opentelemetry/sql-common": ["opentelemetry", "contrib", "sql"],
   "victory-core": ["data visualization", "react", "d3", "charting"],
   "ng-zorro-antd": ["ant", "design", "angular", "ui", "framework", "frontend"],
-  "use-query-params": ["react", "url", "query", "parameters", "hook", "hooks", "query param", "react use"],
+  "use-query-params": [
+    "react",
+    "url",
+    "query",
+    "parameters",
+    "hook",
+    "hooks",
+    "query param",
+    "react use"
+  ],
   "vue-lazyload": ["vue-lazyload", "vue", "lazyload", "vue-directive"],
-  "pubnub": ["cloud", "publish", "subscribe", "websockets", "comet", "bosh", "xmpp", "real-time", "messaging"],
+  "pubnub": [
+    "cloud",
+    "publish",
+    "subscribe",
+    "websockets",
+    "comet",
+    "bosh",
+    "xmpp",
+    "real-time",
+    "messaging"
+  ],
   "markdown": ["markdown", "text processing", "ast"],
-  "@apollo/protobufjs": ["protobuf", "protocol-buffers", "serialization", "typescript"],
+  "@apollo/protobufjs": [
+    "protobuf",
+    "protocol-buffers",
+    "serialization",
+    "typescript"
+  ],
   "react-use-websocket": ["react", "react-hooks", "websocket", "websockets"],
-  "@googlemaps/google-maps-services-js": ["google", "maps", "googlemaps", "geo", "geocode", "timezone", "api", "client", "roads", "directions", "navigation"],
-  "@react-native-firebase/messaging": ["react", "react-native", "firebase", "messaging"],
-  "camera-controls": ["three", "three.js", "orbit", "controls", "OrbitControls", "camera"],
-  "babel-plugin-inline-react-svg": ["babel", "plugin", "react", "svg", "inline"],
-  "react-avatar-editor": ["react-component", "reactjs", "react", "canvas", "avatar", "editor", "profile", "image"],
-  "node-sql-parser": ["sql", "sql-parser", "parser", "node", "nodejs", "node-parser", "node-sql-parser", "ast", "sql-ast"],
-  "next-router-mock": ["react", "next", "next.js", "nextjs", "router", "mock", "testing"],
+  "@googlemaps/google-maps-services-js": [
+    "google",
+    "maps",
+    "googlemaps",
+    "geo",
+    "geocode",
+    "timezone",
+    "api",
+    "client",
+    "roads",
+    "directions",
+    "navigation"
+  ],
+  "@react-native-firebase/messaging": [
+    "react",
+    "react-native",
+    "firebase",
+    "messaging"
+  ],
+  "camera-controls": [
+    "three",
+    "three.js",
+    "orbit",
+    "controls",
+    "OrbitControls",
+    "camera"
+  ],
+  "babel-plugin-inline-react-svg": [
+    "babel",
+    "plugin",
+    "react",
+    "svg",
+    "inline"
+  ],
+  "react-avatar-editor": [
+    "react-component",
+    "reactjs",
+    "react",
+    "canvas",
+    "avatar",
+    "editor",
+    "profile",
+    "image"
+  ],
+  "node-sql-parser": [
+    "sql",
+    "sql-parser",
+    "parser",
+    "node",
+    "nodejs",
+    "node-parser",
+    "node-sql-parser",
+    "ast",
+    "sql-ast"
+  ],
+  "next-router-mock": [
+    "react",
+    "next",
+    "next.js",
+    "nextjs",
+    "router",
+    "mock",
+    "testing"
+  ],
   "react-places-autocomplete": [
     "React.js",
     "react",
@@ -1647,8 +2942,21 @@
     "geocoder"
   ],
   "json": ["json", "jsontool", "filter", "command", "shell"],
-  "@react-google-maps/marker-clusterer": ["react", "Google", "Map", "API", "addons/MarkerClusterer", "Marker"],
-  "@ag-grid-community/react": ["react-component", "grid", "data", "table", "react"],
+  "@react-google-maps/marker-clusterer": [
+    "react",
+    "Google",
+    "Map",
+    "API",
+    "addons/MarkerClusterer",
+    "Marker"
+  ],
+  "@ag-grid-community/react": [
+    "react-component",
+    "grid",
+    "data",
+    "table",
+    "react"
+  ],
   "abstract-level": ["abstract-level", "level", "leveldb"],
   "react-image-gallery": [
     "react",
@@ -1690,17 +2998,75 @@
     "BTC"
   ],
   "@videojs/vhs-utils": ["videojs", "videojs-plugin"],
-  "level-supports": ["abstract-leveldown", "database", "db", "level", "levelup", "manifest"],
-  "vue-inbrowser-compiler-independent-utils": ["vue", "compile", "live", "browser", "acorn"],
+  "level-supports": [
+    "abstract-leveldown",
+    "database",
+    "db",
+    "level",
+    "levelup",
+    "manifest"
+  ],
+  "vue-inbrowser-compiler-independent-utils": [
+    "vue",
+    "compile",
+    "live",
+    "browser",
+    "acorn"
+  ],
   "async-cache-dedupe": ["cache", "single", "user", "graphql"],
-  "@react-native-firebase/analytics": ["react", "react-native", "firebase", "analytics"],
-  "google-closure-compiler": ["compiler", "optimizer", "minifier", "closure", "gulpplugin", "gruntplugin"],
+  "@react-native-firebase/analytics": [
+    "react",
+    "react-native",
+    "firebase",
+    "analytics"
+  ],
+  "google-closure-compiler": [
+    "compiler",
+    "optimizer",
+    "minifier",
+    "closure",
+    "gulpplugin",
+    "gruntplugin"
+  ],
   "next-sitemap": ["nextjs", "next", "sitemap", "seo", "react"],
-  "@splidejs/splide": ["splide", "slider", "carousel", "slideshow", "gallery", "lightweight", "touch", "responsive", "typescript"],
+  "@splidejs/splide": [
+    "splide",
+    "slider",
+    "carousel",
+    "slideshow",
+    "gallery",
+    "lightweight",
+    "touch",
+    "responsive",
+    "typescript"
+  ],
   "@wordpress/i18n": ["wordpress", "gutenberg", "i18n"],
-  "loopback-datasource-juggler": ["StrongLoop", "LoopBack", "DataSource", "Connector", "database", "Juggler", "orm"],
-  "google-proto-files": ["google", "proto", "protobuf", "protocol buffer", "grpc"],
-  "@antv/g2": ["antv", "g2", "visualization", "chart", "grammar", "graphics", "interaction", "animation"],
+  "loopback-datasource-juggler": [
+    "StrongLoop",
+    "LoopBack",
+    "DataSource",
+    "Connector",
+    "database",
+    "Juggler",
+    "orm"
+  ],
+  "google-proto-files": [
+    "google",
+    "proto",
+    "protobuf",
+    "protocol buffer",
+    "grpc"
+  ],
+  "@antv/g2": [
+    "antv",
+    "g2",
+    "visualization",
+    "chart",
+    "grammar",
+    "graphics",
+    "interaction",
+    "animation"
+  ],
   "react-native-date-picker": [
     "datepicker",
     "date-picker",
@@ -1714,8 +3080,22 @@
     "react-native",
     "react-native-date-picker"
   ],
-  "@fastify/basic-auth": ["fastify", "basic", "auth", "authentication", "plugin"],
-  "node-polyglot": ["i18n", "internationalization", "internationalisation", "translation", "interpolation", "translate", "polyglot"],
+  "@fastify/basic-auth": [
+    "fastify",
+    "basic",
+    "auth",
+    "authentication",
+    "plugin"
+  ],
+  "node-polyglot": [
+    "i18n",
+    "internationalization",
+    "internationalisation",
+    "translation",
+    "interpolation",
+    "translate",
+    "polyglot"
+  ],
   "trix": ["rich text", "wysiwyg", "editor"],
   "@google/model-viewer": [
     "ar",
@@ -1750,14 +3130,71 @@
     "plugin",
     "helper"
   ],
-  "mux.js": ["video", "container", "transmux", "mux", "player", "hls", "mp4", "flv", "aac", "h264"],
-  "next-intl": ["react", "intl", "i18n", "internationalization", "localization", "translate", "translation", "format", "formatting", "next", "next.js"],
-  "@seriousme/openapi-schema-validator": ["openapi", "json", "schema", "validation"],
-  "@sanity/types": ["sanity", "cms", "headless", "realtime", "content", "types", "typescript"],
-  "eslint-plugin-i18next": ["eslint", "eslintplugin", "eslint-plugin", "i18n", "i10next", "internationalization", "localization"],
-  "nano": ["couchdb", "data", "request", "json", "nosql", "micro", "nano", "database"],
+  "mux.js": [
+    "video",
+    "container",
+    "transmux",
+    "mux",
+    "player",
+    "hls",
+    "mp4",
+    "flv",
+    "aac",
+    "h264"
+  ],
+  "next-intl": [
+    "react",
+    "intl",
+    "i18n",
+    "internationalization",
+    "localization",
+    "translate",
+    "translation",
+    "format",
+    "formatting",
+    "next",
+    "next.js"
+  ],
+  "@seriousme/openapi-schema-validator": [
+    "openapi",
+    "json",
+    "schema",
+    "validation"
+  ],
+  "@sanity/types": [
+    "sanity",
+    "cms",
+    "headless",
+    "realtime",
+    "content",
+    "types",
+    "typescript"
+  ],
+  "eslint-plugin-i18next": [
+    "eslint",
+    "eslintplugin",
+    "eslint-plugin",
+    "i18n",
+    "i10next",
+    "internationalization",
+    "localization"
+  ],
+  "nano": [
+    "couchdb",
+    "data",
+    "request",
+    "json",
+    "nosql",
+    "micro",
+    "nano",
+    "database"
+  ],
   "@nx/next": ["Monorepo", "Node", "Next", "Jest", "Cypress", "CLI"],
-  "@react-native-community/geolocation": ["react-native", "geolocation", "location"],
+  "@react-native-community/geolocation": [
+    "react-native",
+    "geolocation",
+    "location"
+  ],
   "gridstack": [
     "Typescript",
     "gridstack.js",
@@ -1811,7 +3248,15 @@
     "attack"
   ],
   "react-native-qrcode-svg": ["react-native", "qrcode", "svg"],
-  "regl-line2d": ["regl", "line2d", "gl-vis", "gl", "webgl", "polyline", "plotly"],
+  "regl-line2d": [
+    "regl",
+    "line2d",
+    "gl-vis",
+    "gl",
+    "webgl",
+    "polyline",
+    "plotly"
+  ],
   "@sanity/util": ["sanity", "cms", "headless", "realtime", "content", "util"],
   "@wordpress/hooks": ["wordpress", "gutenberg", "hooks"],
   "foundation-sites": [
@@ -1826,22 +3271,107 @@
     "handlebars-helper-rel",
     "handlebars-helper-slugify"
   ],
-  "utils": ["array", "collection", "function", "lang", "language", "math", "object", "object", "string", "util", "utils"],
-  "documentation": ["documentation", "formatter", "jsdoc", "jsdoc3", "parser", "website"],
+  "utils": [
+    "array",
+    "collection",
+    "function",
+    "lang",
+    "language",
+    "math",
+    "object",
+    "object",
+    "string",
+    "util",
+    "utils"
+  ],
+  "documentation": [
+    "documentation",
+    "formatter",
+    "jsdoc",
+    "jsdoc3",
+    "parser",
+    "website"
+  ],
   "sql-summary": ["sql", "summary", "query", "log", "logging", "analyze"],
-  "phaser": ["2d", "HTML5", "WebGL", "canvas", "game", "physics", "tweens", "typescript", "web audio"],
-  "@linaria/utils": ["css", "css-in-js", "linaria", "react", "styled-components"],
+  "phaser": [
+    "2d",
+    "HTML5",
+    "WebGL",
+    "canvas",
+    "game",
+    "physics",
+    "tweens",
+    "typescript",
+    "web audio"
+  ],
+  "@linaria/utils": [
+    "css",
+    "css-in-js",
+    "linaria",
+    "react",
+    "styled-components"
+  ],
   "diagram-js": ["modeler", "modeling", "canvas", "diagram-js"],
-  "regl-splom": ["regl", "plotly", "splom", "scatter", "matrix", "scattermatrix", "gl", "webgl", "plot", "scatterplot"],
+  "regl-splom": [
+    "regl",
+    "plotly",
+    "splom",
+    "scatter",
+    "matrix",
+    "scattermatrix",
+    "gl",
+    "webgl",
+    "plot",
+    "scatterplot"
+  ],
   "memjs": ["cache", "memcache", "memcached", "MemCachier"],
   "mpd-parser": ["videojs", "videojs-plugin"],
-  "lightweight-charts": ["financial-charting-library", "charting-library", "html5-charts", "canvas", "typescript", "charting", "charts"],
-  "@antv/x6": ["graph", "diagram", "flowchart", "uml", "x6-editor", "editor", "svg", "x6", "antv"],
+  "lightweight-charts": [
+    "financial-charting-library",
+    "charting-library",
+    "html5-charts",
+    "canvas",
+    "typescript",
+    "charting",
+    "charts"
+  ],
+  "@antv/x6": [
+    "graph",
+    "diagram",
+    "flowchart",
+    "uml",
+    "x6-editor",
+    "editor",
+    "svg",
+    "x6",
+    "antv"
+  ],
   "hubot-redis-brain": ["hubot", "hubot-scripts"],
   "date-holidays": ["holidays", "world"],
-  "keycloak-connect": ["sso", "keycloak", "oauth", "oauth2.0", "authentication"],
-  "vue-virtual-scroll-list": ["vue", "big-data", "big-list", "scroll-list", "virtual-list"],
-  "@compodoc/compodoc": ["angular2", "angular", "documentation", "components", "module", "graph", "dependencies", "markdown"],
+  "keycloak-connect": [
+    "sso",
+    "keycloak",
+    "oauth",
+    "oauth2.0",
+    "authentication"
+  ],
+  "vue-virtual-scroll-list": [
+    "vue",
+    "big-data",
+    "big-list",
+    "scroll-list",
+    "virtual-list"
+  ],
+  "@compodoc/compodoc": [
+    "angular2",
+    "angular",
+    "documentation",
+    "components",
+    "module",
+    "graph",
+    "dependencies",
+    "markdown"
+  ],
   "react-native-reanimated-carousel": ["react-native", "ios", "android"],
   "mdx-bundler": ["mdx", "bundler", "mdx-bundler", "esbuild"]
 }
