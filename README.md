@@ -51,8 +51,8 @@
 
 东抄一点，西抄一点，感谢 ٩( 'ω' )و
 
-- [今年各个前端框架和组件库的 npmmirror 总下载量 - 知乎](https://link.juejin.cn?target=https%3A%2F%2Fzhuanlan.zhihu.com%2Fp%2F648316526 "https://zhuanlan.zhihu.com/p/648316526")
-- [Lib.rs — home for Rust crates // Lib.rs](https://link.juejin.cn?target=https%3A%2F%2Flib.rs%2F "https://lib.rs/")
-- [Best of JS](https://link.juejin.cn?target=https%3A%2F%2Fbestofjs.org%2F "https://bestofjs.org/")
-- [State of JavaScript](https://link.juejin.cn?target=https%3A%2F%2Fstateofjs.com%2Fen-US "https://stateofjs.com/en-US")
-- [npm trends: Compare NPM package downloads](https://link.juejin.cn?target=https%3A%2F%2Fnpmtrends.com%2F "https://npmtrends.com/")
+- [今年各个前端框架和组件库的 npmmirror 总下载量 - 知乎](https://zhuanlan.zhihu.com/p/648316526)
+- [Lib.rs — home for Rust crates // Lib.rs](https://lib.rs/)
+- [Best of JS](https://bestofjs.org/)
+- [State of JavaScript](https://stateofjs.com/en-US)
+- [npm trends: Compare NPM package downloads](https://npmtrends.com/)

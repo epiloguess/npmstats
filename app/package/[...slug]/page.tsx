@@ -13,11 +13,11 @@ async function RealPkgMeta({ pkg_name }: { pkg_name: string }) {
     <div className='flex flex-col gap-2'>
       <div className='flex items-center gap-2'>
         <h2 className=' text-orange-500 text-2xl font-bold '>{pkg_name}</h2>
-        <a href={`https://www.npmjs.com/package/${pkg_name}`}>
+        <a target="_blank" href={`https://www.npmjs.com/package/${pkg_name}` }>
           <Npm_logo width='24' height='24'></Npm_logo>
         </a>
         {repository && (
-          <a href={repository}>
+          <a  target="_blank" href={repository}>
             <Github_logo width='24' height='24'></Github_logo>
           </a>
         )}
