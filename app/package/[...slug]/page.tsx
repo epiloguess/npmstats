@@ -16,14 +16,18 @@ async function RealPkgMeta({ pkg_name }: { pkg_name: string }) {
         <a target="_blank" href={`https://www.npmjs.com/package/${pkg_name}` }>
           <Npm_logo width='24' height='24'></Npm_logo>
         </a>
+        <Suspense fallback={<div className=''>Loading ...</div>}>
         {repository && (
           <a  target="_blank" href={repository}>
             <Github_logo width='24' height='24'></Github_logo>
           </a>
         )}
-      </div>
+        </Suspense>
 
+      </div>
+      <Suspense fallback={<div className=''>Loading ...</div>}>
       <div>{description}</div>
+      </Suspense>
     </div>
   );
 }
@@ -37,9 +41,7 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
   return (
     <div className='flex flex-col gap-2'>
       <section className='flex flex-col gap-2'>
-        <Suspense fallback={<div className=''>Loading ...</div>}>
           <RealPkgMeta pkg_name={pkg_name}></RealPkgMeta>
-        </Suspense>
 
         <div className='flex gap-2 flex-wrap'>
           {tags &&
