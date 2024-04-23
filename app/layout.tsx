@@ -5,7 +5,7 @@ import SearBox from "@/_component/SearchBox";
 const inter = Inter({ subsets: ["latin"] });
 import Script from "next/script";
 export const metadata: Metadata = {
-  title: "Npm Stats",
+  title: "npmstats",
   description:
     "An unofficial, well maintained site of npm package download statistics for comparison, used for technical reference.",
 };

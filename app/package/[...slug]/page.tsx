@@ -94,6 +94,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const pkg_name = decodeURIComponent(undecodedString);
 
   return {
-    title: `${pkg_name} - Npm Stats`,
+    title: `${pkg_name} | npmstats`,
   };
 }
