@@ -1,4 +1,3 @@
-import remarkGfm from "remark-gfm";
 import createMDX from "@next/mdx";
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -48,12 +47,14 @@ const nextConfig = {
   // Optional: Change the output directory `out` -> `dist`
   // distDir: 'dist',
 };
-
+import remarkGfm from "remark-gfm";
+import remarkSmartypants from 'remark-smartypants'
+import rehypeSlug from 'rehype-slug'
 const withMDX = createMDX({
   // Add markdown plugins here, as desired
   options: {
-    remarkPlugins: [remarkGfm],
-    rehypePlugins: [],
+    remarkPlugins: [remarkGfm,remarkSmartypants],
+    rehypePlugins: [rehypeSlug],
   },
 });
 
