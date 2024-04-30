@@ -7,6 +7,8 @@ import Npm_logo from "./n.svg";
 import Github_logo from "./github-mark.svg";
 import MultiPkgChart from "@/_component/MultiPkgChart";
 
+export const runtime = 'edge';
+
 async function RealPkgMeta({ pkg_name }: { pkg_name: string }) {
   let { description, repository } = await getRealMeta(pkg_name);
   return (
