@@ -2,7 +2,7 @@
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
 
 generator client {
-  provider = "prisma-client-js"
+  provider        = "prisma-client-js"
   previewFeatures = ["driverAdapters"]
 }
 
@@ -12,12 +12,12 @@ datasource db {
 }
 
 model Pkgs {
-  id             Int              @id @default(autoincrement())
-  pkg            String           @unique
-  tags           Tags[]
-  description    String?
-  repository     String?
-  popularity     Float?
+  id          Int    @id @default(autoincrement())
+  pkg         String @unique
+  tags        Tags[]
+  description String
+  repository  String
+  popularity  Float
 }
 
 model Tags {
@@ -26,19 +26,23 @@ model Tags {
   pkgs Pkgs[]
 }
 
+model TotalDownloads {
+  id       Int    @id @default(autoincrement())
+  pkg      String
+  date     String
+  source   String
+  download Int
+
+  @@unique([pkg, date, source])
+}
+
 model MajorDownloads {
-  id       Int      @id @default(autoincrement())
-  pkg_name String
+  id       Int    @id @default(autoincrement())
+  pkg      String
   date     String
   source   String
   version  String
   download Int
-}
 
-model TotalDownloads {
-  id       Int      @id @default(autoincrement())
-  pkg_name String
-  date     String
-  source   String
-  download Int
+  @@unique([pkg, date, source, version])
 }

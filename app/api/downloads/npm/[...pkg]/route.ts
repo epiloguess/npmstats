@@ -36,7 +36,7 @@ export async function GET(
   const pkg = decodeURIComponent(undecodedString);
 
   const DBquery = await prisma.totalDownloads.findMany({
-    where: { pkg_name: pkg, source: "npm" },
+    where: { pkg: pkg, source: "npm" },
     orderBy: {
       date: "desc",
     },
@@ -53,7 +53,7 @@ export async function GET(
 
     async function createTotalDownload(pkg: string, item: Dailydownload) {
       const temp = {
-        pkg_name: pkg,
+        pkg: pkg,
         date: item.day,
         source: "npm",
         download: item.downloads,
@@ -68,7 +68,7 @@ export async function GET(
         })
       );
     } catch (error) {
-      console.error("Error occurred during creation:", error);
+      throw error;
     }
 
     let download = downloads.map(({ day, downloads }) => ({
@@ -77,21 +77,27 @@ export async function GET(
     }));
 
     return Response.json({ package: pkg, downloads: download });
-    
   } else if (dayDiff(currentDate, lastUpdate) > 2) {
     let range = `${lastUpdate}:${currentDate}`;
     const { downloads } = await getNpmDownloads(pkg, range);
 
     // insert to db
 
-    async function createTotalDownload(pkg: string, item: Dailydownload) {
+    async function createTotalDownload(
+      pkg: string,
+      { day, downloads }: Dailydownload
+    ) {
       const temp = {
-        pkg_name: pkg,
-        date: item.day,
+        pkg,
+        date: day,
         source: "npm",
-        download: item.downloads,
+        download: downloads,
       };
-      await prisma.totalDownloads.create({ data: temp });
+      await prisma.totalDownloads.upsert({
+        where: temp as any,
+        update: {},
+        create: temp,
+      });
     }
 
     try {
@@ -101,12 +107,12 @@ export async function GET(
         })
       );
     } catch (error) {
-      console.error("Error occurred during creation:", error);
+      throw error
     }
 
     const DBquery = await prisma.totalDownloads.findMany({
-      where: { pkg_name: pkg, source: "npm" },
-      orderBy:{date:"asc"}
+      where: { pkg: pkg, source: "npm" },
+      orderBy: { date: "asc" },
     });
     let download = DBquery.map(({ date, download }) => ({
       day: date,
@@ -114,12 +120,10 @@ export async function GET(
     }));
 
     return Response.json({ package: pkg, downloads: download });
-
   } else {
     const DBquery = await prisma.totalDownloads.findMany({
-      where: { pkg_name: pkg, source: "npm" },
-      orderBy:{date:"asc"}
-
+      where: { pkg: pkg, source: "npm" },
+      orderBy: { date: "asc" },
     });
     let download = DBquery.map(({ date, download }) => ({
       day: date,

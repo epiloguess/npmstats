@@ -6,7 +6,7 @@ import { lastMonthRange } from "@utils/server";
 
 export const runtime = "edge";
 
-import { cnpm_data } from "@type/npm";
+import { Dailydownload, Downloads, cnpm_data } from "@type/npm";
 
 async function getCnpmDownloads(
   range: string,
@@ -56,7 +56,7 @@ export async function GET(
 
   const currentDate = formatDate(new Date());
   const DBquery = await prisma.totalDownloads.findMany({
-    where: { pkg_name: pkg,source:"cnpm" },
+    where: { pkg: pkg, source: "cnpm" },
     orderBy: {
       date: "desc",
     },
@@ -70,17 +70,13 @@ export async function GET(
     const { downloads } = await getCnpmDownloads(lastMonthRange, pkg);
 
     // insert to db
-    interface item {
-      day: string;
-      downloads: number;
-    }
 
-    async function createTotalDownload(pkg: string, item: item) {
+    async function createTotalDownload(pkg: string, {day,downloads}: Dailydownload) {
       const temp = {
-        pkg_name: pkg,
-        date: item.day,
+        pkg: pkg,
+        date: day,
         source: "cnpm",
-        download: item.downloads,
+        download: downloads,
       };
       await prisma.totalDownloads.create({ data: temp });
     }
@@ -92,7 +88,7 @@ export async function GET(
         })
       );
     } catch (error) {
-      console.error("Error occurred during creation:", error);
+      throw error;
     }
 
     // creataMany can not work right now ,see https://github.com/prisma/prisma/issues/23743
@@ -113,19 +109,22 @@ export async function GET(
     const { downloads } = await getCnpmDownloads(range, pkg);
 
     // insert to db
-    interface item {
-      day: string;
-      downloads: number;
-    }
-
-    async function createTotalDownload(pkg: string, item: item) {
+    async function createTotalDownload(
+      pkg: string,
+      { day, downloads }: Dailydownload
+    ) {
       const temp = {
-        pkg_name: pkg,
-        date: item.day,
+        pkg,
+        date: day,
         source: "cnpm",
-        download: item.downloads,
+        download: downloads,
       };
-      await prisma.totalDownloads.create({ data: temp });
+      
+      await prisma.totalDownloads.upsert({
+        where: temp as any  ,
+        update: {},
+        create: temp,
+      });
     }
 
     try {
@@ -135,13 +134,12 @@ export async function GET(
         })
       );
     } catch (error) {
-      console.error("Error occurred during creation:", error);
+      throw error
     }
 
     const DBquery = await prisma.totalDownloads.findMany({
-      where: { pkg_name: pkg,source:'cnpm' },
-      orderBy:{date:"asc"}
-
+      where: { pkg: pkg, source: "cnpm" },
+      orderBy: { date: "asc" },
     });
     let download = DBquery.map(({ date, download }) => ({
       day: date,
@@ -150,9 +148,8 @@ export async function GET(
     return Response.json({ package: pkg, downloads: download });
   } else {
     const DBquery = await prisma.totalDownloads.findMany({
-      where: { pkg_name: pkg,source:"cnpm" },
-      orderBy:{date:"asc"}
-
+      where: { pkg: pkg, source: "cnpm" },
+      orderBy: { date: "asc" },
     });
     let download = DBquery.map(({ date, download }) => ({
       day: date,

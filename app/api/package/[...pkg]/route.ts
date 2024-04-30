@@ -74,27 +74,7 @@ export async function GET(
   } else {
     // 如果在数据库中找不到，去第三方 API 查找
     let { objects: npm_meta } = await getNpmMeta(pkg);
-
-    let packages_meta = npm_meta.map((item) => {
-      let {
-        name,
-        description,
-        links: { repository },
-      } = item.package;
-      let {
-        detail: { popularity },
-      } = item.score;
-      return {
-        pkg: name,
-        description,
-        repository: repository ?? "",
-        popularity: popularity ?? 0,
-      };
-    });
     //将从第三方 API 获取到的数据写入数据库
-    await prisma.pkgs.createMany({
-      data: packages_meta,
-    });
 
     //
     let package_meta = npm_meta.find((e) => e.package.name === pkg)!;
@@ -107,11 +87,14 @@ export async function GET(
       detail: { popularity },
     } = package_meta.score;
 
-    return Response.json({
-      pkg,
-      description: description ?? "",
-      repository: repository ?? "",
-      popularity: popularity ?? 0,
+    const data = await prisma.pkgs.create({
+      data: {
+        pkg,
+        description: description ?? "",
+        repository: repository ?? "",
+        popularity: popularity ?? 0,
+      },
     });
+    return Response.json(data);
   }
 }

@@ -10,13 +10,13 @@ import MultiPkgChart from "@/_component/MultiPkgChart";
 
 export const runtime = "edge";
 
-async function RealPkgMeta({ pkg_name }: { pkg_name: string }) {
-  let { description, repository } = await getRealMeta(pkg_name);
+async function RealPkgMeta({ pkg }: { pkg: string }) {
+  let { description, repository } = await getRealMeta(pkg);
   return (
     <div className='flex flex-col gap-2'>
       <div className='flex items-center gap-2'>
-        <h2 className=' text-orange-500 text-2xl font-bold '>{pkg_name}</h2>
-        <a target='_blank' href={`https://www.npmjs.com/package/${pkg_name}`}>
+        <h2 className=' text-orange-500 text-2xl font-bold '>{pkg}</h2>
+        <a target='_blank' href={`https://www.npmjs.com/package/${pkg}`}>
           <Npm_logo width='24' height='24'></Npm_logo>
         </a>
         <Suspense fallback={<div className=''>Loading ...</div>}>
@@ -43,7 +43,7 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
   return (
     <div className='flex flex-col gap-2'>
       <section className='flex flex-col gap-2'>
-        <RealPkgMeta pkg_name={pkg_name}></RealPkgMeta>
+        <RealPkgMeta pkg={pkg_name}></RealPkgMeta>
 
         <div className='flex gap-2 flex-wrap'>
           {tags &&

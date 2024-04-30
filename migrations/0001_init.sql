@@ -2,9 +2,9 @@
 CREATE TABLE "Pkgs" (
     "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
     "pkg" TEXT NOT NULL,
-    "description" TEXT,
-    "repository" TEXT,
-    "popularity" REAL
+    "description" TEXT NOT NULL,
+    "repository" TEXT NOT NULL,
+    "popularity" REAL NOT NULL
 );
 
 -- CreateTable
@@ -14,21 +14,21 @@ CREATE TABLE "Tags" (
 );
 
 -- CreateTable
-CREATE TABLE "MajorDownloads" (
+CREATE TABLE "TotalDownloads" (
     "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
-    "pkg_name" TEXT NOT NULL,
+    "pkg" TEXT NOT NULL,
     "date" TEXT NOT NULL,
     "source" TEXT NOT NULL,
-    "version" TEXT NOT NULL,
     "download" INTEGER NOT NULL
 );
 
 -- CreateTable
-CREATE TABLE "TotalDownloads" (
+CREATE TABLE "MajorDownloads" (
     "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
-    "pkg_name" TEXT NOT NULL,
+    "pkg" TEXT NOT NULL,
     "date" TEXT NOT NULL,
     "source" TEXT NOT NULL,
+    "version" TEXT NOT NULL,
     "download" INTEGER NOT NULL
 );
 
@@ -45,6 +45,12 @@ CREATE UNIQUE INDEX "Pkgs_pkg_key" ON "Pkgs"("pkg");
 
 -- CreateIndex
 CREATE UNIQUE INDEX "Tags_tag_key" ON "Tags"("tag");
+
+-- CreateIndex
+CREATE UNIQUE INDEX "TotalDownloads_pkg_date_source_key" ON "TotalDownloads"("pkg", "date", "source");
+
+-- CreateIndex
+CREATE UNIQUE INDEX "MajorDownloads_pkg_date_source_version_key" ON "MajorDownloads"("pkg", "date", "source", "version");
 
 -- CreateIndex
 CREATE UNIQUE INDEX "_PkgsToTags_AB_unique" ON "_PkgsToTags"("A", "B");
