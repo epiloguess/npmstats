@@ -140,6 +140,8 @@ export async function GET(
 
     const DBquery = await prisma.totalDownloads.findMany({
       where: { pkg_name: pkg,source:'cnpm' },
+      orderBy:{date:"asc"}
+
     });
     let download = DBquery.map(({ date, download }) => ({
       day: date,
@@ -149,6 +151,8 @@ export async function GET(
   } else {
     const DBquery = await prisma.totalDownloads.findMany({
       where: { pkg_name: pkg,source:"cnpm" },
+      orderBy:{date:"asc"}
+
     });
     let download = DBquery.map(({ date, download }) => ({
       day: date,
