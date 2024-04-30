@@ -1,4 +1,5 @@
-import { getPkgTag, getRealMeta } from "../../_libs/func";
+import { getPkgTag } from "../../_libs/func";
+import { getRealMeta } from "@utils/edge";
 import { Suspense } from "react";
 import Cnpm from "./Cnpm";
 import Npm from "./Npm";
@@ -7,7 +8,7 @@ import Npm_logo from "./n.svg";
 import Github_logo from "./github-mark.svg";
 import MultiPkgChart from "@/_component/MultiPkgChart";
 
-export const runtime = 'edge';
+export const runtime = "edge";
 
 async function RealPkgMeta({ pkg_name }: { pkg_name: string }) {
   let { description, repository } = await getRealMeta(pkg_name);
@@ -15,20 +16,19 @@ async function RealPkgMeta({ pkg_name }: { pkg_name: string }) {
     <div className='flex flex-col gap-2'>
       <div className='flex items-center gap-2'>
         <h2 className=' text-orange-500 text-2xl font-bold '>{pkg_name}</h2>
-        <a target="_blank" href={`https://www.npmjs.com/package/${pkg_name}` }>
+        <a target='_blank' href={`https://www.npmjs.com/package/${pkg_name}`}>
           <Npm_logo width='24' height='24'></Npm_logo>
         </a>
         <Suspense fallback={<div className=''>Loading ...</div>}>
-        {repository && (
-          <a  target="_blank" href={repository}>
-            <Github_logo width='24' height='24'></Github_logo>
-          </a>
-        )}
+          {repository && (
+            <a target='_blank' href={repository}>
+              <Github_logo width='24' height='24'></Github_logo>
+            </a>
+          )}
         </Suspense>
-
       </div>
       <Suspense fallback={<div className=''>Loading ...</div>}>
-      <div>{description}</div>
+        <div>{description}</div>
       </Suspense>
     </div>
   );
@@ -43,7 +43,7 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
   return (
     <div className='flex flex-col gap-2'>
       <section className='flex flex-col gap-2'>
-          <RealPkgMeta pkg_name={pkg_name}></RealPkgMeta>
+        <RealPkgMeta pkg_name={pkg_name}></RealPkgMeta>
 
         <div className='flex gap-2 flex-wrap'>
           {tags &&
@@ -60,7 +60,8 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
             ))}
         </div>
       </section>
-      <Suspense fallback={<div className=' m-auto w-fit h-[300px]'>Loading ...</div>}>
+      <Suspense
+        fallback={<div className=' m-auto w-fit h-[300px]'>Loading ...</div>}>
         <div className=' h-[300px]'>
           <MultiPkgChart pkg_list={[pkg_name]}></MultiPkgChart>
         </div>

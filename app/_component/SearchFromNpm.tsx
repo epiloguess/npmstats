@@ -23,13 +23,15 @@ const debounceFetch = (
   }
 };
 
+import { NpmSearchResult } from '@type/npm'
+
 const SearchInput: React.FC<{}> = (props) => {
   const [fetching, setFetching] = useState(false);
   const [query, setQuery] = useState("");
   const { data, error } = useSWRImmutable(
     query ? `https://registry.npmjs.org/-/v1/search?text=${query}` : null,
     fetcher
-  );
+  ) as { data: NpmSearchResult; error: Error };
 
   const handleSearch = (newValue: string) => {
     debounceFetch(newValue, setQuery, setFetching); // 传递 setLoading

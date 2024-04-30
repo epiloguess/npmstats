@@ -1,0 +1,44 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+  previewFeatures = ["driverAdapters"]
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Pkgs {
+  id             Int              @id @default(autoincrement())
+  pkg            String           @unique
+  tags           Tags[]
+  description    String?
+  repository     String?
+  popularity     Float?
+}
+
+model Tags {
+  id   Int    @id @default(autoincrement())
+  tag  String @unique
+  pkgs Pkgs[]
+}
+
+model MajorDownloads {
+  id       Int      @id @default(autoincrement())
+  pkg_name String
+  date     DateTime
+  source   String
+  version  String
+  download Int
+}
+
+model TotalDownloads {
+  id       Int      @id @default(autoincrement())
+  pkg_name String
+  date     DateTime
+  source   String
+  download Int
+}
