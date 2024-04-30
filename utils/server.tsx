@@ -127,7 +127,7 @@ export const TAGS = getTags();
 export async function getRealMeta(pkg: string):Promise<Package> {
 
   try {
-    let res = await fetch(`https://npmstats.com/package/${pkg}`)
+    let res = await fetch(`https://npmstats.com/api/package/${pkg}`)
     if(!res){
       throw new Error('fetch no data')
     }

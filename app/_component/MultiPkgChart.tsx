@@ -1,14 +1,13 @@
 import NpmLineChart from "@/_component/NpmLineChart";
 import { Downloads } from "@type/npm";
 
-async function getCnpmData(pkg: string) {
+async function getCnpmData(pkg: string): Promise<Downloads> {
   try {
     let res = await fetch(`https://npmstats.com/api/downloads/cnpm/${pkg}`);
     if (!res) {
       throw new Error("something wrong");
     }
-    let cnpm_data: Downloads = await res.json();
-    return cnpm_data;
+    return res.json();
   } catch (err) {
     throw err;
   }
