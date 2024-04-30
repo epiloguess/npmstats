@@ -17,7 +17,7 @@ CREATE TABLE "Tags" (
 CREATE TABLE "MajorDownloads" (
     "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
     "pkg_name" TEXT NOT NULL,
-    "date" DATETIME NOT NULL,
+    "date" TEXT NOT NULL,
     "source" TEXT NOT NULL,
     "version" TEXT NOT NULL,
     "download" INTEGER NOT NULL
@@ -27,7 +27,7 @@ CREATE TABLE "MajorDownloads" (
 CREATE TABLE "TotalDownloads" (
     "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
     "pkg_name" TEXT NOT NULL,
-    "date" DATETIME NOT NULL,
+    "date" TEXT NOT NULL,
     "source" TEXT NOT NULL,
     "download" INTEGER NOT NULL
 );

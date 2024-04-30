@@ -1,4 +1,4 @@
-import { lastMonthRange } from "@/_libs/func";
+import { lastMonthRange } from "@utils/server"
 
 import PieChart from "@/_component/PieChart";
 import { getCnpmData, getCnpmWeekData } from "@utils/edge";

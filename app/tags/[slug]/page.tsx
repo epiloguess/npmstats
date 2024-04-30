@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { getPkgTag, TAGS } from "@/_libs/func";
+import { getPkgTag, TAGS } from "@utils/server"
 import { getRealMeta } from "@utils/edge";
 import { Suspense } from "react";
 

@@ -5,7 +5,7 @@ ChartJS.register(ArcElement, Tooltip, Legend);
 
 import { Doughnut } from "react-chartjs-2";
 
-import { getRandomARGB, getChartOpt } from "@/_libs/func";
+import { getRandomARGB, getChartOpt } from "@utils/server"
 
 type data = {
   version: string;

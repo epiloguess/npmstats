@@ -29,7 +29,7 @@ model Tags {
 model MajorDownloads {
   id       Int      @id @default(autoincrement())
   pkg_name String
-  date     DateTime
+  date     String
   source   String
   version  String
   download Int
@@ -38,7 +38,7 @@ model MajorDownloads {
 model TotalDownloads {
   id       Int      @id @default(autoincrement())
   pkg_name String
-  date     DateTime
+  date     String
   source   String
   download Int
 }

@@ -49,14 +49,12 @@ interface realMeta {
 
 export async function GET(
   request: Request,
-  { params }: { params: { pkg: string } }
+  { params }: { params: { pkg: string[] } }
 ) {
-  const { pkg } = params;
+  const undecodedString = params.pkg.join("/");
+  const pkg = decodeURIComponent(undecodedString);
+
   const env = getRequestContext().env;
-
-  // get a value from the namespace
-  //   const kvValue = await myKv.get(`kvTest`) || false
-
   const adapter = new PrismaD1(env.DB);
   const prisma = new PrismaClient({ adapter });
 

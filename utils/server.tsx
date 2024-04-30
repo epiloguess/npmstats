@@ -1,9 +1,18 @@
 import raw_data from "@/_data/raw_data.json";
 
+export function dayDiff(date1: string, date2: string) {
+  const dateOne = new Date(date1);
+  const dateTwo = new Date(date2);
 
+  // 计算两个日期之间的毫秒差值
+  const timeDifference = dateOne.getTime() - dateTwo.getTime();
+
+  // 将毫秒差值转换为天数
+  return timeDifference / (1000 * 3600 * 24);
+}
 
 // 定义函数，将日期格式化为指定格式
-const formatDate = (date: Date) => {
+export const formatDate = (date: Date) => {
   // 获取年份
   const year = date.getFullYear();
   // 获取月份，并补0
@@ -112,12 +121,3 @@ function getTags() {
 }
 
 export const TAGS = getTags();
-
-
-
-
-
-
-
-
-

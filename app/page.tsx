@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { TAGS } from "@/_libs/func";
+import { TAGS } from '@utils/server'
 
 export default async function Home() {
   return (

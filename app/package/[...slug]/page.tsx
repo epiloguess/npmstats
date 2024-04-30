@@ -1,4 +1,4 @@
-import { getPkgTag } from "../../_libs/func";
+import { getPkgTag } from "../../../utils/server";
 import { getRealMeta } from "@utils/edge";
 import { Suspense } from "react";
 import Cnpm from "./Cnpm";
