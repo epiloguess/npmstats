@@ -1,4 +1,5 @@
 import raw_data from "@/_data/raw_data.json";
+import { Package } from "@type/npm";
 
 export function dayDiff(date1: string, date2: string) {
   const dateOne = new Date(date1);
@@ -121,3 +122,17 @@ function getTags() {
 }
 
 export const TAGS = getTags();
+
+
+export async function getRealMeta(pkg: string):Promise<Package> {
+
+  try {
+    let res = await fetch(`https://npmstats.com/package/${pkg}`)
+    if(!res){
+      throw new Error('fetch no data')
+    }
+    return res.json()
+  } catch(e){
+    throw e
+  }
+}

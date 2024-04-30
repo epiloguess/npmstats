@@ -1,5 +1,5 @@
 import { getPkgTag } from "../../../utils/server";
-import { getRealMeta } from "@utils/edge";
+import { getRealMeta } from "@utils/server";
 import { Suspense } from "react";
 import Cnpm from "./Cnpm";
 import Npm from "./Npm";

@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { getPkgTag, TAGS } from "@utils/server"
-import { getRealMeta } from "@utils/edge";
+import { getRealMeta } from "@utils/server";
 import { Suspense } from "react";
 
 import MultiPkgChart from "@/_component/MultiPkgChart";

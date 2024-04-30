@@ -48,72 +48,7 @@ interface realMeta {
     popularity: number
   }
 
-export async function getRealMeta(pkg: string):Promise<realMeta> {
-  const env = getRequestContext().env;
 
-  // get a value from the namespace
-  //   const kvValue = await myKv.get(`kvTest`) || false
-
-  const adapter = new PrismaD1(env.DB);
-  const prisma = new PrismaClient({ adapter });
-
-  // 在数据库中查找
-  let packageFromDB = await prisma.pkgs.findUnique({
-    where: { pkg },
-  });
-
-  if (packageFromDB) {
-    // 如果在数据库中找到了，返回数据库中的数据
-    return {
-      pkg,
-      description: packageFromDB.description ?? "",
-      repository: packageFromDB.repository ?? "",
-      popularity: packageFromDB.popularity ?? 0,
-    }
-  } else {
-    // 如果在数据库中找不到，去第三方 API 查找
-    let { objects: npm_meta } = await getNpmMeta(pkg);
-
-    let packages_meta = npm_meta.map((item) => {
-      let {
-        name,
-        description,
-        links: { repository },
-      } = item.package;
-      let {
-        detail: { popularity },
-      } = item.score;
-      return {
-        pkg: name,
-        description,
-        repository: repository ?? "",
-        popularity: popularity ?? 0,
-      };
-    });
-    //将从第三方 API 获取到的数据写入数据库
-    await prisma.pkgs.createMany({
-      data: packages_meta,
-    });
-
-    //
-    let package_meta = npm_meta.find((e) => e.package.name === pkg)!;
-
-    let {
-      description,
-      links: { repository },
-    } = package_meta.package;
-    let {
-      detail: { popularity },
-    } = package_meta.score;
-
-    return {
-      pkg,
-      description: description ?? "",
-      repository: repository ?? "",
-      popularity: popularity ?? 0,
-    }
-  }
-}
 
 
 

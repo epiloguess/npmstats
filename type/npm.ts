@@ -54,3 +54,9 @@ export interface Downloads {
   downloads: Dailydownload[]
 }
 
+export interface Package {
+  pkg:string,
+  description:string,
+  repository:string,
+  popularity:number
+}
