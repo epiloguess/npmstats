@@ -84,15 +84,8 @@ export async function GET(
       await prisma.totalDownloads.create({ data: temp });
     }
 
-    try {
-      await Promise.all(
-        downloads.map(async (item) => {
-          await createTotalDownload(pkg, item);
-        })
-      );
-    } catch (error) {
-      throw error;
-    }
+    let requests = downloads.map((item) => createTotalDownload(pkg, item));
+    await Promise.all(requests);
 
     // creataMany can not work right now ,see https://github.com/prisma/prisma/issues/23743
 
@@ -148,7 +141,7 @@ export async function GET(
       day: date,
       downloads: download,
     }));
-    return Response.json({ pkg, downloads: download,source:'cnpm' });
+    return Response.json({ pkg, downloads: download, source: "cnpm" });
   } else {
     const DBquery = await prisma.totalDownloads.findMany({
       where: { pkg: pkg, source: "cnpm" },
@@ -158,7 +151,7 @@ export async function GET(
       day: date,
       downloads: download,
     }));
-    return Response.json({ pkg, downloads: download,source:'cnpm' });
+    return Response.json({ pkg, downloads: download, source: "cnpm" });
   }
 
   // const cnpm_month_data = getCnpmMonthData(lastMonthRange, downloads, pkg);
