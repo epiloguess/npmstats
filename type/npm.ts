@@ -61,3 +61,10 @@ export interface Package {
   repository:string,
   popularity:number
 }
+
+interface realMeta {
+  pkg: string;
+  description: string;
+  repository: string;
+  popularity: number;
+}

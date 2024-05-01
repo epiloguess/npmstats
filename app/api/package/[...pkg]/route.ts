@@ -40,12 +40,7 @@ async function getNpmMeta(pkg_name: string): Promise<NpmSearchResult> {
   return res.json();
 }
 
-interface realMeta {
-  pkg: string;
-  description: string;
-  repository: string;
-  popularity: number;
-}
+
 
 export async function GET(
   request: Request,
@@ -65,31 +60,57 @@ export async function GET(
 
   if (packageFromDB) {
     // 如果在数据库中找到了，返回数据库中的数据
-    return Response.json({
-      pkg,
-      description: packageFromDB.description ?? "",
-      repository: packageFromDB.repository ?? "",
-      popularity: packageFromDB.popularity ?? 0,
-    });
+    return Response.json(packageFromDB);
   } else {
     // 如果在数据库中找不到，去第三方 API 查找
     let { objects: npm_meta } = await getNpmMeta(pkg);
+
     //将从第三方 API 获取到的数据写入数据库
 
+    interface pkg_meta {
+      package: NpmPackage;
+      score: {
+        detail: {
+          popularity: number;
+        };
+      };
+    }
     //
+    async function pkg_meta(item: pkg_meta) {
+      let {
+        name,
+        description,
+        links: { repository },
+      } = item.package;
+      let { popularity } = item.score.detail;
+
+      await prisma.pkgs.upsert({
+        where: { pkg: name },
+        update: {},
+        create: {
+          pkg: name,
+          description: description ?? "",
+          repository: repository ?? "",
+          popularity: popularity ?? 0,
+        },
+      });
+    }
+
+    let requests = npm_meta.map((item) => pkg_meta(item));
+    await Promise.all(requests);
+
     let package_meta = npm_meta.find((e) => e.package.name === pkg)!;
 
     let {
+      name,
       description,
       links: { repository },
     } = package_meta.package;
-    let {
-      detail: { popularity },
-    } = package_meta.score;
+    let { popularity } = package_meta.score.detail;
 
     const data = await prisma.pkgs.create({
       data: {
-        pkg,
+        pkg: name,
         description: description ?? "",
         repository: repository ?? "",
         popularity: popularity ?? 0,
