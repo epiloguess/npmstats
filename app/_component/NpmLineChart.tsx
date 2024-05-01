@@ -24,11 +24,12 @@ ChartJS.register(
 import { getRandomRGB } from "../../utils/server";
 
 type data = {
-  package: string;
+  pkg: string;
   downloads: {
     day: string;
     downloads: number;
   }[];
+  source:string
 }[];
 
 function getDatasets(data: data) {
@@ -36,7 +37,7 @@ function getDatasets(data: data) {
     let Color = getRandomRGB();
     return {
       data: data.downloads,
-      label: data.package,
+      label: `${data.pkg} - ${data.source}`,
       fill: false,
       borderWidth: 3, // 设置线的宽度
       borderColor: Color,

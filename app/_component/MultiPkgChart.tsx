@@ -32,9 +32,9 @@ export default async function App({ pkg_list }: { pkg_list: string[] }) {
   ]);
 
   const data = await Promise.all(promises);
-  const data_sorted = data.sort(
-    (a, b) => b.downloads.at(-1)?.downloads! - a.downloads.at(-1)?.downloads!
-  );
+  // const data_sorted = data.sort(
+  //   (a, b) => b.downloads.at(-1)?.downloads! - a.downloads.at(-1)?.downloads!
+  // );
 
-  return <NpmLineChart data={data_sorted}></NpmLineChart>;
+  return <NpmLineChart data={data}></NpmLineChart>;
 }

@@ -71,9 +71,12 @@ export async function GET(
 
     // insert to db
 
-    async function createTotalDownload(pkg: string, {day,downloads}: Dailydownload) {
+    async function createTotalDownload(
+      pkg: string,
+      { day, downloads }: Dailydownload
+    ) {
       const temp = {
-        pkg: pkg,
+        pkg,
         date: day,
         source: "cnpm",
         download: downloads,
@@ -102,7 +105,7 @@ export async function GET(
     // await prisma.totalDownloads.createMany({ data: data });
 
     // also send it to the client
-    return Response.json({ package: pkg, downloads });
+    return Response.json({ pkg, downloads, source: "cnpm" });
   } else if (dayDiff(currentDate, lastUpdate) > 2) {
     // data is out-of-date
     let range = `${lastUpdate}:${currentDate}`;
@@ -119,9 +122,9 @@ export async function GET(
         source: "cnpm",
         download: downloads,
       };
-      
+
       await prisma.totalDownloads.upsert({
-        where: temp as any  ,
+        where: temp as any,
         update: {},
         create: temp,
       });
@@ -134,7 +137,7 @@ export async function GET(
         })
       );
     } catch (error) {
-      throw error
+      throw error;
     }
 
     const DBquery = await prisma.totalDownloads.findMany({
@@ -145,7 +148,7 @@ export async function GET(
       day: date,
       downloads: download,
     }));
-    return Response.json({ package: pkg, downloads: download });
+    return Response.json({ pkg, downloads: download,source:'cnpm' });
   } else {
     const DBquery = await prisma.totalDownloads.findMany({
       where: { pkg: pkg, source: "cnpm" },
@@ -155,7 +158,7 @@ export async function GET(
       day: date,
       downloads: download,
     }));
-    return Response.json({ package: pkg, downloads: download });
+    return Response.json({ pkg, downloads: download,source:'cnpm' });
   }
 
   // const cnpm_month_data = getCnpmMonthData(lastMonthRange, downloads, pkg);

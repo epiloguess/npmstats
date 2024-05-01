@@ -50,8 +50,9 @@ export interface cnpm_data {
 }
 
 export interface Downloads {
-  package: string
+  pkg: string
   downloads: Dailydownload[]
+  source: string
 }
 
 export interface Package {

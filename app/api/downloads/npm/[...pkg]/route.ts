@@ -76,7 +76,7 @@ export async function GET(
       downloads: parseInt("" + downloads / 63),
     }));
 
-    return Response.json({ package: pkg, downloads: download });
+    return Response.json({ pkg, downloads: download,source:"npm" });
   } else if (dayDiff(currentDate, lastUpdate) > 2) {
     let range = `${lastUpdate}:${currentDate}`;
     const { downloads } = await getNpmDownloads(pkg, range);
@@ -119,7 +119,7 @@ export async function GET(
       downloads: parseInt("" + download / 63),
     }));
 
-    return Response.json({ package: pkg, downloads: download });
+    return Response.json({ pkg, downloads: download,source:"npm" });
   } else {
     const DBquery = await prisma.totalDownloads.findMany({
       where: { pkg: pkg, source: "npm" },
@@ -130,6 +130,6 @@ export async function GET(
       downloads: parseInt("" + download / 63),
     }));
 
-    return Response.json({ package: pkg, downloads: download });
+    return Response.json({ pkg, downloads: download,source:"npm" });
   }
 }
