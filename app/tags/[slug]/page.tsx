@@ -5,7 +5,7 @@ import { Suspense } from "react";
 
 import MultiPkgChart from "@/_component/MultiPkgChart";
 
-export const runtime = 'edge';
+// export const runtime = 'edge';
 function RealMeta({ description }: { description: string }) {
   return <p className=' overflow-auto'>{description}</p>;
 }

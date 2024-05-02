@@ -1,5 +1,5 @@
 
-export const runtime = "edge";
+// export const runtime = "edge";
 
 interface NpmPackage {
     name: string;
