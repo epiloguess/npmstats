@@ -3,7 +3,7 @@ import { Downloads } from "@type/npm";
 
 async function getCnpmData(pkg: string): Promise<Downloads> {
   try {
-    let res = await fetch(`https://api.npmstats.com/api/downloads/cnpm/${pkg}`);
+    let res = await fetch(`https://api.npmstats.com/downloads/cnpm/${pkg}`);
     if (!res) {
       throw new Error("something wrong");
     }
@@ -15,7 +15,7 @@ async function getCnpmData(pkg: string): Promise<Downloads> {
 
 async function getNpmData(pkg: string) {
   try {
-    let res = await fetch(`https://api.npmstats.com/api/downloads/npm/${pkg}`);
+    let res = await fetch(`https://api.npmstats.com/downloads/npm/${pkg}`);
     if (!res) {
       throw new Error("something wrong");
     }

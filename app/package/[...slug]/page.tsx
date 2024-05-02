@@ -36,14 +36,14 @@ async function RealPkgMeta({ pkg }: { pkg: string }) {
 
 export default async function Page({ params }: { params: { slug: string[] } }) {
   const undecodedString = params.slug.join("/");
-  const pkg_name = decodeURIComponent(undecodedString);
+  const pkg = decodeURIComponent(undecodedString);
 
-  let tags = getPkgTag(pkg_name);
+  let tags = getPkgTag(pkg);
 
   return (
     <div className='flex flex-col gap-2'>
       <section className='flex flex-col gap-2'>
-        <RealPkgMeta pkg={pkg_name}></RealPkgMeta>
+        <RealPkgMeta pkg={pkg}></RealPkgMeta>
 
         <div className='flex gap-2 flex-wrap'>
           {tags &&
@@ -63,7 +63,7 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
       <Suspense
         fallback={<div className=' m-auto w-fit h-[300px]'>Loading ...</div>}>
         <div className=' h-[300px]'>
-          <MultiPkgChart pkg_list={[pkg_name]}></MultiPkgChart>
+          <MultiPkgChart pkg_list={[pkg]}></MultiPkgChart>
         </div>
       </Suspense>
 
@@ -94,9 +94,9 @@ type Props = {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const undecodedString = params.slug.join("/");
-  const pkg_name = decodeURIComponent(undecodedString);
+  const pkg = decodeURIComponent(undecodedString);
 
   return {
-    title: `${pkg_name} | npmstats`,
+    title: `${pkg} | npmstats`,
   };
 }
