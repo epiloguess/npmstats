@@ -1,6 +1,5 @@
 import { PkgMeta } from "@componets/PkgMeta";
 import { Suspense } from "react";
-import Fallback from "@componets/Fallback";
 import { getPackges } from "@utils/server";
 
 async function PopularPackages() {
@@ -20,7 +19,7 @@ export default async function Home() {
   return (
     <section className=' flex flex-col gap-2 '>
       <h3 className=' text-xl font-bold'>Most Popular...</h3>
-      <Suspense fallback={<Fallback></Fallback>}>
+      <Suspense fallback={<div className=' m-auto w-fit '>Loading ...</div>}>
         <PopularPackages></PopularPackages>
       </Suspense>
     </section>

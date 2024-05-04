@@ -24,7 +24,7 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
             ? "h-[600px] md:h-[600px]"
             : ` h-[600px] md:h-[600px]`
         }>
-        <PieChart data={cnpm_week_data}></PieChart>
+        <PieChart data={cnpm_week_data.sort((a,b)=>(b.downloads - a.downloads))}></PieChart>
       </div>
     </div>
   );

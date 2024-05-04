@@ -10,7 +10,7 @@ import { getRandomARGB, getChartOpt, version_downloads_array } from "@utils/serv
 
 
 export default function App({ data }: { data: version_downloads_array }) {
-  const labels = data.map((entry) => entry.version);
+  const labels = data.map((entry) => `${entry.version}`);
   const countdata = data.map((entry) => entry.downloads);
   const mydata = {
     labels,
