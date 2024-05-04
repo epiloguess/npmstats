@@ -8,15 +8,21 @@ import MultiPkgChart from "@componets/MultiPkgChart";
 import { PkgMeta } from "@componets/PkgMeta";
 // export const runtime = "edge";
 
+async function PKgMetaWrap({ pkg }: { pkg: string }) {
+  let meta = await getPkgMeta(pkg);
+  return <PkgMeta meta={meta}></PkgMeta>;
+}
 export default async function Page({ params }: { params: { slug: string[] } }) {
   const undecodedString = params.slug.join("/");
   const pkg = decodeURIComponent(undecodedString);
-  let meta = await getPkgMeta(pkg);
 
   return (
     <div className='flex flex-col gap-2'>
       <section className='flex flex-col gap-2'>
-        <PkgMeta meta={meta}></PkgMeta>
+        <Suspense
+          fallback={<div className=' m-auto w-fit h-[300px]'>Loading ...</div>}>
+          <PKgMetaWrap pkg={pkg}></PKgMetaWrap>
+        </Suspense>
       </section>
       <Suspense
         fallback={<div className=' m-auto w-fit h-[300px]'>Loading ...</div>}>

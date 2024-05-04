@@ -18,7 +18,7 @@ export default function App() {
 
       <p className=' md:block italic'>
         An unofficial site of npm package download statistics, used for technical reference.
-        <Link prefetch={false} className='text-[#0074d9]' href='/about'>
+        <Link  className='text-[#0074d9]' href='/about'>
           =&gt;More
         </Link>
       </p>
