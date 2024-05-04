@@ -44,9 +44,9 @@ const nextConfig = {
     // !! WARN !!
     // ignoreBuildErrors: true,
   },
-  experimental: {
-    ppr: true,
-  },
+  // experimental: {
+  //   ppr: true,
+  // },
   // output: 'export',
 
   // Optional: Change links `/me` -> `/me/` and emit `/me.html` -> `/me/index.html`
