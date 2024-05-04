@@ -1,64 +1,22 @@
-import { getPkgTag } from "../../../utils/server";
-import { getRealMeta } from "@utils/server";
+// import { getPkgTag } from "../../../utils/server";
+import { getPkgMeta } from "@utils/server";
 import { Suspense } from "react";
 import Cnpm from "./Cnpm";
 import Npm from "./Npm";
-import Link from "next/link";
-import Npm_logo from "./n.svg";
-import Github_logo from "./github-mark.svg";
-import MultiPkgChart from "@/_component/MultiPkgChart";
 
+import MultiPkgChart from "@componets/MultiPkgChart";
+import { PkgMeta } from "@componets/PkgMeta";
 // export const runtime = "edge";
-
-async function RealPkgMeta({ pkg }: { pkg: string }) {
-  let { description, repository } = await getRealMeta(pkg);
-  return (
-    <div className='flex flex-col gap-2'>
-      <div className='flex items-center gap-2'>
-        <h2 className=' text-orange-500 text-2xl font-bold '>{pkg}</h2>
-        <a target='_blank' href={`https://www.npmjs.com/package/${pkg}`}>
-          <Npm_logo width='24' height='24'></Npm_logo>
-        </a>
-        <Suspense fallback={<div className=''>Loading ...</div>}>
-          {repository && (
-            <a target='_blank' href={repository}>
-              <Github_logo width='24' height='24'></Github_logo>
-            </a>
-          )}
-        </Suspense>
-      </div>
-      <Suspense fallback={<div className=''>Loading ...</div>}>
-        <div>{description}</div>
-      </Suspense>
-    </div>
-  );
-}
 
 export default async function Page({ params }: { params: { slug: string[] } }) {
   const undecodedString = params.slug.join("/");
   const pkg = decodeURIComponent(undecodedString);
-
-  let tags = getPkgTag(pkg);
+  let meta = await getPkgMeta(pkg);
 
   return (
     <div className='flex flex-col gap-2'>
       <section className='flex flex-col gap-2'>
-        <RealPkgMeta pkg={pkg}></RealPkgMeta>
-
-        <div className='flex gap-2 flex-wrap'>
-          {tags &&
-            tags.map((tag: string) => (
-              <div
-                key={tag}
-                className=' bg-gray-300 hover:bg-gray-400  px-2 rounded'>
-                <p>
-                  <Link prefetch={false} href={`/tags/${tag}`}>
-                    {tag}
-                  </Link>
-                </p>
-              </div>
-            ))}
-        </div>
+        <PkgMeta meta={meta}></PkgMeta>
       </section>
       <Suspense
         fallback={<div className=' m-auto w-fit h-[300px]'>Loading ...</div>}>

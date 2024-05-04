@@ -1,4 +1,4 @@
-import NpmLineChart from "@/_component/NpmLineChart";
+import NpmLineChart from "@componets/NpmLineChart"
 import { Downloads } from "@type/npm";
 
 async function getCnpmData(pkg: string): Promise<Downloads> {

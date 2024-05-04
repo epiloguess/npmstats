@@ -21,7 +21,7 @@ ChartJS.register(
   Legend
 );
 
-import { getRandomRGB } from "../../utils/server";
+import { getRandomRGB } from '@utils/server'
 
 type data = {
   pkg: string;

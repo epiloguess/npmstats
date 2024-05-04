@@ -5,16 +5,13 @@ ChartJS.register(ArcElement, Tooltip, Legend);
 
 import { Doughnut } from "react-chartjs-2";
 
-import { getRandomARGB, getChartOpt } from "@utils/server"
+import { getRandomARGB, getChartOpt, version_downloads_array } from "@utils/server"
 
-type data = {
-  version: string;
-  count: number;
-}[];
 
-export default function App({ data }: { data: data }) {
+
+export default function App({ data }: { data: version_downloads_array }) {
   const labels = data.map((entry) => entry.version);
-  const countdata = data.map((entry) => entry.count);
+  const countdata = data.map((entry) => entry.downloads);
   const mydata = {
     labels,
     datasets: [

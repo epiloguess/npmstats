@@ -23,7 +23,7 @@ export interface NpmSearchResult {
   total: number;
 }
 
-export type Dailydownload  = {
+export type Dailydownload = {
   downloads: number;
   day: string;
 };
@@ -34,7 +34,6 @@ export interface npmDownloads {
   package: string;
   downloads: Dailydownload[];
 }
-
 
 export interface cnpm_data {
   downloads: {
@@ -50,16 +49,35 @@ export interface cnpm_data {
 }
 
 export interface Downloads {
-  pkg: string
-  downloads: Dailydownload[]
-  source: string
+  pkg: string;
+  downloads: Dailydownload[];
+  source: string;
 }
 
 export interface Package {
-  pkg:string,
-  description:string,
-  repository:string,
-  popularity:number
+  id: number;
+  pkg: string;
+  description: string;
+  repository: string;
+  popularity: number;
+}
+
+interface realMeta {
+  pkg: string;
+  description: string;
+  repository: string;
+  popularity: number;
+}
+
+interface NpmPackage {
+  name: string;
+  description: string;
+  links: {
+    npm: string;
+    homepage: string;
+    repository?: string;
+    bugs: string;
+  };
 }
 
 interface realMeta {

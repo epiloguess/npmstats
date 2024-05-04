@@ -20,8 +20,10 @@
     ],
     "paths": {
       "@/*": ["./app/*"],
+      "@public/*": ["./public/*"],
       "@utils/*": ["./utils/*"],
-      "@type/*": ["./type/*"]
+      "@type/*": ["./type/*"],
+      "@componets/*": ["./components/*"],
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],

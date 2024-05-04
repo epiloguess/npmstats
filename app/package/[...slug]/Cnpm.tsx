@@ -1,7 +1,5 @@
-import { lastMonthRange } from "@utils/server"
-
-import PieChart from "@/_component/PieChart";
-import { getCnpmData, getCnpmWeekData } from "@utils/edge";
+import PieChart from "@componets/PieChart";
+import { getVersions } from "@utils/server";
 
 
 
@@ -9,10 +7,7 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
   const undecodedString = params.slug.join("/");
   const pkg_name = decodeURIComponent(undecodedString);
 
-  const cnpm_data = await getCnpmData(lastMonthRange, pkg_name);
-
-  const cnpm_week_data = getCnpmWeekData(cnpm_data.versions, pkg_name);
-
+  const cnpm_week_data = await getVersions('cnpm',pkg_name);
   return (
     <div className='flex flex-col gap-2'>
       <h3 className=' m-auto bg-gray-50 border-2 px-2 rounded mt-4'>CNPM</h3>
