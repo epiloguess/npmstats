@@ -6,7 +6,7 @@ import Npm from "./Npm";
 
 import MultiPkgChart from "@componets/MultiPkgChart";
 import { PkgMeta } from "@componets/PkgMeta";
-// export const runtime = "edge";
+export const runtime = "edge";
 
 export default async function Page({ params }: { params: { slug: string[] } }) {
   const undecodedString = params.slug.join("/");
