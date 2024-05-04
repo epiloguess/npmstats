@@ -9,3 +9,4 @@ export default function MdxLayout({ children }: { children: React.ReactNode }) {
     </article>
   );
 }
+export const runtime = "edge";

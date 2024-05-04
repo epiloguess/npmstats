@@ -6,7 +6,6 @@ import Npm from "./Npm";
 
 import MultiPkgChart from "@componets/MultiPkgChart";
 import { PkgMeta } from "@componets/PkgMeta";
-export const runtime = "edge";
 
 async function YetPkgMeta({ pkg }: { pkg: string }) {
   let meta = await getPkgMeta(pkg);
@@ -66,3 +65,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: `${pkg} | npmstats`,
   };
 }
+
+export const runtime = "edge";
+
