@@ -22,7 +22,7 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
     <div className='flex flex-col gap-2'>
       <section className='flex flex-col gap-2'>
         <Suspense
-          fallback={<div className=' m-auto w-fit h-[300px]'>Loading ...</div>}>
+          fallback={<div className=' m-auto w-fit'>Loading ...</div>}>
           <YetPkgMeta pkg={pkg}></YetPkgMeta>
         </Suspense>
       </section>

@@ -7,7 +7,7 @@ async function PopularPackages() {
   return (
     <>
       {data.map((meta) => (
-        <div key={meta.id} className=' border-b px-2 py-1 rounded'>
+        <div key={meta.id} className=' border-b py-1 rounded'>
           <PkgMeta meta={meta}></PkgMeta>
         </div>
       ))}
@@ -18,7 +18,7 @@ async function PopularPackages() {
 export default async function Home() {
   return (
     <section className=' flex flex-col gap-2 '>
-      <h3 className=' text-xl font-bold'>Most Popular...</h3>
+      <h3 className=' text-xl font-semibold'>Most Popular...</h3>
       <Suspense fallback={<div className=' m-auto w-fit '>Loading ...</div>}>
         <PopularPackages></PopularPackages>
       </Suspense>
