@@ -1,7 +1,8 @@
 "use client";
 import { useState, Suspense, lazy } from "react";
+import SearchFromNpm from "./SearchFromNpm";
 // 懒加载搜索框组件
-const SearchFromNpm = lazy(() => import("./SearchFromNpm"));
+// const SearchFromNpm = lazy(() => import("./SearchFromNpm"));
 
 function HomePage() {
   const [isSearchVisible, setIsSearchVisible] = useState(false);

@@ -51,7 +51,7 @@ export async function getPkgMeta(pkg: string): Promise<Package> {
   try {
     let res = await fetch(`https://api.npmstats.com/package/${pkg}`);
     if (!res) {
-      throw new Error("fetch no data");
+      throw new Error(`fail to fetch ${pkg}`);
     }
     return res.json();
   } catch (e) {

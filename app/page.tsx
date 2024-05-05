@@ -7,7 +7,7 @@ async function PopularPackages() {
   return (
     <>
       {data.map((meta) => (
-        <div key={meta.id} className=' border-b px-2 py-1 rounded'>
+        <div key={meta.id} className=' border-b py-1'>
           <PkgMeta meta={meta}></PkgMeta>
         </div>
       ))}
@@ -25,3 +25,5 @@ export default async function Home() {
     </section>
   );
 }
+
+export const runtime = "edge";

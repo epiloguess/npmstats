@@ -6,7 +6,7 @@ import Npm from "./Npm";
 
 import MultiPkgChart from "@componets/MultiPkgChart";
 import { PkgMeta } from "@componets/PkgMeta";
-// export const runtime = "edge";
+export const runtime = "edge";
 
 async function PKgMetaWrap({ pkg }: { pkg: string }) {
   let meta = await getPkgMeta(pkg);
@@ -20,7 +20,7 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
     <div className='flex flex-col gap-2'>
       <section className='flex flex-col gap-2'>
         <Suspense
-          fallback={<div className=' m-auto w-fit h-[300px]'>Loading ...</div>}>
+          fallback={<div className=' h-[60px]'>Loading ...</div>}>
           <PKgMetaWrap pkg={pkg}></PKgMetaWrap>
         </Suspense>
       </section>
