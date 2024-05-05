@@ -10,8 +10,9 @@ import { getRandomARGB, getChartOpt, version_downloads_array } from "@utils/serv
 
 
 export default function App({ data }: { data: version_downloads_array }) {
-  const labels = data.map((entry) => `${entry.version}`);
-  const countdata = data.map((entry) => entry.downloads);
+  let sorted_data = data.toSorted((a,b)=>(b.downloads - a.downloads))
+  const labels = sorted_data.map((entry) => `${entry.version}`);
+  const countdata = sorted_data.map((entry) => entry.downloads);
   const mydata = {
     labels,
     datasets: [

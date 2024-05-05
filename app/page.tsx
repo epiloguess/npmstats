@@ -18,7 +18,7 @@ async function PopularPackages() {
 export default async function Home() {
   return (
     <section className=' flex flex-col gap-2 '>
-      <h3 className=' text-xl font-bold'>Most Popular...</h3>
+      <h3 className=' text-xl font-medium'>Most Popular...</h3>
       <Suspense fallback={<div className=' m-auto w-fit '>Loading ...</div>}>
         <PopularPackages></PopularPackages>
       </Suspense>

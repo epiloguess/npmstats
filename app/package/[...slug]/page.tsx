@@ -1,7 +1,6 @@
 // import { getPkgTag } from "../../../utils/server";
 import { getPkgMeta } from "@utils/server";
 import { Suspense } from "react";
-import Cnpm from "./Cnpm";
 import Npm from "./Npm";
 
 import MultiPkgChart from "@componets/MultiPkgChart";
@@ -19,8 +18,7 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
   return (
     <div className='flex flex-col gap-2'>
       <section className='flex flex-col gap-2'>
-        <Suspense
-          fallback={<div className=' h-[60px]'>Loading ...</div>}>
+        <Suspense fallback={<div className=' h-[60px]'>Loading ...</div>}>
           <PKgMetaWrap pkg={pkg}></PKgMetaWrap>
         </Suspense>
       </section>
@@ -35,13 +33,13 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
         <div className='md:flex gap-2'>
           <div className='md:w-1/2'>
             <Suspense fallback={<div className='text-center'>Loading ...</div>}>
-              <Cnpm params={params}></Cnpm>
+              <Npm source='cnpm' pkg={pkg}></Npm>
             </Suspense>
           </div>
           <div className='md:w-1/2 '>
             <Suspense
               fallback={<div className=' text-center'>Loading ...</div>}>
-              <Npm params={params}></Npm>
+              <Npm source='npm' pkg={pkg}></Npm>
             </Suspense>
           </div>
         </div>
