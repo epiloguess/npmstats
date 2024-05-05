@@ -83,9 +83,7 @@ export async function getVersions(
 
 export async function getPackges(): Promise<Package[]> {
   unstable_noStore()
-  const res = await fetch("https://api.npmstats.com/packages", {
-    next: { revalidate: 30 },
-  });
+  const res = await fetch("https://api.npmstats.com/packages");
   // The return value is *not* serialized
   // You can return Date, Map, Set, etc.
 
