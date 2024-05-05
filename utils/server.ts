@@ -1,4 +1,5 @@
 import { Package } from "@type/npm";
+import { unstable_noStore } from "next/cache";
 
 export function getRandomRGB() {
   const getRandomNumber = () => Math.floor(Math.random() * 155) + 50; // 调整范围到 50 到 205 之间的随机整数
@@ -48,6 +49,7 @@ export function getChartOpt() {
 }
 
 export async function getPkgMeta(pkg: string): Promise<Package> {
+  unstable_noStore()
   try {
     let res = await fetch(`https://api.npmstats.com/package/${pkg}`);
     if (!res) {
@@ -65,6 +67,7 @@ export async function getVersions(
   source: string,
   pkg: string
 ): Promise<version_downloads_array> {
+  unstable_noStore()
   const res = await fetch(`https://api.npmstats.com/versions/${source}/${pkg}`);
   // The return value is *not* serialized
   // You can return Date, Map, Set, etc.
@@ -79,6 +82,7 @@ export async function getVersions(
 
 
 export async function getPackges(): Promise<Package[]> {
+  unstable_noStore()
   const res = await fetch("https://api.npmstats.com/packages", {
     next: { revalidate: 30 },
   });
