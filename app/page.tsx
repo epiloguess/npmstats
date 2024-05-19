@@ -5,13 +5,13 @@ import { getPackges } from "@utils/server";
 async function PopularPackages() {
   const data = await getPackges();
   return (
-    <>
+    <div className="grid grid-cols-3">
       {data.map((meta) => (
         <div key={meta.id} className=' border-b py-1'>
           <PkgMeta meta={meta}></PkgMeta>
         </div>
       ))}
-    </>
+    </div>
   );
 }
 
